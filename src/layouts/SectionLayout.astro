@@ -7,7 +7,7 @@ interface Props {
 const { title, id } = Astro.props;
 ---
 
-<div id={id} class="min-h-screen flex flex-col justify-center">
-	<h2 class="text-4xl font-bold text-center pb-8">{title}</h2>
+<div id={id} class="flex min-h-screen flex-col justify-center">
+	<h2 class="pb-8 text-center text-4xl font-bold">{title}</h2>
 	<slot />
 </div>

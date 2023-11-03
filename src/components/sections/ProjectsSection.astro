@@ -3,21 +3,39 @@ import SectionLayout from "../../layouts/SectionLayout.astro";
 import ProjectCard from "../ProjectCard.astro";
 ---
 
-<SectionLayout id="projects" title="Some of my projects">
+<SectionLayout id="projects" title="Some of my personnal projects">
 	<div class="flex flex-row gap-8 px-8">
 		<ProjectCard
 			href=""
 			title="Portfolio"
-			body="This is my portfolio"
-			img="/public/portfolio.png"
-			tags={["Astro", "TailwindCSS", "Vite"]}
-		/>
-		<ProjectCard
-			href=""
-			title="Paie ta chouquette"
-			body="Random project not yet finished"
-			img="/public/ptc.png"
-			tags={["Angular", "Supabase", "Bootstrap", "Webpack", "Typescript", "SCSS"]}
-		/>
+			body="That where you are right now ! Incredible, isn't it ?"
+			img="/portfolio/portfolio.png"
+		>
+			<span class="rounded-full border-2 border-solid border-orange-300 bg-orange-800 px-2 text-orange-300">
+				Astro
+			</span>
+			<span class="rounded-full border-2 border-solid border-blue-300 bg-blue-800 px-2 text-blue-300">
+				TailwindCSS
+			</span>
+			<span class="rounded-full border-2 border-solid border-purple-300 bg-purple-800 px-2 text-purple-300">
+				Vite
+			</span>
+		</ProjectCard>
+		<ProjectCard href="" title="Paie ta chouquette" body="Random project not yet finished" img="/portfolio/ptc.png">
+			<span class="rounded-full border-2 border-solid border-red-300 bg-red-800 px-2 text-red-300"> Angular</span>
+			<span class="rounded-full border-2 border-solid border-green-300 bg-green-800 px-2 text-green-300">
+				Supabase
+			</span>
+			<span class="rounded-full border-2 border-solid border-purple-300 bg-purple-800 px-2 text-purple-300">
+				Bootstrap
+			</span>
+			<span class="rounded-full border-2 border-solid border-slate-300 bg-slate-800 px-2 text-slate-300">
+				Webpack
+			</span>
+			<span class="rounded-full border-2 border-solid border-blue-300 bg-blue-800 px-2 text-blue-300">
+				Typescript
+			</span>
+			<span class="rounded-full border-2 border-solid border-pink-300 bg-pink-800 px-2 text-pink-300"> SCSS</span>
+		</ProjectCard>
 	</div>
 </SectionLayout>
