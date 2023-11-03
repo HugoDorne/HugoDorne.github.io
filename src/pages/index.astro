@@ -1,9 +1,30 @@
 ---
-import Header from "../components/Header.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
 <BaseLayout>
-	<Header />
-	<main>This is the main page</main>
+	<div class="flex flex-row">
+		<nav class="fixed flex flex-col justify-evenly text-center w-20 h-screen bg-black text-yellow-400 text-xl">
+			<a href="#me">🚀</a>
+			<a href="#about" class="-rotate-90">About</a>
+			<a href="#stack" class="-rotate-90">Stack</a>
+			<a href="#projects" class="-rotate-90">Projects</a>
+			<a href="#contact" class="-rotate-90">Contact</a>
+		</nav>
+		<main class="pl-20 w-full">
+			<div id="me" class="h-screen bg-slate-500 flex justify-center">
+				<div class="flex my-auto gap-20">
+					<img src="/public/me.jpeg" alt="That's me !" class="rounded-3xl max-h-96 w-auto shadow-2xl" />
+					<div>
+						<h1>Hugo - FullStack Engineer</h1>
+						<p>That's me !</p>
+					</div>
+				</div>
+			</div>
+			<div id="about" class="h-screen bg-slate-600">About</div>
+			<div id="stack" class="h-screen bg-slate-700">Stack</div>
+			<div id="projects" class="h-screen bg-slate-800">Projects</div>
+			<div id="contact" class="h-screen bg-slate-900">Contact</div>
+		</main>
+	</div>
 </BaseLayout>
