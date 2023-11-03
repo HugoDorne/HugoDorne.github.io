@@ -1,0 +1,23 @@
+---
+import SectionLayout from "../../layouts/SectionLayout.astro";
+import ProjectCard from "../ProjectCard.astro";
+---
+
+<SectionLayout id="projects" title="Some of my projects">
+	<div class="flex flex-row gap-8 px-8">
+		<ProjectCard
+			href=""
+			title="Portfolio"
+			body="This is my portfolio"
+			img="/public/portfolio.png"
+			tags={["Astro", "TailwindCSS", "Vite"]}
+		/>
+		<ProjectCard
+			href=""
+			title="Paie ta chouquette"
+			body="Random project not yet finished"
+			img="/public/ptc.png"
+			tags={["Angular", "Supabase", "Bootstrap", "Webpack", "Typescript", "SCSS"]}
+		/>
+	</div>
+</SectionLayout>

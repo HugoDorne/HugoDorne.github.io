@@ -1,56 +1,22 @@
 ---
-import ProjectCard from "../components/ProjectCard.astro";
 import Navbar from "../components/Navbar.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
+import ProjectsSection from "../components/sections/ProjectsSection.astro";
+import StackSection from "../components/sections/StackSection.astro";
+import ContactSection from "../components/sections/ContactSection.astro";
+import AboutSection from "../components/sections/AboutSection.astro";
+import StillInDevBanner from "../components/StillInDevBanner.astro";
 ---
 
 <BaseLayout>
 	<div class="flex flex-row">
 		<Navbar />
-		<div class="absolute top-0 right-0 h-44 w-48 overflow-hidden">
-			<div class="bg-red-400 text-white absolute px-20 py-5 top-5 -right-16 rotate-45">Still in dev !</div>
-		</div>
+		<StillInDevBanner />
 		<main class="pl-16 w-full bg-gray-900 text-red-400">
-			<div id="about" class="min-h-screen flex justify-center">
-				<div class="flex my-auto gap-20">
-					<img
-						src="/public/me.jpeg"
-						alt="That's me !"
-						class="rounded-3xl max-h-96 w-auto shadow-black shadow-2xl"
-					/>
-					<div>
-						<h1 class="text-5xl font-bold pb-4">Hugo - FullStack Engineer</h1>
-						<p>Something about me</p>
-					</div>
-				</div>
-			</div>
-			<div id="projects" class="min-h-screen">
-				<h1 class="text-center text-5xl font-bold mb-16">Some of my projects</h1>
-				<div class="flex flex-row gap-8 px-8">
-					<ProjectCard
-						href=""
-						title="Portfolio"
-						body="This is my portfolio"
-						img="/public/portfolio.png"
-						tags={["Astro", "TailwindCSS", "Vite"]}
-					/>
-					<ProjectCard
-						href=""
-						title="Paie ta chouquette"
-						body="Random project not yet finished"
-						img="/public/ptc.png"
-						tags={["Angular", "Supabase", "Bootstrap", "Webpack", "Typescript", "SCSS"]}
-					/>
-				</div>
-			</div>
-			<div id="stack" class="min-h-screen flex justify-center">
-				<h1>My stack</h1>
-				<div class="flex"></div>
-			</div>
-			<div id="contact" class="min-h-screen flex justify-center">
-				<h1>Contact me</h1>
-				<div class="flex"></div>
-			</div>
+			<AboutSection />
+			<ProjectsSection />
+			<StackSection />
+			<ContactSection />
 		</main>
 	</div>
 </BaseLayout>
