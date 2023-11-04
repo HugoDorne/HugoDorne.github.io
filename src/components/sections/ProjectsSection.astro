@@ -1,4 +1,5 @@
 ---
+import Icon from "astro-icon";
 import SectionLayout from "../../layouts/SectionLayout.astro";
 import ProjectCard from "../ProjectCard.astro";
 ---
@@ -6,36 +7,76 @@ import ProjectCard from "../ProjectCard.astro";
 <SectionLayout id="projects" title="Some of my personnal projects">
 	<div class="flex flex-row gap-8 px-8">
 		<ProjectCard
-			href=""
 			title="Portfolio"
 			body="That where you are right now ! Incredible, isn't it ?"
 			img="/portfolio/portfolio.png"
+			git="github"
+			hrefGit="https://github.com/HugoDorne/portfolio"
+			hrefWeb=""
 		>
-			<span class="rounded-full border-2 border-solid border-orange-300 bg-orange-800 px-2 text-orange-300">
-				Astro
+			<span
+				class="flex rounded-full border-2 border-solid border-orange-300 bg-orange-800 px-1 pb-0.5 text-sm text-orange-300"
+			>
+				<Icon name="simple-icons:astro" class="my-auto mr-1 h-3 w-3" />
+				 Astro
 			</span>
-			<span class="rounded-full border-2 border-solid border-blue-300 bg-blue-800 px-2 text-blue-300">
-				TailwindCSS
+			<span
+				class="flex rounded-full border-2 border-solid border-blue-300 bg-blue-800 px-1 pb-0.5 text-sm text-blue-300"
+			>
+				<Icon name="mdi:tailwind" class="my-auto mr-1 h-3 w-3" />
+				 TailwindCSS
 			</span>
-			<span class="rounded-full border-2 border-solid border-purple-300 bg-purple-800 px-2 text-purple-300">
-				Vite
+			<span
+				class="flex rounded-full border-2 border-solid border-purple-300 bg-purple-800 px-1 pb-0.5 text-sm text-purple-300"
+			>
+				<Icon name="file-icons:vite" class="my-auto mr-1 h-3 w-3" />
+				 Vite
 			</span>
 		</ProjectCard>
-		<ProjectCard href="" title="Paie ta chouquette" body="Random project not yet finished" img="/portfolio/ptc.png">
-			<span class="rounded-full border-2 border-solid border-red-300 bg-red-800 px-2 text-red-300"> Angular</span>
-			<span class="rounded-full border-2 border-solid border-green-300 bg-green-800 px-2 text-green-300">
-				Supabase
+		<ProjectCard
+			title="Paie ta chouquette"
+			body="Random project not yet finished"
+			img="/portfolio/ptc.png"
+			git="gitlab"
+			hrefGit="https://gitlab.com/paie-ta-chouquette/ptc-frontend"
+			hrefWeb=""
+		>
+			<span
+				class="flex rounded-full border-2 border-solid border-red-300 bg-red-800 px-1 pb-0.5 text-sm text-red-300"
+			>
+				<Icon name="mdi:angular" class="my-auto mr-1 h-3 w-3" />
+				 Angular
 			</span>
-			<span class="rounded-full border-2 border-solid border-purple-300 bg-purple-800 px-2 text-purple-300">
-				Bootstrap
+			<span
+				class="flex rounded-full border-2 border-solid border-green-300 bg-green-800 px-1 pb-0.5 text-sm text-green-300"
+			>
+				<Icon name="simple-icons:supabase" class="my-auto mr-1 h-3 w-3" />
+				 Supabase
 			</span>
-			<span class="rounded-full border-2 border-solid border-slate-300 bg-slate-800 px-2 text-slate-300">
-				Webpack
+			<span
+				class="flex rounded-full border-2 border-solid border-purple-300 bg-purple-800 px-1 pb-0.5 text-sm text-purple-300"
+			>
+				<Icon name="mdi:bootstrap" class="my-auto mr-1 h-3 w-3" />
+				 Bootstrap
 			</span>
-			<span class="rounded-full border-2 border-solid border-blue-300 bg-blue-800 px-2 text-blue-300">
-				Typescript
+			<span
+				class="flex rounded-full border-2 border-solid border-slate-300 bg-slate-800 px-1 pb-0.5 text-sm text-slate-300"
+			>
+				<Icon name="mdi:webpack" class="my-auto mr-1 h-3 w-3" />
+				 Webpack
 			</span>
-			<span class="rounded-full border-2 border-solid border-pink-300 bg-pink-800 px-2 text-pink-300"> SCSS</span>
+			<span
+				class="flex rounded-full border-2 border-solid border-blue-300 bg-blue-800 px-1 pb-0.5 text-sm text-blue-300"
+			>
+				<Icon name="file-icons:typescript" class="my-auto mr-1 h-3 w-3" />
+				 Typescript
+			</span>
+			<span
+				class="flex rounded-full border-2 border-solid border-pink-300 bg-pink-800 px-1 pb-0.5 text-sm text-pink-300"
+			>
+				<Icon name="vscode-icons:file-type-scss2" class="my-auto mr-1 h-3 w-3" />
+				 SCSS
+			</span>
 		</ProjectCard>
 	</div>
 </SectionLayout>

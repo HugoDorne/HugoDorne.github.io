@@ -1,21 +1,46 @@
 ---
+import Icon from "astro-icon";
+
 interface Props {
 	title: string;
 	body: string;
-	href: string;
+	hrefGit: string;
+	hrefWeb: string;
+	git: "github" | "gitlab";
 	img: string;
 }
 
-const { href, title, body, img } = Astro.props;
+const { title, body, img, hrefGit, hrefWeb, git } = Astro.props;
 ---
 
-<!-- TODO Add GitHub / GitLab / deployment link -->
 <div class="flex w-6/12 flex-col overflow-hidden rounded-3xl bg-red-950 shadow-lg shadow-black">
 	<img src={img} alt={title} class="w-full" />
 	<div class="p-8">
-		<h2 class="text-2xl font-semibold">
-			{title}
-		</h2>
+		<div class="flex justify-between">
+			<h2 class="text-2xl font-semibold">
+				{title}
+			</h2>
+			<div class="flex gap-2">
+				<a href={hrefGit} target="_blank">
+					{
+						git === "github" ? (
+							<Icon name="mdi:github" class="my-auto h-8 w-8" />
+						) : (
+							<Icon name="uim:gitlab-alt" class="my-auto h-8 w-8" />
+						)
+					}
+				</a>
+				{
+					hrefWeb === "" ? (
+						""
+					) : (
+						<a href={hrefWeb} target="_blank">
+							<Icon name="mdi:web" class="my-auto h-8 w-8" />
+						</a>
+					)
+				}
+			</div>
+		</div>
 		<p class="mb-4 font-light">
 			{body}
 		</p>

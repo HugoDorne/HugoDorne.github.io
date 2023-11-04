@@ -1,68 +1,85 @@
 ---
+import Icon from "astro-icon";
 import SectionLayout from "../../layouts/SectionLayout.astro";
 ---
 
 <!-- TODO Add icons -->
 <SectionLayout id="stack" title="My stack">
 	<div class="flex flex-row justify-center gap-8 px-8">
-		<div class="flex w-full flex-col gap-4 rounded-3xl border-2 border-red-300 p-4">
-			<h3 class="font-semi-bold text-center text-2xl">Frontend</h3>
+		<div class="flex w-full flex-col gap-4 rounded-3xl border-2 border-red-300 p-4 text-center">
+			<h3 class="text-3xl font-light">Frontend</h3>
 			<div>
-				<h4>Languages</h4>
-				<div class="flex flex-row gap-2">
-					<span>TS</span>
-					<span>JS</span>
-					<span>HTML</span>
-					<span>CSS</span>
-					<span>SCSS</span>
+				<h4 class="font-semibold">Languages</h4>
+				<div class="mt-1 flex flex-row justify-center gap-2">
+					<Icon name="vscode-icons:file-type-typescript" class="my-auto h-16 w-16" title="Typescript" />
+					<Icon name="vscode-icons:file-type-js" class="my-auto h-16 w-16" title="Javascript" />
+					<Icon name="vscode-icons:file-type-html" class="my-auto h-16 w-16" title="HTML" />
+					<Icon name="vscode-icons:file-type-css" class="my-auto h-16 w-16" title="CSS" />
+					<Icon name="vscode-icons:file-type-scss2" class="my-auto h-16 w-16" title="SCSS" />
 				</div>
 			</div>
 			<div>
-				<h4>Frameworks</h4>
-				<div class="flex flex-row gap-2">
-					<span>Angular</span>
-					<span>Astro</span>
+				<h4 class="font-semibold">Frameworks</h4>
+				<div class="mt-1 flex flex-row justify-center gap-2">
+					<Icon name="vscode-icons:file-type-angular" class="my-auto h-16 w-16" title="Angular" />
+					<Icon name="vscode-icons:file-type-astro" class="my-auto h-16 w-16" title="Astro" />
 				</div>
 			</div>
 			<div>
-				<h4>Librairies</h4>
-				<div class="flex flex-row gap-2">
-					<span>Bootstrap</span>
-					<span>Akita</span>
-					<span>Jest</span>
-					<span>Cypress</span>
-					<span>Webapck</span>
-					<span>Prettier</span>
+				<h4 class="font-semibold">Librairies</h4>
+				<div class="mt-1 flex flex-row justify-center gap-2">
+					<Icon name="logos:webpack" class="my-auto h-16 w-16" title="Webpack" />
+					<Icon name="simple-icons:bootstrap" class="my-auto h-16 w-16 text-[#7E13F8]" title="Bootstrap" />
+					<Icon name="vscode-icons:file-type-tailwind" class="my-auto h-16 w-16" title="Tailwind" />
+					<img
+						src="/portfolio/akita.svg"
+						alt="Akita"
+						class="my-auto h-16 w-16"
+						title="Akita (State Management)"
+					/>
+					<Icon name="vscode-icons:file-type-jest" class="my-auto h-16 w-16" title="Jest" />
+					<Icon name="simple-icons:cypress" class="my-auto h-16 w-16 text-[#007780]" title="Cypress" />
+					<Icon name="vscode-icons:file-type-light-prettier" class="my-auto h-16 w-16" title="Prettier" />
 				</div>
 			</div>
 		</div>
-		<div class="flex w-full flex-col gap-4 rounded-3xl border-2 border-red-300 p-4">
-			<h3 class="font-semi-bold text-center text-2xl">Backend</h3>
+
+		<div class="flex w-full flex-col gap-4 rounded-3xl border-2 border-red-300 p-4 text-center">
+			<h3 class="text-3xl font-light">Backend</h3>
 			<div>
-				<h4>Languages</h4>
-				<div class="flex flex-row gap-2">
-					<span>Java</span>
-					<span>SQL</span>
-					<span>Python</span>
+				<h4 class="font-semibold">Languages</h4>
+				<div class="mt10 flex flex-row justify-center gap-2">
+					<Icon name="logos:java" class="my-auto h-16 w-16" title="Java" />
+					<Icon name="carbon:sql" class="my-auto h-16 w-16" title="SQL" />
+					<Icon name="logos:python" class="my-auto h-16 w-16" title="Python" />
 				</div>
 			</div>
 			<div>
-				<h4>Frameworks & Tools</h4>
-				<div class="flex flex-row gap-2">
-					<span>Spring Boot</span>
-					<span>Hibernate</span>
-					<span>Docker</span>
-					<span>Maven</span>
-					<span>Ansible</span>
-					<span>GitLab CI</span>
+				<h4 class="font-semibold">Frameworks & Tools</h4>
+				<div class="mt10 flex flex-row justify-center gap-2">
+					<Icon
+						name="simple-icons:spring"
+						class="my-auto h-16 w-16 text-[#77bc1f]"
+						title="Spring / Spring Boot"
+					/>
+					<Icon name="logos:hibernate" class="my-auto h-16 w-16" title="Hibernate" />
+					<Icon name="logos:docker-icon" class="my-auto h-16 w-16" title="Docker" />
+					<Icon name="vscode-icons:file-type-maven" class="my-auto h-16 w-16" title="Maven" />
+					<Icon name="mdi:ansible" class="my-auto h-16 w-16 text-gray-300" title="Ansible" />
+					<img
+						src="/portfolio/gitlab-ci.png"
+						alt="Gitlab CI/CD"
+						class="my-auto h-16 w-16"
+						title="Gitlab CI/CD"
+					/>
 				</div>
 			</div>
 			<div>
-				<h4>Databases</h4>
-				<div class="flex flex-row gap-2">
-					<span>PostgreSQL</span>
-					<span>MySQL</span>
-					<span>OracleDB</span>
+				<h4 class="font-semibold">Databases</h4>
+				<div class="mt10 flex flex-row justify-center gap-2">
+					<Icon name="logos:postgresql" class="my-auto h-16 w-16" title="PostgreSQL" />
+					<Icon name="logos:mysql" class="my-auto h-16 w-16" title="MySQL" />
+					<Icon name="logos:oracle" class="my-auto h-16 w-16" title="OracleDB" />
 				</div>
 			</div>
 		</div>
