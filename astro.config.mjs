@@ -6,5 +6,4 @@ export default defineConfig({
 	integrations: [tailwind()],
 	// GitHub Pages
 	site: "https://HugoDorne.github.io",
-	base: "/portfolio",
 });
