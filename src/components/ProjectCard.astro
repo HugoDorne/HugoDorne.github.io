@@ -13,7 +13,7 @@ interface Props {
 const { title, body, img, hrefGit, hrefWeb, git } = Astro.props;
 ---
 
-<div class="flex w-6/12 flex-col overflow-hidden rounded-3xl bg-red-950 shadow-lg shadow-black">
+<div class="flex w-6/12 flex-col overflow-hidden rounded-3xl bg-red-950/90 shadow-lg shadow-black">
 	<img src={img} alt={title} class="w-full" />
 	<div class="p-8">
 		<div class="flex justify-between">
@@ -21,12 +21,18 @@ const { title, body, img, hrefGit, hrefWeb, git } = Astro.props;
 				{title}
 			</h2>
 			<div class="flex gap-2">
-				<a href={hrefGit} target="_blank">
+				<a href={hrefGit} target="_blank" class="flex gap-2 hover:underline">
 					{
 						git === "github" ? (
-							<Icon name="mdi:github" class="my-auto h-8 w-8" />
+							<>
+								<span class="my-auto">GitHub</span>
+								<Icon name="mdi:github" class="my-auto h-8 w-8" />
+							</>
 						) : (
-							<Icon name="uim:gitlab-alt" class="my-auto h-8 w-8" />
+							<>
+								<span class="my-auto">GitLab</span>
+								<Icon name="uim:gitlab-alt" class="my-auto h-8 w-8" />
+							</>
 						)
 					}
 				</a>
@@ -34,7 +40,8 @@ const { title, body, img, hrefGit, hrefWeb, git } = Astro.props;
 					hrefWeb === "" ? (
 						""
 					) : (
-						<a href={hrefWeb} target="_blank">
+						<a href={hrefWeb} target="_blank" class="flex gap-2 hover:underline">
+							<span class="my-auto">Web</span>
 							<Icon name="mdi:web" class="my-auto h-8 w-8" />
 						</a>
 					)
