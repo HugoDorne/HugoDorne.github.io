@@ -1,8 +1,26 @@
 ---
+import Icon from "astro-icon";
 import SectionLayout from "../../layouts/SectionLayout.astro";
 ---
 
-<!-- TODO -->
 <SectionLayout id="contact" title="Contact me">
-	<div class="flex"></div>
+	<div class="flex justify-center gap-8">
+		<a href="mailto:hugodorne@gmail.com" class="my-auto h-32 w-32 rounded-full bg-red-400 p-3 text-slate-900">
+			<Icon name="mdi:email-outline" />
+		</a>
+		<a
+			href="https://www.linkedin.com/in/hugodorne/"
+			target="_blank"
+			class="my-auto h-32 w-32 rounded-full bg-red-400 p-3 text-slate-900"
+		>
+			<Icon name="mdi:linkedin" />
+		</a>
+		<a
+			href="https://github.com/HugoDorne"
+			target="_blank"
+			class="my-auto h-32 w-32 rounded-full bg-red-400 p-3 text-slate-900"
+		>
+			<Icon name="mdi:github" />
+		</a>
+	</div>
 </SectionLayout>
