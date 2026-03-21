@@ -9,6 +9,7 @@ const sections = [
 ];
 ---
 
+<!-- Desktop side nav -->
 <nav id="side-nav" class="fixed left-6 top-1/2 z-40 hidden -translate-y-1/2 xl:flex flex-col items-start gap-1">
 	{
 		sections.map((section) => (
@@ -24,42 +25,76 @@ const sections = [
 	}
 </nav>
 
+<!-- Mobile back to top -->
+<button
+	id="back-to-top"
+	class="fixed bottom-6 right-6 z-40 flex h-10 w-10 items-center justify-center rounded-full border border-zinc-700 bg-zinc-900/90 text-zinc-400 opacity-0 backdrop-blur-sm transition-all duration-300 pointer-events-none hover:border-orange-400/40 hover:text-orange-400 xl:hidden"
+	aria-label="Back to top"
+>
+	<svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+		<path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7" />
+	</svg>
+</button>
+
 <script>
-	const links = document.querySelectorAll<HTMLAnchorElement>(".side-nav-link");
-	const sections = Array.from(links).map((link) => {
-		const id = link.dataset.section!;
-		return { id, el: document.getElementById(id)!, link };
-	});
+	function initSideNav() {
+		const links = document.querySelectorAll<HTMLAnchorElement>(".side-nav-link");
+		const sectionEls = Array.from(links).map((link) => {
+			const id = link.dataset.section!;
+			return { id, el: document.getElementById(id)!, link };
+		});
 
-	function updateActive() {
-		const scrollY = window.scrollY + window.innerHeight / 3;
+		const backToTop = document.getElementById("back-to-top");
 
-		let activeId = sections[0].id;
-		for (const section of sections) {
-			if (section.el && section.el.offsetTop <= scrollY) {
-				activeId = section.id;
+		function updateActive() {
+			const scrollY = window.scrollY + window.innerHeight / 3;
+
+			let activeId = sectionEls[0]?.id;
+			for (const section of sectionEls) {
+				if (section.el && section.el.offsetTop <= scrollY) {
+					activeId = section.id;
+				}
+			}
+
+			links.forEach((link) => {
+				const dot = link.querySelector("span:first-child")!;
+				const label = link.querySelector("span:last-child")!;
+				if (link.dataset.section === activeId) {
+					link.classList.remove("text-zinc-600");
+					link.classList.add("text-orange-400");
+					dot.classList.remove("bg-zinc-700");
+					dot.classList.add("bg-orange-400", "scale-125");
+					label.classList.add("font-medium");
+				} else {
+					link.classList.add("text-zinc-600");
+					link.classList.remove("text-orange-400");
+					dot.classList.add("bg-zinc-700");
+					dot.classList.remove("bg-orange-400", "scale-125");
+					label.classList.remove("font-medium");
+				}
+			});
+
+			// Show/hide back to top button
+			if (backToTop) {
+				if (window.scrollY > 400) {
+					backToTop.classList.remove("opacity-0", "pointer-events-none");
+					backToTop.classList.add("opacity-100", "pointer-events-auto");
+				} else {
+					backToTop.classList.add("opacity-0", "pointer-events-none");
+					backToTop.classList.remove("opacity-100", "pointer-events-auto");
+				}
 			}
 		}
 
-		links.forEach((link) => {
-			const dot = link.querySelector("span:first-child")!;
-			const label = link.querySelector("span:last-child")!;
-			if (link.dataset.section === activeId) {
-				link.classList.remove("text-zinc-600");
-				link.classList.add("text-orange-400");
-				dot.classList.remove("bg-zinc-700");
-				dot.classList.add("bg-orange-400", "scale-125");
-				label.classList.add("font-medium");
-			} else {
-				link.classList.add("text-zinc-600");
-				link.classList.remove("text-orange-400");
-				dot.classList.add("bg-zinc-700");
-				dot.classList.remove("bg-orange-400", "scale-125");
-				label.classList.remove("font-medium");
-			}
+		backToTop?.addEventListener("click", () => {
+			window.scrollTo({ top: 0, behavior: "smooth" });
 		});
+
+		window.addEventListener("scroll", updateActive, { passive: true });
+		updateActive();
 	}
 
-	window.addEventListener("scroll", updateActive, { passive: true });
-	updateActive();
+	// Run on initial load and after view transitions
+	initSideNav();
+	document.addEventListener("astro:after-swap", initSideNav);
 </script>

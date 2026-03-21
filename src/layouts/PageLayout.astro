@@ -6,15 +6,37 @@ import Footer from "../components/Footer.astro";
 interface Props {
 	title: string;
 	description?: string;
+	favicon?: string;
 }
 
-const { title, description } = Astro.props;
+const { title, description, favicon } = Astro.props;
 ---
 
-<BaseLayout title={title} description={description}>
+<BaseLayout title={title} description={description} favicon={favicon}>
 	<Header />
 	<main class="flex-1 pt-16">
 		<slot />
 	</main>
 	<Footer />
+
+	<script>
+		function initScrollAnimations() {
+			const elements = document.querySelectorAll(".animate-on-scroll");
+			const observer = new IntersectionObserver(
+				(entries) => {
+					entries.forEach((entry) => {
+						if (entry.isIntersecting) {
+							entry.target.classList.add("is-visible");
+							observer.unobserve(entry.target);
+						}
+					});
+				},
+				{ threshold: 0.1, rootMargin: "0px 0px -50px 0px" }
+			);
+			elements.forEach((el) => observer.observe(el));
+		}
+
+		initScrollAnimations();
+		document.addEventListener("astro:after-swap", initScrollAnimations);
+	</script>
 </BaseLayout>

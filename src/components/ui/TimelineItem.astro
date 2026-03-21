@@ -2,14 +2,17 @@
 interface Props {
 	title: string;
 	subtitle: string;
+	subtitleUrl?: string;
 	client?: string;
+	clientUrl?: string;
+	clientSuffix?: string;
 	location: string;
 	startDate: string;
 	endDate: string;
 	description: string[];
 }
 
-const { title, subtitle, client, location, startDate, endDate, description } = Astro.props;
+const { title, subtitle, subtitleUrl, client, clientUrl, clientSuffix, location, startDate, endDate, description } = Astro.props;
 ---
 
 <div class="relative pl-8 pb-10 last:pb-0">
@@ -20,7 +23,26 @@ const { title, subtitle, client, location, startDate, endDate, description } = A
 
 	<div>
 		<h3 class="text-lg font-semibold text-zinc-50">{title}</h3>
-		<p class="mt-1 text-sm font-medium text-orange-400">{subtitle}{client && <span> | {client}</span>}</p>
+		<p class="mt-1 text-sm font-medium text-orange-400">
+			{subtitleUrl ? (
+				<a href={subtitleUrl} target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 transition-colors hover:text-orange-300">
+					{subtitle}
+					<svg class="h-3 w-3 text-zinc-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
+				</a>
+			) : subtitle}
+			{client && (
+				<span>
+					{" | "}
+					{clientUrl ? (
+						<a href={clientUrl} target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 transition-colors hover:text-orange-300">
+							{client}
+							<svg class="h-3 w-3 text-zinc-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
+						</a>
+					) : client}
+					{clientSuffix && clientSuffix}
+				</span>
+			)}
+		</p>
 		<p class="mt-0.5 text-sm text-zinc-500">{startDate} — {endDate} | {location}</p>
 		<ul class="mt-3 space-y-1.5">
 			{

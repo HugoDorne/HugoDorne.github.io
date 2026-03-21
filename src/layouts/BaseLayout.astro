@@ -1,12 +1,14 @@
 ---
 import "../styles/global.css";
+import { ViewTransitions } from "astro:transitions";
 
 interface Props {
 	title: string;
 	description?: string;
+	favicon?: string;
 }
 
-const { title, description = "Hugo Dorne — Senior Software Engineer. Full Stack & AI developments." } = Astro.props;
+const { title, description = "Hugo Dorne — Senior Software Engineer. Full Stack & AI developments.", favicon = "👨‍💻" } = Astro.props;
 ---
 
 <!doctype html>
@@ -17,9 +19,10 @@ const { title, description = "Hugo Dorne — Senior Software Engineer. Full Stac
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link
 			rel="icon"
-			href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%2210 0 100 100%22><text y=%22.90em%22 font-size=%2290%22>👨‍💻</text></svg>"
+			href={`data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%2210 0 100 100%22><text y=%22.90em%22 font-size=%2290%22>${favicon}</text></svg>`}
 		/>
 		<meta name="generator" content={Astro.generator} />
+		<ViewTransitions />
 		<title>{title}</title>
 	</head>
 	<body class="flex min-h-screen flex-col font-sans antialiased">

@@ -7,8 +7,7 @@ const { label } = Astro.props;
 
 const colorMap: Record<string, string> = {
 	// Languages
-	"Java 21": "bg-orange-900/40 text-orange-300 ring-orange-700/50",
-	Java: "bg-orange-900/40 text-orange-300 ring-orange-700/50",
+	Java: "bg-red-900/40 text-red-300 ring-red-700/50",
 	TypeScript: "bg-blue-900/40 text-blue-300 ring-blue-700/50",
 	Python: "bg-yellow-900/40 text-yellow-300 ring-yellow-700/50",
 	SCSS: "bg-pink-900/40 text-pink-300 ring-pink-700/50",
@@ -17,21 +16,22 @@ const colorMap: Record<string, string> = {
 	"Spring Boot": "bg-green-900/40 text-green-300 ring-green-700/50",
 	Hibernate: "bg-amber-900/40 text-amber-300 ring-amber-700/50",
 	JPA: "bg-amber-900/40 text-amber-300 ring-amber-700/50",
-	Maven: "bg-red-900/40 text-red-300 ring-red-700/50",
+	Maven: "bg-rose-900/40 text-rose-300 ring-rose-700/50",
 	"Node.js": "bg-green-900/40 text-green-300 ring-green-700/50",
 	// Frontend
 	Angular: "bg-red-900/40 text-red-300 ring-red-700/50",
+	Astro: "bg-purple-900/40 text-purple-300 ring-purple-700/50",
+	"Tailwind CSS": "bg-cyan-900/40 text-cyan-300 ring-cyan-700/50",
 	Nx: "bg-blue-900/40 text-blue-300 ring-blue-700/50",
-	Bootstrap: "bg-purple-900/40 text-purple-300 ring-purple-700/50",
+	Bootstrap: "bg-violet-900/40 text-violet-300 ring-violet-700/50",
 	PrimeFaces: "bg-blue-900/40 text-blue-300 ring-blue-700/50",
 	"Vue.js": "bg-emerald-900/40 text-emerald-300 ring-emerald-700/50",
-	Astro: "bg-orange-900/40 text-orange-300 ring-orange-700/50",
-	"Tailwind CSS": "bg-cyan-900/40 text-cyan-300 ring-cyan-700/50",
 	// AI
 	"Spring AI": "bg-green-900/40 text-green-300 ring-green-700/50",
 	LangChain4J: "bg-emerald-900/40 text-emerald-300 ring-emerald-700/50",
-	"Azure AI": "bg-blue-900/40 text-blue-300 ring-blue-700/50",
-	Copilot: "bg-violet-900/40 text-violet-300 ring-violet-700/50",
+	Claude: "bg-[#D97757]/20 text-[#D97757] ring-[#D97757]/40",
+	"Azure AI": "bg-sky-900/40 text-sky-300 ring-sky-700/50",
+	Copilot: "bg-zinc-700/40 text-zinc-300 ring-zinc-600/50",
 	"Mistral AI": "bg-orange-900/40 text-orange-300 ring-orange-700/50",
 	// Data
 	PostgreSQL: "bg-blue-900/40 text-blue-300 ring-blue-700/50",
@@ -39,13 +39,17 @@ const colorMap: Record<string, string> = {
 	MySQL: "bg-sky-900/40 text-sky-300 ring-sky-700/50",
 	"SQL Server": "bg-red-900/40 text-red-300 ring-red-700/50",
 	Oracle: "bg-red-900/40 text-red-300 ring-red-700/50",
+	Redis: "bg-red-900/40 text-red-300 ring-red-700/50",
+	Kafka: "bg-zinc-700/40 text-zinc-300 ring-zinc-600/50",
+	RabbitMQ: "bg-orange-900/40 text-orange-300 ring-orange-700/50",
 	"ELK Stack": "bg-yellow-900/40 text-yellow-300 ring-yellow-700/50",
 	MongoDB: "bg-green-900/40 text-green-300 ring-green-700/50",
 	// DevOps
 	"GitLab CI/CD": "bg-orange-900/40 text-orange-300 ring-orange-700/50",
+	"GitHub Actions": "bg-zinc-700/40 text-zinc-300 ring-zinc-600/50",
 	Docker: "bg-blue-900/40 text-blue-300 ring-blue-700/50",
-	Ansible: "bg-red-900/40 text-red-300 ring-red-700/50",
-	Jenkins: "bg-amber-900/40 text-amber-300 ring-amber-700/50",
+	Jenkins: "bg-red-900/40 text-red-300 ring-red-700/50",
+	ArgoCD: "bg-orange-900/40 text-orange-300 ring-orange-700/50",
 	SonarQube: "bg-cyan-900/40 text-cyan-300 ring-cyan-700/50",
 	// Testing
 	"JUnit 5": "bg-green-900/40 text-green-300 ring-green-700/50",

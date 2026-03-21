@@ -1,11 +1,14 @@
 export interface Experience {
 	company: string;
+	companyUrl?: string;
 	role: string;
 	location: string;
 	startDate: string;
 	endDate: string;
 	description: string[];
 	client?: string;
+	clientUrl?: string;
+	clientSuffix?: string;
 }
 
 export interface Education {
@@ -38,22 +41,27 @@ export interface SkillCategory {
 export const experiences: Experience[] = [
 	{
 		company: "Constencia",
+		companyUrl: "https://www.constencia.fr",
 		role: "Senior Software Engineer",
 		location: "Sophia Antipolis",
 		startDate: "Feb 2026",
 		endDate: "Present",
 		client: "Instant System",
+		clientUrl: "https://www.instant-system.com/",
 		description: [
 			"Working as a Senior Software Engineer for Instant System, a leading provider of multimodal mobility solutions",
 		],
 	},
 	{
 		company: "Sopra Steria",
+		companyUrl: "https://www.soprasteria.com",
 		role: "Senior Software Engineer",
 		location: "Sophia Antipolis",
 		startDate: "Sept 2023",
 		endDate: "Feb 2026",
-		client: "MANE, Insurance providers",
+		client: "MANE",
+		clientUrl: "https://www.mane.com",
+		clientSuffix: ", Insurance providers",
 		description: [
 			"Working on AI tools for different insurance providers using LangChain4J and Spring AI to create agents, tools and expose them using MCP",
 			"Gherkin / Cucumber test cases generation based on user stories",
@@ -64,6 +72,7 @@ export const experiences: Experience[] = [
 	},
 	{
 		company: "Sopra Steria",
+		companyUrl: "https://www.soprasteria.com",
 		role: "Software Engineer",
 		location: "Nantes",
 		startDate: "Sept 2022",
@@ -77,6 +86,7 @@ export const experiences: Experience[] = [
 	},
 	{
 		company: "Sopra Steria",
+		companyUrl: "https://www.soprasteria.com",
 		role: "Apprentice Software Engineer",
 		location: "Nantes",
 		startDate: "Dec 2019",
@@ -133,23 +143,23 @@ export const languages: Language[] = [
 export const skillCategories: SkillCategory[] = [
 	{
 		name: "Backend",
-		skills: ["Java 21", "Spring Framework", "Hibernate", "JPA", "Maven", "Python"],
+		skills: ["Java", "Spring Framework", "Spring Boot", "Hibernate", "JPA", "Maven", "Python"],
 	},
 	{
 		name: "Frontend",
-		skills: ["TypeScript", "Angular", "Nx", "Bootstrap", "PrimeFaces", "SCSS"],
+		skills: ["TypeScript", "Angular", "Astro", "Tailwind CSS", "Nx", "Bootstrap", "PrimeFaces", "SCSS"],
 	},
 	{
 		name: "AI",
-		skills: ["Spring AI", "LangChain4J", "Azure AI", "Copilot", "Mistral AI"],
+		skills: ["Spring AI", "LangChain4J", "Claude", "Azure AI", "Copilot", "Mistral AI"],
 	},
 	{
 		name: "Data",
-		skills: ["PostgreSQL", "pgVector", "MySQL", "SQL Server", "Oracle", "ELK Stack"],
+		skills: ["PostgreSQL", "pgVector", "MySQL", "SQL Server", "Oracle", "Redis", "Kafka", "RabbitMQ", "ELK Stack"],
 	},
 	{
 		name: "DevOps",
-		skills: ["GitLab CI/CD", "Docker", "Ansible", "Jenkins", "SonarQube"],
+		skills: ["GitLab CI/CD", "GitHub Actions", "Docker", "Jenkins", "ArgoCD", "SonarQube"],
 	},
 	{
 		name: "Testing",
