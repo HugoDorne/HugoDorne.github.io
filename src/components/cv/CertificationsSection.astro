@@ -3,18 +3,30 @@ import SectionHeading from "../ui/SectionHeading.astro";
 import { certifications } from "../../data/cv";
 ---
 
-<section class="py-16">
+<section id="certifications" class="py-16">
 	<div class="mx-auto max-w-6xl px-4 sm:px-6">
 		<SectionHeading title="Certifications" />
 		<div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
 			{
 				certifications.map((cert) => (
-					<div class="rounded-xl border border-zinc-800 bg-zinc-900/50 p-5">
-						<h3 class="text-base font-semibold text-zinc-50">{cert.name}</h3>
+					<a
+						href={cert.url}
+						target="_blank"
+						rel="noopener noreferrer"
+						class={`group block rounded-xl border border-zinc-800 bg-zinc-900/50 p-5 transition-all duration-300 ${cert.url ? "hover:-translate-y-0.5 hover:border-orange-400/30 cursor-pointer" : ""}`}
+					>
+						<div class="flex items-center justify-between">
+							<h3 class="text-base font-semibold text-zinc-50 group-hover:text-orange-400 transition-colors">{cert.name}</h3>
+							{cert.url && (
+								<svg class="h-4 w-4 text-zinc-600 transition-colors group-hover:text-orange-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+									<path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+								</svg>
+							)}
+						</div>
 						<p class="mt-1 text-sm text-zinc-500">
 							{cert.issuer} — {cert.year}
 						</p>
-					</div>
+					</a>
 				))
 			}
 		</div>

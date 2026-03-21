@@ -2,13 +2,14 @@
 interface Props {
 	title: string;
 	subtitle: string;
+	client?: string;
 	location: string;
 	startDate: string;
 	endDate: string;
 	description: string[];
 }
 
-const { title, subtitle, location, startDate, endDate, description } = Astro.props;
+const { title, subtitle, client, location, startDate, endDate, description } = Astro.props;
 ---
 
 <div class="relative pl-8 pb-10 last:pb-0">
@@ -19,7 +20,7 @@ const { title, subtitle, location, startDate, endDate, description } = Astro.pro
 
 	<div>
 		<h3 class="text-lg font-semibold text-zinc-50">{title}</h3>
-		<p class="mt-1 text-sm font-medium text-orange-400">{subtitle}</p>
+		<p class="mt-1 text-sm font-medium text-orange-400">{subtitle}{client && <span> | {client}</span>}</p>
 		<p class="mt-0.5 text-sm text-zinc-500">{startDate} — {endDate} | {location}</p>
 		<ul class="mt-3 space-y-1.5">
 			{

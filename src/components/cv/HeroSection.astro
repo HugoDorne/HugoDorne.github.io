@@ -2,7 +2,7 @@
 import { about } from "../../data/cv";
 ---
 
-<section class="py-20 md:py-28">
+<section id="about" class="py-20 md:py-28">
 	<div class="mx-auto max-w-6xl px-4 sm:px-6">
 		<div class="flex flex-col items-center gap-10 md:flex-row md:gap-16">
 			<!-- Photo -->
@@ -22,7 +22,14 @@ import { about } from "../../data/cv";
 				<h1 class="text-4xl font-bold text-zinc-50 md:text-5xl lg:text-6xl">{about.name}</h1>
 				<p class="mt-3 text-xl text-orange-400 md:text-2xl">{about.title}</p>
 				<p class="mt-2 text-base text-zinc-500">{about.location}</p>
-				<p class="mt-4 max-w-lg text-base text-zinc-400">{about.summary}</p>
+				<p class="mt-4 max-w-lg text-base text-zinc-400">
+				{about.summary.split("\n").map((line, i) => (
+					<>
+						{i > 0 && <br />}
+						{line}
+					</>
+				))}
+			</p>
 
 				<!-- Social links -->
 				<div class="mt-6 flex items-center justify-center gap-4 md:justify-start">

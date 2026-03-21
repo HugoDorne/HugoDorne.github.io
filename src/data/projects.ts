@@ -19,13 +19,4 @@ export const projects: Project[] = [
 		platform: "github",
 		tags: ["Astro", "Tailwind CSS", "TypeScript"],
 	},
-	{
-		title: "Paie ta Chouquette",
-		description:
-			"A web application to track and manage shared expenses in a fun way. Built with modern web technologies.",
-		image: "/ptc.webp",
-		repoUrl: "https://gitlab.com/music music music/paietachouquette",
-		platform: "gitlab",
-		tags: ["Vue.js", "Node.js", "MongoDB"],
-	},
 ];

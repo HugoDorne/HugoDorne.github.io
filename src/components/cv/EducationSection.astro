@@ -3,7 +3,7 @@ import SectionHeading from "../ui/SectionHeading.astro";
 import { education } from "../../data/cv";
 ---
 
-<section class="py-16">
+<section id="education" class="py-16">
 	<div class="mx-auto max-w-6xl px-4 sm:px-6">
 		<SectionHeading title="Education" />
 		<div class="ml-1">
@@ -13,7 +13,16 @@ import { education } from "../../data/cv";
 						<div class="absolute top-2 left-0 bottom-0 w-px bg-zinc-800"></div>
 						<div class="absolute top-2 left-0 -translate-x-1/2 h-3 w-3 rounded-full border-2 border-orange-400 bg-zinc-950"></div>
 						<div>
-							<h3 class="text-lg font-semibold text-zinc-50">{edu.institution}</h3>
+							{edu.url ? (
+								<a href={edu.url} target="_blank" rel="noopener noreferrer" class="text-lg font-semibold text-zinc-50 transition-colors hover:text-orange-400">
+									{edu.institution}
+									<svg class="ml-1.5 inline-block h-3.5 w-3.5 text-zinc-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+										<path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+									</svg>
+								</a>
+							) : (
+								<h3 class="text-lg font-semibold text-zinc-50">{edu.institution}</h3>
+							)}
 							<p class="mt-1 text-sm font-medium text-orange-400">{edu.degree}</p>
 							<p class="mt-0.5 text-sm text-zinc-500">{edu.startYear} — {edu.endYear}</p>
 							{edu.details && <p class="mt-2 text-sm text-zinc-400">{edu.details}</p>}
