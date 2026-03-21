@@ -1,0 +1,25 @@
+---
+import SectionHeading from "../ui/SectionHeading.astro";
+import TimelineItem from "../ui/TimelineItem.astro";
+import { experiences } from "../../data/cv";
+---
+
+<section class="py-16">
+	<div class="mx-auto max-w-6xl px-4 sm:px-6">
+		<SectionHeading title="Experience" />
+		<div class="ml-1">
+			{
+				experiences.map((exp) => (
+					<TimelineItem
+						title={exp.role}
+						subtitle={exp.company}
+						location={exp.location}
+						startDate={exp.startDate}
+						endDate={exp.endDate}
+						description={exp.description}
+					/>
+				))
+			}
+		</div>
+	</div>
+</section>

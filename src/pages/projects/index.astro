@@ -1,0 +1,18 @@
+---
+import PageLayout from "../../layouts/PageLayout.astro";
+import ProjectCard from "../../components/ProjectCard.astro";
+import { projects } from "../../data/projects";
+---
+
+<PageLayout title="Projects — Hugo Dorne">
+	<section class="py-20">
+		<div class="mx-auto max-w-6xl px-4 sm:px-6">
+			<h1 class="text-3xl font-bold text-zinc-50 md:text-4xl">Projects</h1>
+			<p class="mt-3 text-base text-zinc-400">A selection of things I've built.</p>
+
+			<div class="mt-10 grid grid-cols-1 gap-6 md:grid-cols-2">
+				{projects.map((project) => <ProjectCard project={project} />)}
+			</div>
+		</div>
+	</section>
+</PageLayout>

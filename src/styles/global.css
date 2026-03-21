@@ -1,0 +1,29 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@theme {
+	--color-bg-primary: #09090b;
+	--color-bg-surface: #18181b;
+	--color-bg-elevated: #27272a;
+
+	--color-text-primary: #fafafa;
+	--color-text-secondary: #a1a1aa;
+	--color-text-muted: #71717a;
+
+	--color-accent: #fb923c;
+	--color-accent-hover: #f97316;
+	--color-accent-muted: #431407;
+	--color-accent-glow: #fb923c33;
+
+	--color-border: #27272a;
+	--color-border-accent: #fb923c40;
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+body {
+	background-color: var(--color-bg-primary);
+	color: var(--color-text-secondary);
+}

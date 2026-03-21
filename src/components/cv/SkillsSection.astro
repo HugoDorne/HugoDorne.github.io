@@ -1,0 +1,25 @@
+---
+import SectionHeading from "../ui/SectionHeading.astro";
+import Badge from "../ui/Badge.astro";
+import { skillCategories } from "../../data/cv";
+---
+
+<section class="py-16">
+	<div class="mx-auto max-w-6xl px-4 sm:px-6">
+		<SectionHeading title="Tech Stack" />
+		<div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+			{
+				skillCategories.map((category) => (
+					<div class="rounded-xl border border-zinc-800 bg-zinc-900/50 p-5">
+						<h3 class="mb-3 text-sm font-semibold text-zinc-50">{category.name}</h3>
+						<div class="flex flex-wrap gap-2">
+							{category.skills.map((skill) => (
+								<Badge label={skill} />
+							))}
+						</div>
+					</div>
+				))
+			}
+		</div>
+	</div>
+</section>

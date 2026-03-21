@@ -1,58 +1,59 @@
 ---
-import Icon from "astro-icon";
+import Badge from "./ui/Badge.astro";
+import type { Project } from "../data/projects";
 
 interface Props {
-	title: string;
-	body: string;
-	hrefGit: string;
-	hrefWeb: string;
-	git: "github" | "gitlab";
-	img: string;
+	project: Project;
 }
 
-const { title, body, img, hrefGit, hrefWeb, git } = Astro.props;
+const { project } = Astro.props;
 ---
 
-<div class="flex w-6/12 flex-col overflow-hidden rounded-3xl bg-red-950/90 shadow-lg shadow-black">
-	<img src={img} alt={title} class="w-full" />
-	<div class="p-8">
-		<div class="flex justify-between">
-			<h2 class="text-2xl font-semibold">
-				{title}
-			</h2>
-			<div class="flex gap-2">
-				<a href={hrefGit} target="_blank" class="flex gap-2 hover:underline">
-					{
-						git === "github" ? (
-							<>
-								<span class="my-auto">GitHub</span>
-								<Icon name="mdi:github" class="my-auto h-8 w-8" />
-							</>
-						) : (
-							<>
-								<span class="my-auto">GitLab</span>
-								<Icon name="uim:gitlab-alt" class="my-auto h-8 w-8" />
-							</>
-						)
-					}
-				</a>
-				{
-					hrefWeb === "" ? (
-						""
-					) : (
-						<a href={hrefWeb} target="_blank" class="flex gap-2 hover:underline">
-							<span class="my-auto">Web</span>
-							<Icon name="mdi:web" class="my-auto h-8 w-8" />
-						</a>
-					)
-				}
+<div class="group rounded-xl border border-zinc-800 bg-zinc-900/50 transition-all duration-300 hover:-translate-y-1 hover:border-orange-400/30">
+	{
+		project.image && (
+			<div class="overflow-hidden rounded-t-xl">
+				<img
+					src={project.image}
+					alt={project.title}
+					class="h-48 w-full object-cover transition-transform duration-300 group-hover:scale-105"
+				/>
 			</div>
+		)
+	}
+	<div class="p-5">
+		<h3 class="text-lg font-semibold text-zinc-50">{project.title}</h3>
+		<p class="mt-2 text-sm text-zinc-400 line-clamp-3">{project.description}</p>
+
+		<div class="mt-4 flex flex-wrap gap-2">
+			{project.tags.map((tag) => <Badge label={tag} />)}
 		</div>
-		<p class="mb-4 font-light">
-			{body}
-		</p>
-		<div class="flex gap-2">
-			<slot />
+
+		<div class="mt-4 flex items-center gap-3">
+			{
+				project.repoUrl && (
+					<a
+						href={project.repoUrl}
+						target="_blank"
+						rel="noopener noreferrer"
+						class="text-sm text-zinc-400 transition-colors hover:text-orange-400"
+					>
+						{project.platform === "github" ? "GitHub" : "GitLab"} &rarr;
+					</a>
+				)
+			}
+			{
+				project.webUrl && (
+					<a
+						href={project.webUrl}
+						target="_blank"
+						rel="noopener noreferrer"
+						class="text-sm text-zinc-400 transition-colors hover:text-orange-400"
+					>
+						Live &rarr;
+					</a>
+				)
+			}
 		</div>
 	</div>
 </div>

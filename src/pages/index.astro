@@ -1,28 +1,18 @@
 ---
-import Navbar from "../components/Navbar.astro";
-import BaseLayout from "../layouts/BaseLayout.astro";
-import ProjectsSection from "../components/sections/ProjectsSection.astro";
-import StackSection from "../components/sections/StackSection.astro";
-import ContactSection from "../components/sections/ContactSection.astro";
-import AboutSection from "../components/sections/AboutSection.astro";
-import StillInDevBanner from "../components/StillInDevBanner.astro";
+import PageLayout from "../layouts/PageLayout.astro";
+import HeroSection from "../components/cv/HeroSection.astro";
+import ExperienceTimeline from "../components/cv/ExperienceTimeline.astro";
+import EducationSection from "../components/cv/EducationSection.astro";
+import SkillsSection from "../components/cv/SkillsSection.astro";
+import CertificationsSection from "../components/cv/CertificationsSection.astro";
+import LanguagesSection from "../components/cv/LanguagesSection.astro";
 ---
 
-<BaseLayout>
-	<div class="flex flex-row">
-		<Navbar />
-		<StillInDevBanner />
-		<main class="w-full bg-gray-900 pl-16 text-red-400">
-			<AboutSection />
-			<ProjectsSection />
-			<StackSection />
-			<ContactSection />
-			<div class="text-center">
-				Built in a weekend to see what <a href="https://astro.build/" class="underline">Astro</a>, <a
-					href="https://tailwindcss.com/"
-					class="underline">Tailwind</a
-				> and <a href="https://pages.github.com/" class="underline">GitHub Pages</a> could do :)
-			</div>
-		</main>
-	</div>
-</BaseLayout>
+<PageLayout title="Hugo Dorne — Senior Software Engineer">
+	<HeroSection />
+	<ExperienceTimeline />
+	<EducationSection />
+	<SkillsSection />
+	<CertificationsSection />
+	<LanguagesSection />
+</PageLayout>

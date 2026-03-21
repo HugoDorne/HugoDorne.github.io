@@ -1,27 +1,28 @@
 ---
+import "../styles/global.css";
 
+interface Props {
+	title: string;
+	description?: string;
+}
+
+const { title, description = "Hugo Dorne — Senior Software Engineer. Full Stack & AI developments." } = Astro.props;
 ---
 
 <!doctype html>
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="description" content="Astro description" />
-		<meta name="viewport" content="width=device-width" />
+		<meta name="description" content={description} />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link
 			rel="icon"
-			href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%2210 0 100 100%22><text y=%22.90em%22 font-size=%2290%22>🚀</text></svg>"
+			href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%2210 0 100 100%22><text y=%22.90em%22 font-size=%2290%22>👨‍💻</text></svg>"
 		/>
 		<meta name="generator" content={Astro.generator} />
-		<title>Hugo - FullStack Engineer</title>
+		<title>{title}</title>
 	</head>
-	<body>
+	<body class="min-h-screen font-sans antialiased">
 		<slot />
 	</body>
 </html>
-
-<style>
-	:root {
-		scroll-behavior: smooth;
-	}
-</style>
