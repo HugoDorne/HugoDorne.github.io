@@ -1,0 +1,278 @@
+---
+import PageLayout from "../layouts/PageLayout.astro";
+---
+
+<PageLayout title="Secret Hole" favicon="⛳">
+	<section class="flex min-h-[70vh] flex-col items-center justify-center px-4 py-20 text-center">
+		<p class="text-8xl">⛳</p>
+		<h1 class="mt-6 text-4xl font-bold text-zinc-50">Hole in One!</h1>
+		<p class="mt-4 text-lg text-zinc-400">You found the secret page. Nice swing.</p>
+		<p class="mt-2 text-sm text-zinc-600">Now let's play a round...</p>
+
+		<div id="golf-game" class="mt-10 w-full max-w-lg">
+			<canvas id="golf-canvas" width="500" height="350" class="mx-auto rounded-xl border border-zinc-800 bg-zinc-900/80"></canvas>
+			<div class="mt-4 flex items-center justify-center gap-6">
+				<div class="text-sm text-zinc-500">Stroke: <span id="stroke-count" class="text-orange-400 font-bold">0</span></div>
+				<div class="text-sm text-zinc-500">Par: <span class="text-zinc-300 font-bold">3</span></div>
+			</div>
+			<p id="golf-message" class="mt-2 text-sm text-orange-400 h-5"></p>
+			<p class="mt-4 text-xs text-zinc-600">Click and drag from the ball to shoot. Get it in the hole!</p>
+		</div>
+
+		<a
+			href="/"
+			class="mt-10 inline-flex items-center gap-2 rounded-lg border border-zinc-700 px-6 py-3 text-sm font-medium text-zinc-300 transition-all hover:border-orange-400/40 hover:text-orange-400"
+		>
+			<svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+				<path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+			</svg>
+			Back to reality
+		</a>
+	</section>
+
+	<script>
+		function initGolf() {
+			const canvas = document.getElementById("golf-canvas") as HTMLCanvasElement;
+			if (!canvas) return;
+			const ctx = canvas.getContext("2d")!;
+			const strokeEl = document.getElementById("stroke-count")!;
+			const msgEl = document.getElementById("golf-message")!;
+
+			let ball = { x: 80, y: 280, vx: 0, vy: 0, r: 8 };
+			const hole = { x: 420, y: 100, r: 14 };
+			const obstacles = [
+				{ x: 200, y: 150, w: 20, h: 150 },
+				{ x: 300, y: 50, w: 20, h: 150 },
+			];
+			let strokes = 0;
+			let dragging = false;
+			let dragStart = { x: 0, y: 0 };
+			let dragEnd = { x: 0, y: 0 };
+			let won = false;
+			let animating = false;
+
+			function reset() {
+				ball = { x: 80, y: 280, vx: 0, vy: 0, r: 8 };
+				strokes = 0;
+				won = false;
+				animating = false;
+				strokeEl.textContent = "0";
+				msgEl.textContent = "";
+				draw();
+			}
+
+			function launchConfetti() {
+				const colors = ["#fb923c", "#f97316", "#fbbf24", "#f59e0b", "#ef4444", "#D97757", "#22c55e", "#ffffff"];
+				for (let i = 0; i < 200; i++) {
+					const c = document.createElement("div");
+					c.style.cssText = `
+						position:fixed;z-index:9999;pointer-events:none;opacity:1;
+						width:${6 + Math.random() * 8}px;height:${6 + Math.random() * 8}px;
+						background:${colors[Math.floor(Math.random() * colors.length)]};
+						left:${Math.random() * 100}vw;top:-10px;
+						border-radius:${Math.random() > 0.5 ? "50%" : "2px"};
+					`;
+					document.body.appendChild(c);
+					const duration = 1200 + Math.random() * 2500;
+					const xDrift = (Math.random() - 0.5) * 300;
+					c.animate([
+						{ transform: "translateY(0) rotate(0deg)", opacity: 1 },
+						{ transform: `translateY(${window.innerHeight + 50}px) translateX(${xDrift}px) rotate(${Math.random() * 720}deg)`, opacity: 0 }
+					], { duration, easing: "cubic-bezier(0.25, 0.46, 0.45, 0.94)" })
+					.onfinish = () => c.remove();
+				}
+			}
+
+			function draw() {
+				ctx.clearRect(0, 0, 500, 350);
+
+				// Green background
+				ctx.fillStyle = "#166534";
+				ctx.fillRect(0, 0, 500, 350);
+
+				// Subtle grid
+				ctx.strokeStyle = "#15803d";
+				ctx.lineWidth = 0.5;
+				for (let i = 0; i < 500; i += 25) {
+					ctx.beginPath(); ctx.moveTo(i, 0); ctx.lineTo(i, 350); ctx.stroke();
+				}
+				for (let i = 0; i < 350; i += 25) {
+					ctx.beginPath(); ctx.moveTo(0, i); ctx.lineTo(500, i); ctx.stroke();
+				}
+
+				// Obstacles
+				ctx.fillStyle = "#854d0e";
+				obstacles.forEach((o) => ctx.fillRect(o.x, o.y, o.w, o.h));
+
+				// Hole
+				ctx.beginPath();
+				ctx.arc(hole.x, hole.y, hole.r, 0, Math.PI * 2);
+				ctx.fillStyle = "#111";
+				ctx.fill();
+				ctx.strokeStyle = "#fbbf24";
+				ctx.lineWidth = 2;
+				ctx.stroke();
+
+				// Flag
+				ctx.beginPath();
+				ctx.moveTo(hole.x, hole.y - hole.r);
+				ctx.lineTo(hole.x, hole.y - 40);
+				ctx.strokeStyle = "#e5e7eb";
+				ctx.lineWidth = 2;
+				ctx.stroke();
+				ctx.beginPath();
+				ctx.moveTo(hole.x, hole.y - 40);
+				ctx.lineTo(hole.x + 18, hole.y - 33);
+				ctx.lineTo(hole.x, hole.y - 26);
+				ctx.fillStyle = "#ef4444";
+				ctx.fill();
+
+				// Ball
+				ctx.beginPath();
+				ctx.arc(ball.x, ball.y, ball.r, 0, Math.PI * 2);
+				ctx.fillStyle = "#fff";
+				ctx.fill();
+				ctx.strokeStyle = "#d4d4d8";
+				ctx.lineWidth = 1;
+				ctx.stroke();
+
+				// Drag line
+				if (dragging) {
+					ctx.beginPath();
+					ctx.moveTo(ball.x, ball.y);
+					const dx = ball.x - dragEnd.x;
+					const dy = ball.y - dragEnd.y;
+					ctx.lineTo(ball.x + dx * 0.3, ball.y + dy * 0.3);
+					ctx.strokeStyle = "rgba(251, 146, 60, 0.6)";
+					ctx.lineWidth = 2;
+					ctx.setLineDash([5, 5]);
+					ctx.stroke();
+					ctx.setLineDash([]);
+
+					// Power indicator
+					const power = Math.min(Math.sqrt(dx * dx + dy * dy), 200);
+					const pct = power / 200;
+					ctx.fillStyle = `rgba(251, 146, 60, ${0.3 + pct * 0.5})`;
+					ctx.beginPath();
+					ctx.arc(ball.x, ball.y, ball.r + pct * 15, 0, Math.PI * 2);
+					ctx.fill();
+				}
+			}
+
+			function animate() {
+				if (!animating) return;
+
+				ball.x += ball.vx;
+				ball.y += ball.vy;
+				ball.vx *= 0.985;
+				ball.vy *= 0.985;
+
+				// Walls
+				if (ball.x - ball.r < 0) { ball.x = ball.r; ball.vx *= -0.7; }
+				if (ball.x + ball.r > 500) { ball.x = 500 - ball.r; ball.vx *= -0.7; }
+				if (ball.y - ball.r < 0) { ball.y = ball.r; ball.vy *= -0.7; }
+				if (ball.y + ball.r > 350) { ball.y = 350 - ball.r; ball.vy *= -0.7; }
+
+				// Obstacles
+				obstacles.forEach((o) => {
+					if (ball.x + ball.r > o.x && ball.x - ball.r < o.x + o.w &&
+						ball.y + ball.r > o.y && ball.y - ball.r < o.y + o.h) {
+						const fromLeft = ball.x - (o.x - ball.r);
+						const fromRight = (o.x + o.w + ball.r) - ball.x;
+						const fromTop = ball.y - (o.y - ball.r);
+						const fromBottom = (o.y + o.h + ball.r) - ball.y;
+						const min = Math.min(fromLeft, fromRight, fromTop, fromBottom);
+						if (min === fromLeft || min === fromRight) ball.vx *= -0.7;
+						else ball.vy *= -0.7;
+						if (min === fromLeft) ball.x = o.x - ball.r;
+						if (min === fromRight) ball.x = o.x + o.w + ball.r;
+						if (min === fromTop) ball.y = o.y - ball.r;
+						if (min === fromBottom) ball.y = o.y + o.h + ball.r;
+					}
+				});
+
+				// Hole check
+				const dx = ball.x - hole.x;
+				const dy = ball.y - hole.y;
+				const dist = Math.sqrt(dx * dx + dy * dy);
+				const speed = Math.sqrt(ball.vx * ball.vx + ball.vy * ball.vy);
+				if (dist < hole.r && speed < 5) {
+					ball.x = hole.x;
+					ball.y = hole.y;
+					ball.vx = 0;
+					ball.vy = 0;
+					animating = false;
+					won = true;
+					const diff = strokes - 3;
+					if (strokes === 1) { msgEl.textContent = "Hole in One! 🏆 Legendary!"; launchConfetti(); }
+					else if (diff <= -2) msgEl.textContent = "Eagle! 🦅 Incredible!";
+					else if (diff === -1) msgEl.textContent = "Birdie! 🐦 Nice shot!";
+					else if (diff === 0) msgEl.textContent = "Par! ⛳ Well played!";
+					else if (diff === 1) msgEl.textContent = "Bogey! Not bad.";
+					else msgEl.textContent = `+${diff}... Keep practicing! 😅`;
+					draw();
+					return;
+				}
+
+				// Stop when slow enough
+				if (Math.abs(ball.vx) < 0.1 && Math.abs(ball.vy) < 0.1) {
+					ball.vx = 0;
+					ball.vy = 0;
+					animating = false;
+				}
+
+				draw();
+				requestAnimationFrame(animate);
+			}
+
+			function getCanvasPos(e: MouseEvent) {
+				const rect = canvas.getBoundingClientRect();
+				return {
+					x: (e.clientX - rect.left) * (500 / rect.width),
+					y: (e.clientY - rect.top) * (350 / rect.height),
+				};
+			}
+
+			canvas.addEventListener("mousedown", (e) => {
+				if (animating || won) {
+					if (won) reset();
+					return;
+				}
+				const pos = getCanvasPos(e);
+				const dx = pos.x - ball.x;
+				const dy = pos.y - ball.y;
+				if (Math.sqrt(dx * dx + dy * dy) < 30) {
+					dragging = true;
+					dragStart = pos;
+					dragEnd = pos;
+				}
+			});
+
+			window.addEventListener("mousemove", (e) => {
+				if (!dragging) return;
+				dragEnd = getCanvasPos(e);
+				draw();
+			});
+
+			window.addEventListener("mouseup", () => {
+				if (!dragging) return;
+				dragging = false;
+				const dx = ball.x - dragEnd.x;
+				const dy = ball.y - dragEnd.y;
+				const power = Math.min(Math.sqrt(dx * dx + dy * dy) * 0.08, 15);
+				const angle = Math.atan2(dy, dx);
+				ball.vx = Math.cos(angle) * power;
+				ball.vy = Math.sin(angle) * power;
+				strokes++;
+				strokeEl.textContent = strokes.toString();
+				animating = true;
+				animate();
+			});
+
+			reset();
+		}
+
+		initGolf();
+		document.addEventListener("astro:after-swap", initGolf);
+	</script>
+</PageLayout>

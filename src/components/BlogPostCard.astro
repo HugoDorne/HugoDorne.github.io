@@ -18,7 +18,7 @@ const formattedDate = pubDate.toLocaleDateString("en-US", {
 });
 ---
 
-<a href={`/blog/${slug}`} class="group block">
+<a href={`/blog/${slug}`} aria-label={`Read blog post: ${title}`} class="group block">
 	<article class="rounded-xl border border-zinc-800 bg-zinc-900/50 p-6 transition-all duration-300 hover:-translate-y-1 hover:border-orange-400/30">
 		<time class="text-sm text-zinc-500">{formattedDate}</time>
 		<h2 class="mt-2 text-xl font-semibold text-zinc-50 transition-colors group-hover:text-orange-400">{title}</h2>

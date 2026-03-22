@@ -36,6 +36,7 @@ const { project } = Astro.props;
 						href={project.repoUrl}
 						target="_blank"
 						rel="noopener noreferrer"
+						aria-label={`View ${project.title} source on ${project.platform === "github" ? "GitHub" : "GitLab"}`}
 						class="text-sm text-zinc-400 transition-colors hover:text-orange-400"
 					>
 						{project.platform === "github" ? "GitHub" : "GitLab"} &rarr;
@@ -48,6 +49,7 @@ const { project } = Astro.props;
 						href={project.webUrl}
 						target="_blank"
 						rel="noopener noreferrer"
+						aria-label={`Visit ${project.title} live site`}
 						class="text-sm text-zinc-400 transition-colors hover:text-orange-400"
 					>
 						Live &rarr;

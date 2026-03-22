@@ -31,6 +31,7 @@ export interface Language {
 	name: string;
 	level: string;
 	details?: string;
+	hello: string;
 }
 
 export interface SkillCategory {
@@ -134,10 +135,10 @@ export const certifications: Certification[] = [
 ];
 
 export const languages: Language[] = [
-	{ name: "French", level: "Native" },
-	{ name: "English", level: "Fluent", details: "TOEIC 990/990" },
-	{ name: "Italian", level: "Beginner" },
-	{ name: "Japanese", level: "Notions" },
+	{ name: "French", level: "Native", hello: "Bonjour !" },
+	{ name: "English", level: "Fluent", details: "TOEIC 990/990", hello: "Hello!" },
+	{ name: "Italian", level: "Beginner", hello: "Ciao!" },
+	{ name: "Japanese", level: "Notions", hello: "こんにちは!" },
 ];
 
 export const skillCategories: SkillCategory[] = [

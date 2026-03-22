@@ -6,9 +6,17 @@ interface Props {
 	title: string;
 	description?: string;
 	favicon?: string;
+	image?: string;
 }
 
-const { title, description = "Hugo Dorne — Senior Software Engineer. Full Stack & AI developments.", favicon = "👨‍💻" } = Astro.props;
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const {
+	title,
+	description = "Hugo Dorne — Senior Software Engineer. Full Stack & AI developments.",
+	favicon = "👨‍💻",
+	image = "/me.webp",
+} = Astro.props;
+const imageURL = new URL(image, Astro.site);
 ---
 
 <!doctype html>
@@ -17,11 +25,49 @@ const { title, description = "Hugo Dorne — Senior Software Engineer. Full Stac
 		<meta charset="UTF-8" />
 		<meta name="description" content={description} />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="dns-prefetch" href="https://maps.google.com" />
+		<link rel="canonical" href={canonicalURL} />
 		<link
 			rel="icon"
 			href={`data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%2210 0 100 100%22><text y=%22.90em%22 font-size=%2290%22>${favicon}</text></svg>`}
 		/>
 		<meta name="generator" content={Astro.generator} />
+
+		<!-- Open Graph -->
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content={canonicalURL} />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:image" content={imageURL} />
+		<meta property="og:site_name" content="Hugo Dorne" />
+		<meta property="og:locale" content="en_US" />
+
+		<!-- Twitter Card -->
+		<meta name="twitter:card" content="summary" />
+		<meta name="twitter:title" content={title} />
+		<meta name="twitter:description" content={description} />
+		<meta name="twitter:image" content={imageURL} />
+
+
+
+		<!-- JSON-LD Structured Data -->
+		<script type="application/ld+json" set:html={JSON.stringify({
+			"@context": "https://schema.org",
+			"@type": "WebSite",
+			"name": "Hugo Dorne",
+			"url": Astro.site?.toString(),
+			"author": {
+				"@type": "Person",
+				"name": "Hugo Dorne",
+				"jobTitle": "Senior Software Engineer",
+				"url": Astro.site?.toString(),
+				"sameAs": [
+					"https://github.com/HugoDorne",
+					"https://www.linkedin.com/in/hugodorne/"
+				]
+			}
+		})} />
+
 		<ViewTransitions />
 		<title>{title}</title>
 	</head>

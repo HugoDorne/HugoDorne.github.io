@@ -57,3 +57,90 @@ section[id] {
 		transition: none;
 	}
 }
+
+/* Print stylesheet */
+@media print {
+	/* Reset to light background for printing */
+	html, body {
+		background: white !important;
+		color: #111 !important;
+	}
+
+	/* Hide non-essential elements */
+	header, footer, #side-nav, #back-to-top,
+	.animate-on-scroll {
+		opacity: 1 !important;
+		transform: none !important;
+	}
+
+	header, footer, #side-nav, #back-to-top {
+		display: none !important;
+	}
+
+	main {
+		padding-top: 0 !important;
+	}
+
+	/* Adjust text colors for print */
+	h1, h2, h3, h4 {
+		color: #111 !important;
+	}
+
+	p, li, span {
+		color: #333 !important;
+	}
+
+	a {
+		color: #111 !important;
+		text-decoration: underline !important;
+	}
+
+	/* Show URLs next to links */
+	a[href^="http"]::after {
+		content: " (" attr(href) ")";
+		font-size: 0.75em;
+		color: #666 !important;
+		word-break: break-all;
+	}
+
+	/* Remove decorative elements */
+	.bg-gradient-to-br,
+	[class*="blur"] {
+		display: none !important;
+	}
+
+	/* Clean up cards for print */
+	[class*="border-zinc"],
+	[class*="bg-zinc-900"] {
+		border-color: #ddd !important;
+		background: white !important;
+	}
+
+	/* Orange accent text stays visible */
+	[class*="text-orange"] {
+		color: #c2410c !important;
+	}
+
+	/* Badge styling for print */
+	[class*="ring-"] {
+		ring-color: #ddd !important;
+		background: #f5f5f5 !important;
+		color: #333 !important;
+	}
+
+	/* Timeline dots */
+	[class*="border-orange-400"] {
+		border-color: #c2410c !important;
+	}
+
+	/* Remove shadows and transforms */
+	* {
+		box-shadow: none !important;
+		text-shadow: none !important;
+	}
+
+	/* Page break control */
+	section {
+		page-break-inside: avoid;
+	}
+}

@@ -16,9 +16,10 @@ const sections = [
 			<a
 				href={`#${section.id}`}
 				data-section={section.id}
-				class="side-nav-link group flex items-center gap-3 rounded-lg px-3 py-1.5 text-sm text-zinc-600 transition-all duration-200 hover:text-zinc-300"
+				aria-label={`Navigate to ${section.label}`}
+				class="side-nav-link group flex items-center gap-3 rounded-lg px-3 py-1.5 text-sm text-zinc-400 transition-all duration-200 hover:text-zinc-200"
 			>
-				<span class="h-1.5 w-1.5 rounded-full bg-zinc-700 transition-all duration-200 group-hover:bg-zinc-400" />
+				<span class="h-1.5 w-1.5 rounded-full bg-zinc-500 transition-all duration-200 group-hover:bg-zinc-300" />
 				<span class="transition-all duration-200">{section.label}</span>
 			</a>
 		))
@@ -60,15 +61,15 @@ const sections = [
 				const dot = link.querySelector("span:first-child")!;
 				const label = link.querySelector("span:last-child")!;
 				if (link.dataset.section === activeId) {
-					link.classList.remove("text-zinc-600");
+					link.classList.remove("text-zinc-400");
 					link.classList.add("text-orange-400");
-					dot.classList.remove("bg-zinc-700");
+					dot.classList.remove("bg-zinc-500");
 					dot.classList.add("bg-orange-400", "scale-125");
 					label.classList.add("font-medium");
 				} else {
-					link.classList.add("text-zinc-600");
+					link.classList.add("text-zinc-400");
 					link.classList.remove("text-orange-400");
-					dot.classList.add("bg-zinc-700");
+					dot.classList.add("bg-zinc-500");
 					dot.classList.remove("bg-orange-400", "scale-125");
 					label.classList.remove("font-medium");
 				}

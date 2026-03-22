@@ -13,6 +13,7 @@ import { certifications } from "../../data/cv";
 						href={cert.url}
 						target="_blank"
 						rel="noopener noreferrer"
+						aria-label={`View ${cert.name} certification from ${cert.issuer}`}
 						class={`group block rounded-xl border border-zinc-800 bg-zinc-900/50 p-5 transition-all duration-300 ${cert.url ? "hover:-translate-y-0.5 hover:border-orange-400/30 cursor-pointer" : ""}`}
 					>
 						<div class="flex items-center justify-between">

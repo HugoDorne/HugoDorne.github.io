@@ -38,5 +38,134 @@ const { title, description, favicon } = Astro.props;
 
 		initScrollAnimations();
 		document.addEventListener("astro:after-swap", initScrollAnimations);
+
+		// Cycling fun titles on hero title hover
+		const funTitles = [
+			"Coffee Enthusiast ☕",
+			"Bug Whisperer 🐛",
+			"Stack Overflow Survivor 🏆",
+			"Senior Googler 🔍",
+			"Git Blame Detective 🕵️",
+			"404 Explorer 🧭",
+			"Ctrl+Z Enjoyer ⌨️",
+			"YAML Indentation Victim 😤",
+			"Claude's Favorite Human 🤖",
+			"Prompt Engineer in Disguise 🎭",
+			"Weekend Golfer ⛳",
+			"Bogey Specialist 🏌️",
+			"Vinyl Collector 🎵",
+			"Spotify Queue Tyrant 🎧",
+			"Popcorn Connoisseur 🍿",
+			"IMDb Completionist 🎬",
+			"Post-Credits Scene Waiter 🦸",
+		];
+
+		function initTitleCycler() {
+			const titleEl = document.getElementById("hero-title-text");
+			if (!titleEl) return;
+			const original = titleEl.textContent || "";
+			const parent = document.getElementById("hero-title");
+			let lastIndex = -1;
+
+			parent?.addEventListener("mouseenter", () => {
+				let idx;
+				do { idx = Math.floor(Math.random() * funTitles.length); } while (idx === lastIndex);
+				lastIndex = idx;
+				titleEl.textContent = funTitles[idx];
+			});
+			parent?.addEventListener("mouseleave", () => {
+				titleEl.textContent = original;
+			});
+		}
+
+		initTitleCycler();
+		document.addEventListener("astro:after-swap", initTitleCycler);
+
+		// Sparkle cursor trail — 10 rapid clicks on photo
+		function sparkleExplosion(x: number, y: number) {
+			const colors = ["#fb923c", "#fbbf24", "#f59e0b", "#ffffff", "#D97757", "#ef4444"];
+			for (let i = 0; i < 40; i++) {
+				const particle = document.createElement("div");
+				const size = 4 + Math.random() * 10;
+				const angle = (Math.PI * 2 * i) / 40 + (Math.random() - 0.5) * 0.5;
+				const distance = 40 + Math.random() * 80;
+				const dx = Math.cos(angle) * distance;
+				const dy = Math.sin(angle) * distance;
+				particle.style.cssText = `
+					position:fixed;z-index:9999;pointer-events:none;
+					width:${size}px;height:${size}px;border-radius:50%;
+					background:${colors[Math.floor(Math.random() * colors.length)]};
+					left:${x - size / 2}px;top:${y - size / 2}px;
+					box-shadow:0 0 ${size * 2}px ${colors[Math.floor(Math.random() * colors.length)]};
+				`;
+				document.body.appendChild(particle);
+				particle.animate([
+					{ transform: "scale(1)", opacity: 1 },
+					{ transform: `scale(0) translate(${dx}px, ${dy}px)`, opacity: 0 }
+				], { duration: 600 + Math.random() * 400, easing: "cubic-bezier(0, 0.5, 0.5, 1)" })
+				.onfinish = () => particle.remove();
+			}
+			// Flash ring
+			const ring = document.createElement("div");
+			ring.style.cssText = `
+				position:fixed;z-index:9998;pointer-events:none;
+				width:20px;height:20px;border-radius:50%;
+				left:${x - 10}px;top:${y - 10}px;
+				border:2px solid #fb923c;
+			`;
+			document.body.appendChild(ring);
+			ring.animate([
+				{ transform: "scale(1)", opacity: 1 },
+				{ transform: "scale(8)", opacity: 0 }
+			], { duration: 500, easing: "ease-out" })
+			.onfinish = () => ring.remove();
+		}
+
+		let sparkleActive = false;
+		function initSparkleTrail() {
+			const photo = document.querySelector("#about img, #about picture img");
+			if (!photo) return;
+			let clicks: number[] = [];
+
+			photo.addEventListener("click", (e) => {
+				e.preventDefault();
+				const now = Date.now();
+				clicks.push(now);
+				clicks = clicks.filter((t) => now - t < 5000);
+				if (clicks.length >= 10 && !sparkleActive) {
+					sparkleActive = true;
+					const me = e as MouseEvent;
+					sparkleExplosion(me.clientX, me.clientY);
+					document.addEventListener("mousemove", sparkleTrail);
+					setTimeout(() => {
+						sparkleActive = false;
+						document.removeEventListener("mousemove", sparkleTrail);
+					}, 8000);
+					clicks = [];
+				}
+			});
+		}
+
+		function sparkleTrail(e: MouseEvent) {
+			const sparkle = document.createElement("div");
+			const size = 4 + Math.random() * 8;
+			const colors = ["#fb923c", "#fbbf24", "#f59e0b", "#ffffff", "#D97757"];
+			sparkle.style.cssText = `
+				position:fixed;z-index:9999;pointer-events:none;
+				width:${size}px;height:${size}px;border-radius:50%;
+				background:${colors[Math.floor(Math.random() * colors.length)]};
+				left:${e.clientX - size / 2}px;top:${e.clientY - size / 2}px;
+				box-shadow:0 0 ${size}px ${colors[Math.floor(Math.random() * colors.length)]};
+			`;
+			document.body.appendChild(sparkle);
+			sparkle.animate([
+				{ transform: "scale(1) translateY(0)", opacity: 1 },
+				{ transform: `scale(0) translateY(${-20 - Math.random() * 30}px) translateX(${(Math.random() - 0.5) * 40}px)`, opacity: 0 }
+			], { duration: 500 + Math.random() * 500 })
+			.onfinish = () => sparkle.remove();
+		}
+
+		initSparkleTrail();
+		document.addEventListener("astro:after-swap", initSparkleTrail);
 	</script>
 </BaseLayout>
