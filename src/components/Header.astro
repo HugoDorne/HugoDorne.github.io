@@ -15,11 +15,12 @@ const currentPath = Astro.url.pathname;
 		</a>
 
 		<!-- Desktop nav -->
-		<nav class="hidden items-center gap-8 md:flex">
+		<nav aria-label="Main navigation" class="hidden items-center gap-8 md:flex">
 			{
 				navLinks.map((link) => (
 					<a
 						href={link.href}
+						aria-current={currentPath === link.href || (link.href !== "/" && currentPath.startsWith(link.href)) ? "page" : undefined}
 						class:list={[
 							"text-sm font-medium transition-colors",
 							currentPath === link.href || (link.href !== "/" && currentPath.startsWith(link.href))
@@ -38,6 +39,8 @@ const currentPath = Astro.url.pathname;
 			id="menu-toggle"
 			class="flex h-10 w-10 items-center justify-center rounded-lg text-zinc-400 transition-colors hover:bg-zinc-800 hover:text-zinc-50 md:hidden"
 			aria-label="Toggle menu"
+			aria-expanded="false"
+			aria-controls="mobile-menu"
 		>
 			<svg id="menu-icon-open" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
 				<path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
@@ -50,11 +53,12 @@ const currentPath = Astro.url.pathname;
 
 	<!-- Mobile menu -->
 	<div id="mobile-menu" class="hidden border-t border-zinc-800/50 bg-zinc-950/95 backdrop-blur-sm md:hidden">
-		<nav class="mx-auto flex max-w-6xl flex-col px-4 py-4 sm:px-6">
+		<nav aria-label="Mobile navigation" class="mx-auto flex max-w-6xl flex-col px-4 py-4 sm:px-6">
 			{
 				navLinks.map((link) => (
 					<a
 						href={link.href}
+						aria-current={currentPath === link.href || (link.href !== "/" && currentPath.startsWith(link.href)) ? "page" : undefined}
 						class:list={[
 							"rounded-lg px-4 py-3 text-base font-medium transition-colors",
 							currentPath === link.href || (link.href !== "/" && currentPath.startsWith(link.href))
@@ -78,9 +82,10 @@ const currentPath = Astro.url.pathname;
 		const iconClose = document.getElementById("menu-icon-close");
 
 		toggle?.addEventListener("click", () => {
-			menu?.classList.toggle("hidden");
+			const isOpen = menu?.classList.toggle("hidden") === false;
 			iconOpen?.classList.toggle("hidden");
 			iconClose?.classList.toggle("hidden");
+			toggle.setAttribute("aria-expanded", String(isOpen));
 		});
 	}
 

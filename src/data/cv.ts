@@ -17,6 +17,7 @@ export interface Education {
 	startYear: number;
 	endYear: number;
 	details?: string;
+	detailsUrl?: string;
 	url?: string;
 }
 
@@ -115,6 +116,7 @@ export const education: Education[] = [
 		startYear: 2021,
 		endYear: 2022,
 		details: "Startup Weekend Nantes 2021 winner with the project Q'lture",
+		detailsUrl: "https://www.linkedin.com/posts/hugodorne_startup-innovation-activity-6873666416403447808-EIPA?utm_source=share&utm_medium=member_desktop&rcm=ACoAAC2IWYwB3bDLJLq9JlOpAfzlQGdpLsZnppQ",
 		url: "https://www.disruptcampusnantes.com/",
 	},
 ];
@@ -124,7 +126,7 @@ export const certifications: Certification[] = [
 		name: "Angular Certified Developer",
 		issuer: "Angular Training",
 		year: 2025,
-		url: "https://www.angulartraining.com",
+		url: "https://interstate21.com/certificate/?code=6E01YNA",
 	},
 	{
 		name: "Certified SAFe 5 Agilist",

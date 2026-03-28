@@ -1,7 +1,5 @@
 ---
-import { Image } from "astro:assets";
 import { about } from "../../data/cv";
-import meImage from "../../assets/me.webp";
 ---
 
 <section id="about" class="animate-on-scroll py-20 md:py-28">
@@ -11,12 +9,11 @@ import meImage from "../../assets/me.webp";
 			<div class="flex-shrink-0">
 				<div class="relative">
 					<div class="absolute -inset-2 rounded-full bg-gradient-to-br from-orange-400/40 to-orange-600/20 blur-md"></div>
-					<Image
-						src={meImage}
+					<img
+						src="/me.webp"
 						alt={about.name}
 						width={448}
 						height={448}
-						quality={90}
 						loading="eager"
 						class="relative h-48 w-48 rounded-full border-2 border-zinc-800 object-cover md:h-56 md:w-56"
 					/>

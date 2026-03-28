@@ -60,6 +60,8 @@ const { title, description, favicon } = Astro.props;
 			"Post-Credits Scene Waiter 🦸",
 		];
 
+		const golfTitles = new Set(["Weekend Golfer ⛳", "Bogey Specialist 🏌️"]);
+
 		function initTitleCycler() {
 			const titleEl = document.getElementById("hero-title-text");
 			if (!titleEl) return;
@@ -71,10 +73,23 @@ const { title, description, favicon } = Astro.props;
 				let idx;
 				do { idx = Math.floor(Math.random() * funTitles.length); } while (idx === lastIndex);
 				lastIndex = idx;
-				titleEl.textContent = funTitles[idx];
+				const title = funTitles[idx];
+				titleEl.textContent = title;
+				if (golfTitles.has(title)) {
+					titleEl.style.textDecoration = "underline";
+					titleEl.style.cursor = "pointer";
+					titleEl.onclick = () => window.location.href = "/golf";
+				} else {
+					titleEl.style.textDecoration = "";
+					titleEl.style.cursor = "";
+					titleEl.onclick = null;
+				}
 			});
 			parent?.addEventListener("mouseleave", () => {
 				titleEl.textContent = original;
+				titleEl.style.textDecoration = "";
+				titleEl.style.cursor = "";
+				titleEl.onclick = null;
 			});
 		}
 
