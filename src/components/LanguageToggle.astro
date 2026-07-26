@@ -1,46 +1,56 @@
 ---
 import { getLangFromUrl, switchLocalePath, useTranslations, languages } from "../i18n/utils";
+import type { Lang } from "../i18n/ui";
 
 interface Props {
-	/** Mobile shows both options side by side; desktop is a compact single switch. */
+	/** Mobile gets a label and sits on its own row; desktop stays compact. */
 	variant?: "compact" | "full";
 }
 
 const { variant = "compact" } = Astro.props;
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
-const other = lang === "en" ? "fr" : "en";
+const codes: Lang[] = ["en", "fr"];
+
+// Naming the pill lets the view transition slide it between the two positions
+// as the page swaps. The two toggles need distinct names so they never clash.
+const pillName = variant === "full" ? "locale-pill-mobile" : "locale-pill";
 ---
 
-{
-	variant === "compact" ? (
-		<a
-			href={switchLocalePath(Astro.url, other)}
-			hreflang={other}
-			aria-label={t("nav.switchTo")}
-			title={t("nav.switchTo")}
-			class="rounded-md border border-zinc-700 px-2 py-1 text-xs font-semibold tracking-wide text-zinc-400 transition-colors hover:border-orange-400/40 hover:text-orange-400"
-		>
-			{languages[other].short}
-		</a>
-	) : (
-		<div class="mt-2 flex items-center gap-2 border-t border-zinc-800/50 px-4 pt-4">
-			<span class="text-xs text-zinc-600">{t("nav.language")}</span>
-			{(["en", "fr"] as const).map((code) => (
-				<a
-					href={switchLocalePath(Astro.url, code)}
-					hreflang={code}
-					aria-current={code === lang ? "true" : undefined}
-					class:list={[
-						"rounded-md border px-2 py-1 text-xs font-semibold tracking-wide transition-colors",
-						code === lang
-							? "border-orange-400/40 bg-orange-400/10 text-orange-400"
-							: "border-zinc-700 text-zinc-400 hover:border-orange-400/40 hover:text-orange-400",
-					]}
-				>
-					{languages[code].short}
-				</a>
-			))}
-		</div>
-	)
-}
+<!--
+	Both locales are always visible with the active one highlighted: showing a
+	single code leaves the reader guessing whether it means "you are here" or
+	"go there".
+-->
+<div
+	class:list={[
+		"flex items-center",
+		variant === "full" ? "mt-2 gap-2 border-t border-zinc-800/50 px-4 pt-4" : "gap-2",
+	]}
+>
+	{variant === "full" && <span class="text-xs text-zinc-600">{t("nav.language")}</span>}
+	<div class="flex items-center gap-0.5 rounded-md border border-zinc-700 p-0.5">
+		{
+			codes.map((code) =>
+				code === lang ? (
+					<span
+						aria-current="true"
+						transition:name={pillName}
+						class="rounded bg-orange-400/15 px-2 py-0.5 text-xs font-semibold tracking-wide text-orange-400"
+					>
+						{languages[code].short}
+					</span>
+				) : (
+					<a
+						href={switchLocalePath(Astro.url, code)}
+						hreflang={code}
+						aria-label={t("nav.switchTo")}
+						class="rounded px-2 py-0.5 text-xs font-semibold tracking-wide text-zinc-400 transition-colors hover:bg-zinc-800 hover:text-zinc-50"
+					>
+						{languages[code].short}
+					</a>
+				)
+			)
+		}
+	</div>
+</div>

@@ -94,6 +94,13 @@ section[id] {
 		scroll-behavior: auto;
 	}
 
+	/* Covers the named view transitions too, such as the language pill. */
+	::view-transition-group(*),
+	::view-transition-old(*),
+	::view-transition-new(*) {
+		animation: none !important;
+	}
+
 	.animate-on-scroll {
 		opacity: 1;
 		transform: none;
