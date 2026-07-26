@@ -20,7 +20,9 @@ const pillName = variant === "full" ? "locale-pill-mobile" : "locale-pill";
 <!--
 	Both locales are always visible with the active one highlighted: showing a
 	single code leaves the reader guessing whether it means "you are here" or
-	"go there".
+	"go there". The highlight is an empty block layered under the labels, so the
+	view transition slides colour alone — naming the labelled element instead
+	would morph "EN" into "FR" mid-slide.
 -->
 <div
 	class:list={[
@@ -29,14 +31,20 @@ const pillName = variant === "full" ? "locale-pill-mobile" : "locale-pill";
 	]}
 >
 	{variant === "full" && <span class="text-xs text-zinc-600">{t("nav.language")}</span>}
-	<div class="flex items-center gap-0.5 rounded-md border border-zinc-700 p-0.5">
+	<div class="grid grid-cols-2 rounded-md border border-zinc-700 p-0.5">
+		<span
+			transition:name={pillName}
+			aria-hidden="true"
+			class:list={["row-start-1 rounded bg-orange-400/15", lang === "en" ? "col-start-1" : "col-start-2"]}></span>
 		{
-			codes.map((code) =>
+			codes.map((code, index) =>
 				code === lang ? (
 					<span
 						aria-current="true"
-						transition:name={pillName}
-						class="rounded bg-orange-400/15 px-2 py-0.5 text-xs font-semibold tracking-wide text-orange-400"
+						class:list={[
+							"row-start-1 px-2 py-0.5 text-center text-xs font-semibold tracking-wide text-orange-400",
+							index === 0 ? "col-start-1" : "col-start-2",
+						]}
 					>
 						{languages[code].short}
 					</span>
@@ -45,7 +53,10 @@ const pillName = variant === "full" ? "locale-pill-mobile" : "locale-pill";
 						href={switchLocalePath(Astro.url, code)}
 						hreflang={code}
 						aria-label={t("nav.switchTo")}
-						class="rounded px-2 py-0.5 text-xs font-semibold tracking-wide text-zinc-400 transition-colors hover:bg-zinc-800 hover:text-zinc-50"
+						class:list={[
+							"row-start-1 rounded px-2 py-0.5 text-center text-xs font-semibold tracking-wide text-zinc-400 transition-colors hover:text-zinc-50",
+							index === 0 ? "col-start-1" : "col-start-2",
+						]}
 					>
 						{languages[code].short}
 					</a>
