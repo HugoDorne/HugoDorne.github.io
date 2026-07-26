@@ -24,6 +24,36 @@ html {
 	scrollbar-gutter: stable;
 }
 
+/*
+ * Shared page gutter — the one place to tune the site's horizontal rhythm.
+ * The widening inset from lg up pulls the content toward the centre and keeps
+ * the fixed side nav clear of the text column on wide screens.
+ */
+.container-page {
+	width: 100%;
+	max-width: 64rem;
+	margin-inline: auto;
+	padding-inline: 1rem;
+}
+
+@media (min-width: 640px) {
+	.container-page {
+		padding-inline: 1.5rem;
+	}
+}
+
+@media (min-width: 1024px) {
+	.container-page {
+		padding-inline: 2rem;
+	}
+}
+
+@media (min-width: 1280px) {
+	.container-page {
+		padding-inline: 3rem;
+	}
+}
+
 body {
 	background-color: var(--color-bg-primary);
 	color: var(--color-text-secondary);
