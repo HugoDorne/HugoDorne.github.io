@@ -10,10 +10,11 @@ const sections = [
 ---
 
 <!--
-	Desktop side nav: a quiet rail of dots that unfurls its labels on hover, or
-	on keyboard focus so it is not a pointer-only affordance. It sits in the
-	gutter left free by .container-page, wide enough that even the expanded
-	labels never reach the text column.
+	Desktop side nav, in three tiers driven by how much gutter .container-page
+	leaves beside the text column:
+	  below xl   no room at all — hidden, the back-to-top button takes over
+	  xl to 2xl  a rail of dots; labels unfurl on hover or keyboard focus
+	  2xl and up gutter wide enough for the labels to simply stay out
 -->
 <nav
 	id="side-nav"
@@ -29,7 +30,7 @@ const sections = [
 				class="side-nav-link group/link flex items-center rounded-lg px-2 py-1.5 text-sm text-zinc-400 transition-all duration-200 hover:text-zinc-200 2xl:px-3"
 			>
 				<span class="h-1.5 w-1.5 shrink-0 rounded-full bg-zinc-500 transition-all duration-200 group-hover/link:bg-zinc-300" />
-				<span class="max-w-0 overflow-hidden whitespace-nowrap opacity-0 transition-all duration-200 group-focus-within/nav:ml-3 group-focus-within/nav:max-w-40 group-focus-within/nav:opacity-100 group-hover/nav:ml-3 group-hover/nav:max-w-40 group-hover/nav:opacity-100">
+				<span class="max-w-0 overflow-hidden whitespace-nowrap opacity-0 transition-all duration-200 group-focus-within/nav:ml-3 group-focus-within/nav:max-w-40 group-focus-within/nav:opacity-100 group-hover/nav:ml-3 group-hover/nav:max-w-40 group-hover/nav:opacity-100 2xl:ml-3 2xl:max-w-40 2xl:opacity-100">
 					{section.label}
 				</span>
 			</a>
