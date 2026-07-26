@@ -123,7 +123,17 @@
 		},
 		{
 			"name": "Data",
-			"skills": ["PostgreSQL", "pgVector", "MySQL", "SQL Server", "Oracle", "Redis", "Kafka", "RabbitMQ", "ELK Stack"]
+			"skills": [
+				"PostgreSQL",
+				"pgVector",
+				"MySQL",
+				"SQL Server",
+				"Oracle",
+				"Redis",
+				"Kafka",
+				"RabbitMQ",
+				"ELK Stack"
+			]
 		},
 		{
 			"name": "DevOps",

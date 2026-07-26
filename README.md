@@ -32,12 +32,12 @@ npm run preview
 
 ## Other scripts
 
-| Script | What it does |
-| --- | --- |
+| Script                 | What it does                                                                               |
+| ---------------------- | ------------------------------------------------------------------------------------------ |
 | `npm run generate-pdf` | Renders `/cv` to `dist/CV_Hugo_DORNE.pdf` (also copied to `public/`). Needs a build first. |
-| `npm run generate-og` | Regenerates the `public/og.png` social card. |
-| `npm run format` | Formats everything with Prettier. |
-| `npm run format:check` | Checks formatting without writing. |
+| `npm run generate-og`  | Regenerates the `public/og.png` social card.                                               |
+| `npm run format`       | Formats everything with Prettier.                                                          |
+| `npm run format:check` | Checks formatting without writing.                                                         |
 
 ## License
 

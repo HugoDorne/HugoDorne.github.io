@@ -55,25 +55,24 @@ const imageURL = new URL(image, Astro.site);
 		<meta name="twitter:description" content={description} />
 		<meta name="twitter:image" content={imageURL} />
 
-
-
 		<!-- JSON-LD Structured Data -->
-		<script is:inline type="application/ld+json" set:html={JSON.stringify({
-			"@context": "https://schema.org",
-			"@type": "WebSite",
-			"name": "Hugo Dorne",
-			"url": Astro.site?.toString(),
-			"author": {
-				"@type": "Person",
-				"name": "Hugo Dorne",
-				"jobTitle": "Senior Software Engineer",
-				"url": Astro.site?.toString(),
-				"sameAs": [
-					"https://github.com/HugoDorne",
-					"https://www.linkedin.com/in/hugodorne/"
-				]
-			}
-		})} />
+		<script
+			is:inline
+			type="application/ld+json"
+			set:html={JSON.stringify({
+				"@context": "https://schema.org",
+				"@type": "WebSite",
+				name: "Hugo Dorne",
+				url: Astro.site?.toString(),
+				author: {
+					"@type": "Person",
+					name: "Hugo Dorne",
+					jobTitle: "Senior Software Engineer",
+					url: Astro.site?.toString(),
+					sameAs: ["https://github.com/HugoDorne", "https://www.linkedin.com/in/hugodorne/"],
+				},
+			})}
+		/>
 
 		<ClientRouter />
 		<title>{title}</title>

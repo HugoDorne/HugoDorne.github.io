@@ -14,43 +14,65 @@ interface Props {
 	description: string[];
 }
 
-const { title, subtitle, subtitleUrl, client, clientUrl, clientSuffix, location, startDate, endDate, description } = Astro.props;
+const { title, subtitle, subtitleUrl, client, clientUrl, clientSuffix, location, startDate, endDate, description } =
+	Astro.props;
 ---
 
-<div class="relative pl-8 pb-10 last:pb-0">
+<div class="relative pb-10 pl-8 last:pb-0">
 	<!-- Timeline line -->
-	<div class="absolute top-2 left-0 bottom-0 w-px bg-zinc-800"></div>
+	<div class="absolute top-2 bottom-0 left-0 w-px bg-zinc-800"></div>
 	<!-- Timeline dot -->
-	<div class="absolute top-2 left-0 -translate-x-1/2 h-3 w-3 rounded-full border-2 border-orange-400 bg-zinc-950"></div>
+	<div class="absolute top-2 left-0 h-3 w-3 -translate-x-1/2 rounded-full border-2 border-orange-400 bg-zinc-950">
+	</div>
 
 	<div>
 		<h3 class="text-lg font-semibold text-zinc-50">{title}</h3>
 		<p class="mt-1 text-sm font-medium text-orange-400">
-			{subtitleUrl ? (
-				<a href={subtitleUrl} target="_blank" rel="noopener noreferrer" aria-label={`Visit ${subtitle} website`} class="inline-flex items-center gap-1 transition-colors hover:text-orange-300">
-					{subtitle}
-					<Icon name="external" class="h-3 w-3 text-zinc-600" />
-				</a>
-			) : subtitle}
-			{client && (
-				<span>
-					{" | "}
-					{clientUrl ? (
-						<a href={clientUrl} target="_blank" rel="noopener noreferrer" aria-label={`Visit ${client} website`} class="inline-flex items-center gap-1 transition-colors hover:text-orange-300">
-							{client}
-							<Icon name="external" class="h-3 w-3 text-zinc-600" />
-						</a>
-					) : client}
-					{clientSuffix && clientSuffix}
-				</span>
-			)}
+			{
+				subtitleUrl ? (
+					<a
+						href={subtitleUrl}
+						target="_blank"
+						rel="noopener noreferrer"
+						aria-label={`Visit ${subtitle} website`}
+						class="inline-flex items-center gap-1 transition-colors hover:text-orange-300"
+					>
+						{subtitle}
+						<Icon name="external" class="h-3 w-3 text-zinc-600" />
+					</a>
+				) : (
+					subtitle
+				)
+			}
+			{
+				client && (
+					<span>
+						{" | "}
+						{clientUrl ? (
+							<a
+								href={clientUrl}
+								target="_blank"
+								rel="noopener noreferrer"
+								aria-label={`Visit ${client} website`}
+								class="inline-flex items-center gap-1 transition-colors hover:text-orange-300"
+							>
+								{client}
+								<Icon name="external" class="h-3 w-3 text-zinc-600" />
+							</a>
+						) : (
+							client
+						)}
+						{clientSuffix && clientSuffix}
+					</span>
+				)
+			}
 		</p>
 		<p class="mt-0.5 text-sm text-zinc-500">{startDate} — {endDate} | {location}</p>
 		<ul class="mt-3 space-y-1.5">
 			{
 				description.map((item) => (
 					<li class="flex gap-2 text-sm text-zinc-400">
-						<span class="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-zinc-600"></span>
+						<span class="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-zinc-600" />
 						<span>{item}</span>
 					</li>
 				))

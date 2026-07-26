@@ -10,12 +10,18 @@ import PageLayout from "../layouts/PageLayout.astro";
 		<p class="mt-2 text-sm text-zinc-600">Now let's play a round...</p>
 
 		<div id="golf-game" class="mt-10 w-full max-w-lg">
-			<canvas id="golf-canvas" width="500" height="350" class="mx-auto rounded-xl border border-zinc-800 bg-zinc-900/80"></canvas>
+			<canvas
+				id="golf-canvas"
+				width="500"
+				height="350"
+				class="mx-auto rounded-xl border border-zinc-800 bg-zinc-900/80"></canvas>
 			<div class="mt-4 flex items-center justify-center gap-6">
-				<div class="text-sm text-zinc-500">Stroke: <span id="stroke-count" class="text-orange-400 font-bold">0</span></div>
-				<div class="text-sm text-zinc-500">Par: <span class="text-zinc-300 font-bold">3</span></div>
+				<div class="text-sm text-zinc-500">
+					Stroke: <span id="stroke-count" class="font-bold text-orange-400">0</span>
+				</div>
+				<div class="text-sm text-zinc-500">Par: <span class="font-bold text-zinc-300">3</span></div>
 			</div>
-			<p id="golf-message" class="mt-2 text-sm text-orange-400 h-5"></p>
+			<p id="golf-message" class="mt-2 h-5 text-sm text-orange-400"></p>
 			<p class="mt-4 text-xs text-zinc-600">Click and drag from the ball to shoot. Get it in the hole!</p>
 		</div>
 
@@ -24,7 +30,7 @@ import PageLayout from "../layouts/PageLayout.astro";
 			class="mt-10 inline-flex items-center gap-2 rounded-lg border border-zinc-700 px-6 py-3 text-sm font-medium text-zinc-300 transition-all hover:border-orange-400/40 hover:text-orange-400"
 		>
 			<svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-				<path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+				<path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
 			</svg>
 			Back to reality
 		</a>
@@ -62,7 +68,7 @@ import PageLayout from "../layouts/PageLayout.astro";
 
 			function launchConfetti() {
 				if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-				const colors =["#fb923c", "#f97316", "#fbbf24", "#f59e0b", "#ef4444", "#D97757", "#22c55e", "#ffffff"];
+				const colors = ["#fb923c", "#f97316", "#fbbf24", "#f59e0b", "#ef4444", "#D97757", "#22c55e", "#ffffff"];
 				for (let i = 0; i < 200; i++) {
 					const c = document.createElement("div");
 					c.style.cssText = `
@@ -75,11 +81,16 @@ import PageLayout from "../layouts/PageLayout.astro";
 					document.body.appendChild(c);
 					const duration = 1200 + Math.random() * 2500;
 					const xDrift = (Math.random() - 0.5) * 300;
-					c.animate([
-						{ transform: "translateY(0) rotate(0deg)", opacity: 1 },
-						{ transform: `translateY(${window.innerHeight + 50}px) translateX(${xDrift}px) rotate(${Math.random() * 720}deg)`, opacity: 0 }
-					], { duration, easing: "cubic-bezier(0.25, 0.46, 0.45, 0.94)" })
-					.onfinish = () => c.remove();
+					c.animate(
+						[
+							{ transform: "translateY(0) rotate(0deg)", opacity: 1 },
+							{
+								transform: `translateY(${window.innerHeight + 50}px) translateX(${xDrift}px) rotate(${Math.random() * 720}deg)`,
+								opacity: 0,
+							},
+						],
+						{ duration, easing: "cubic-bezier(0.25, 0.46, 0.45, 0.94)" }
+					).onfinish = () => c.remove();
 				}
 			}
 
@@ -94,10 +105,16 @@ import PageLayout from "../layouts/PageLayout.astro";
 				ctx.strokeStyle = "#15803d";
 				ctx.lineWidth = 0.5;
 				for (let i = 0; i < 500; i += 25) {
-					ctx.beginPath(); ctx.moveTo(i, 0); ctx.lineTo(i, 350); ctx.stroke();
+					ctx.beginPath();
+					ctx.moveTo(i, 0);
+					ctx.lineTo(i, 350);
+					ctx.stroke();
 				}
 				for (let i = 0; i < 350; i += 25) {
-					ctx.beginPath(); ctx.moveTo(0, i); ctx.lineTo(500, i); ctx.stroke();
+					ctx.beginPath();
+					ctx.moveTo(0, i);
+					ctx.lineTo(500, i);
+					ctx.stroke();
 				}
 
 				// Obstacles
@@ -168,19 +185,35 @@ import PageLayout from "../layouts/PageLayout.astro";
 				ball.vy *= 0.985;
 
 				// Walls
-				if (ball.x - ball.r < 0) { ball.x = ball.r; ball.vx *= -0.7; }
-				if (ball.x + ball.r > 500) { ball.x = 500 - ball.r; ball.vx *= -0.7; }
-				if (ball.y - ball.r < 0) { ball.y = ball.r; ball.vy *= -0.7; }
-				if (ball.y + ball.r > 350) { ball.y = 350 - ball.r; ball.vy *= -0.7; }
+				if (ball.x - ball.r < 0) {
+					ball.x = ball.r;
+					ball.vx *= -0.7;
+				}
+				if (ball.x + ball.r > 500) {
+					ball.x = 500 - ball.r;
+					ball.vx *= -0.7;
+				}
+				if (ball.y - ball.r < 0) {
+					ball.y = ball.r;
+					ball.vy *= -0.7;
+				}
+				if (ball.y + ball.r > 350) {
+					ball.y = 350 - ball.r;
+					ball.vy *= -0.7;
+				}
 
 				// Obstacles
 				obstacles.forEach((o) => {
-					if (ball.x + ball.r > o.x && ball.x - ball.r < o.x + o.w &&
-						ball.y + ball.r > o.y && ball.y - ball.r < o.y + o.h) {
+					if (
+						ball.x + ball.r > o.x &&
+						ball.x - ball.r < o.x + o.w &&
+						ball.y + ball.r > o.y &&
+						ball.y - ball.r < o.y + o.h
+					) {
 						const fromLeft = ball.x - (o.x - ball.r);
-						const fromRight = (o.x + o.w + ball.r) - ball.x;
+						const fromRight = o.x + o.w + ball.r - ball.x;
 						const fromTop = ball.y - (o.y - ball.r);
-						const fromBottom = (o.y + o.h + ball.r) - ball.y;
+						const fromBottom = o.y + o.h + ball.r - ball.y;
 						const min = Math.min(fromLeft, fromRight, fromTop, fromBottom);
 						if (min === fromLeft || min === fromRight) ball.vx *= -0.7;
 						else ball.vy *= -0.7;
@@ -204,8 +237,10 @@ import PageLayout from "../layouts/PageLayout.astro";
 					animating = false;
 					won = true;
 					const diff = strokes - 3;
-					if (strokes === 1) { msgEl.textContent = "Hole in One! 🏆 Legendary!"; launchConfetti(); }
-					else if (diff <= -2) msgEl.textContent = "Eagle! 🦅 Incredible!";
+					if (strokes === 1) {
+						msgEl.textContent = "Hole in One! 🏆 Legendary!";
+						launchConfetti();
+					} else if (diff <= -2) msgEl.textContent = "Eagle! 🦅 Incredible!";
 					else if (diff === -1) msgEl.textContent = "Birdie! 🐦 Nice shot!";
 					else if (diff === 0) msgEl.textContent = "Par! ⛳ Well played!";
 					else if (diff === 1) msgEl.textContent = "Bogey! Not bad.";

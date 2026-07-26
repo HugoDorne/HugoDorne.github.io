@@ -17,40 +17,48 @@ const socialLinks: { label: string; href: string; icon: IconName }[] = [
 			<div class="flex items-center gap-6">
 				<a href="/" class="text-sm font-bold text-zinc-50">Hugo Dorne</a>
 				<nav aria-label="Footer navigation" class="flex items-center gap-4">
-					{navLinks.map((link) => (
-						<a href={link.href} class="text-xs text-zinc-400 transition-colors hover:text-orange-400">{link.label}</a>
-					))}
+					{
+						navLinks.map((link) => (
+							<a href={link.href} class="text-xs text-zinc-400 transition-colors hover:text-orange-400">
+								{link.label}
+							</a>
+						))
+					}
 				</nav>
 			</div>
 			<div class="flex items-center gap-4">
-				{socialLinks.map((link) => (
-					<a
-						href={link.href}
-						target={link.icon !== "email" ? "_blank" : undefined}
-						rel={link.icon !== "email" ? "noopener noreferrer" : undefined}
-						aria-label={`${link.label}${link.icon !== "email" ? " (opens in new tab)" : ""}`}
-						class="inline-flex items-center gap-1.5 text-xs text-zinc-400 transition-colors hover:text-orange-400"
-					>
-						<Icon name={link.icon} class="h-3.5 w-3.5" />
-						{link.label}
-					</a>
-				))}
+				{
+					socialLinks.map((link) => (
+						<a
+							href={link.href}
+							target={link.icon !== "email" ? "_blank" : undefined}
+							rel={link.icon !== "email" ? "noopener noreferrer" : undefined}
+							aria-label={`${link.label}${link.icon !== "email" ? " (opens in new tab)" : ""}`}
+							class="inline-flex items-center gap-1.5 text-xs text-zinc-400 transition-colors hover:text-orange-400"
+						>
+							<Icon name={link.icon} class="h-3.5 w-3.5" />
+							{link.label}
+						</a>
+					))
+				}
 			</div>
 		</div>
-		<div class="mt-4 border-t border-zinc-800/50 pt-4 flex flex-col items-center gap-1 sm:flex-row sm:justify-between">
+		<div
+			class="mt-4 flex flex-col items-center gap-1 border-t border-zinc-800/50 pt-4 sm:flex-row sm:justify-between"
+		>
 			<p class="text-xs text-zinc-600">
 				Made with <span class="text-red-400">&hearts;</span>{" "}with{" "}
 				<span class="group relative inline-block">
 					<span
 						tabindex="0"
 						aria-describedby="tip-claude"
-						class="cursor-help text-[#D97757] underline decoration-dotted decoration-[#D97757]/50 underline-offset-4"
+						class="cursor-help text-[#D97757] underline decoration-[#D97757]/50 decoration-dotted underline-offset-4"
 						>Claude</span
 					>
 					<span
 						id="tip-claude"
 						role="tooltip"
-						class="pointer-events-none absolute bottom-full left-1/2 z-50 mb-2 -translate-x-1/2 whitespace-nowrap rounded-md border border-zinc-700 bg-zinc-900 px-2.5 py-1.5 text-xs text-zinc-300 opacity-0 shadow-lg transition-opacity duration-200 group-hover:opacity-100 group-focus-within:opacity-100 motion-reduce:transition-none"
+						class="pointer-events-none absolute bottom-full left-1/2 z-50 mb-2 -translate-x-1/2 rounded-md border border-zinc-700 bg-zinc-900 px-2.5 py-1.5 text-xs whitespace-nowrap text-zinc-300 opacity-0 shadow-lg transition-opacity duration-200 group-focus-within:opacity-100 group-hover:opacity-100 motion-reduce:transition-none"
 						>Opus 4.7, Opus 4.8 and now Opus 5</span
 					>
 				</span>{" "}and{" "}
@@ -58,13 +66,13 @@ const socialLinks: { label: string; href: string; icon: IconName }[] = [
 					<span
 						tabindex="0"
 						aria-describedby="tip-astro"
-						class="cursor-help text-orange-400 underline decoration-dotted decoration-orange-400/50 underline-offset-4"
+						class="cursor-help text-orange-400 underline decoration-orange-400/50 decoration-dotted underline-offset-4"
 						>Astro</span
 					>
 					<span
 						id="tip-astro"
 						role="tooltip"
-						class="pointer-events-none absolute bottom-full left-1/2 z-50 mb-2 -translate-x-1/2 whitespace-nowrap rounded-md border border-zinc-700 bg-zinc-900 px-2.5 py-1.5 text-xs text-zinc-300 opacity-0 shadow-lg transition-opacity duration-200 group-hover:opacity-100 group-focus-within:opacity-100 motion-reduce:transition-none"
+						class="pointer-events-none absolute bottom-full left-1/2 z-50 mb-2 -translate-x-1/2 rounded-md border border-zinc-700 bg-zinc-900 px-2.5 py-1.5 text-xs whitespace-nowrap text-zinc-300 opacity-0 shadow-lg transition-opacity duration-200 group-focus-within:opacity-100 group-hover:opacity-100 motion-reduce:transition-none"
 						>pretty fast site uh ?</span
 					>
 				</span>

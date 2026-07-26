@@ -11,7 +11,10 @@ import mePhoto from "../../assets/me.webp";
 			<!-- Photo -->
 			<div class="flex-shrink-0">
 				<div class="relative">
-					<div class="absolute -inset-2 rounded-full bg-gradient-to-br from-orange-400/40 to-orange-600/20 blur-md"></div>
+					<div
+						class="absolute -inset-2 rounded-full bg-gradient-to-br from-orange-400/40 to-orange-600/20 blur-md"
+					>
+					</div>
 					<Image
 						src={mePhoto}
 						alt={about.name}
@@ -26,11 +29,26 @@ import mePhoto from "../../assets/me.webp";
 			<!-- Info -->
 			<div class="text-center md:text-left">
 				<h1 class="text-4xl font-bold text-zinc-50 md:text-5xl lg:text-6xl">{about.name}</h1>
-				<p id="hero-title" class="mt-3 text-xl text-orange-400 md:text-2xl cursor-default">
+				<p id="hero-title" class="mt-3 cursor-default text-xl text-orange-400 md:text-2xl">
 					<span id="hero-title-text">{about.title}</span>
 				</p>
-				<a href="https://maps.google.com/?q=Sophia+Antipolis,+France" target="_blank" rel="noopener noreferrer" aria-label={`View ${about.location} on Google Maps`} class="mt-2 inline-flex items-center gap-1.5 text-base text-zinc-500 transition-colors hover:text-orange-400">
-					<svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+				<a
+					href="https://maps.google.com/?q=Sophia+Antipolis,+France"
+					target="_blank"
+					rel="noopener noreferrer"
+					aria-label={`View ${about.location} on Google Maps`}
+					class="mt-2 inline-flex items-center gap-1.5 text-base text-zinc-500 transition-colors hover:text-orange-400"
+				>
+					<svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"
+						><path
+							stroke-linecap="round"
+							stroke-linejoin="round"
+							d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+						></path><path
+							stroke-linecap="round"
+							stroke-linejoin="round"
+							d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg
+					>
 					{about.location}
 					<Icon name="external" class="h-3 w-3 text-zinc-600" />
 				</a>
@@ -125,14 +143,16 @@ import mePhoto from "../../assets/me.webp";
 
 		parent?.addEventListener("mouseenter", () => {
 			let idx;
-			do { idx = Math.floor(Math.random() * funTitles.length); } while (idx === lastIndex);
+			do {
+				idx = Math.floor(Math.random() * funTitles.length);
+			} while (idx === lastIndex);
 			lastIndex = idx;
 			const title = funTitles[idx];
 			titleEl.textContent = title;
 			if (golfTitles.has(title)) {
 				titleEl.style.textDecoration = "underline";
 				titleEl.style.cursor = "pointer";
-				titleEl.onclick = () => window.location.href = "/golf";
+				titleEl.onclick = () => (window.location.href = "/golf");
 			} else {
 				titleEl.style.textDecoration = "";
 				titleEl.style.cursor = "";
@@ -168,11 +188,13 @@ import mePhoto from "../../assets/me.webp";
 				box-shadow:0 0 ${size * 2}px ${colors[Math.floor(Math.random() * colors.length)]};
 			`;
 			document.body.appendChild(particle);
-			particle.animate([
-				{ transform: "scale(1)", opacity: 1 },
-				{ transform: `scale(0) translate(${dx}px, ${dy}px)`, opacity: 0 }
-			], { duration: 600 + Math.random() * 400, easing: "cubic-bezier(0, 0.5, 0.5, 1)" })
-			.onfinish = () => particle.remove();
+			particle.animate(
+				[
+					{ transform: "scale(1)", opacity: 1 },
+					{ transform: `scale(0) translate(${dx}px, ${dy}px)`, opacity: 0 },
+				],
+				{ duration: 600 + Math.random() * 400, easing: "cubic-bezier(0, 0.5, 0.5, 1)" }
+			).onfinish = () => particle.remove();
 		}
 		// Flash ring
 		const ring = document.createElement("div");
@@ -183,11 +205,13 @@ import mePhoto from "../../assets/me.webp";
 			border:2px solid #fb923c;
 		`;
 		document.body.appendChild(ring);
-		ring.animate([
-			{ transform: "scale(1)", opacity: 1 },
-			{ transform: "scale(8)", opacity: 0 }
-		], { duration: 500, easing: "ease-out" })
-		.onfinish = () => ring.remove();
+		ring.animate(
+			[
+				{ transform: "scale(1)", opacity: 1 },
+				{ transform: "scale(8)", opacity: 0 },
+			],
+			{ duration: 500, easing: "ease-out" }
+		).onfinish = () => ring.remove();
 	}
 
 	let sparkleActive = false;
@@ -228,11 +252,16 @@ import mePhoto from "../../assets/me.webp";
 			box-shadow:0 0 ${size}px ${colors[Math.floor(Math.random() * colors.length)]};
 		`;
 		document.body.appendChild(sparkle);
-		sparkle.animate([
-			{ transform: "scale(1) translateY(0)", opacity: 1 },
-			{ transform: `scale(0) translateY(${-20 - Math.random() * 30}px) translateX(${(Math.random() - 0.5) * 40}px)`, opacity: 0 }
-		], { duration: 500 + Math.random() * 500 })
-		.onfinish = () => sparkle.remove();
+		sparkle.animate(
+			[
+				{ transform: "scale(1) translateY(0)", opacity: 1 },
+				{
+					transform: `scale(0) translateY(${-20 - Math.random() * 30}px) translateX(${(Math.random() - 0.5) * 40}px)`,
+					opacity: 0,
+				},
+			],
+			{ duration: 500 + Math.random() * 500 }
+		).onfinish = () => sparkle.remove();
 	}
 
 	initSparkleTrail();

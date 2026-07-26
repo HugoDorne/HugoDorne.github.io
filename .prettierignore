@@ -1,0 +1,12 @@
+# build output & generated types
+dist/
+.astro/
+
+# dependencies
+node_modules/
+
+# npm owns this file's formatting
+package-lock.json
+
+# static assets
+public/

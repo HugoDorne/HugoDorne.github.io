@@ -10,7 +10,9 @@ interface Props {
 const { project } = Astro.props;
 ---
 
-<div class="group rounded-xl border border-zinc-800 bg-zinc-900/50 transition-all duration-300 hover:-translate-y-1 hover:border-orange-400/30">
+<div
+	class="group rounded-xl border border-zinc-800 bg-zinc-900/50 transition-all duration-300 hover:-translate-y-1 hover:border-orange-400/30"
+>
 	{
 		project.image && (
 			<div class="overflow-hidden rounded-t-xl">
@@ -24,7 +26,7 @@ const { project } = Astro.props;
 	}
 	<div class="p-5">
 		<h3 class="text-lg font-semibold text-zinc-50">{project.title}</h3>
-		<p class="mt-2 text-sm text-zinc-400 line-clamp-3">{project.description}</p>
+		<p class="mt-2 line-clamp-3 text-sm text-zinc-400">{project.description}</p>
 
 		<div class="mt-4 flex flex-wrap gap-2">
 			{project.tags.map((tag) => <Badge label={tag} />)}

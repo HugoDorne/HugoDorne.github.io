@@ -1,31 +1,31 @@
 {
-  "name": "portfolio",
-  "type": "module",
-  "version": "1.0.0",
-  "scripts": {
-    "dev": "astro dev",
-    "start": "astro check && astro build && node scripts/generate-pdf.mjs && astro dev",
-    "build": "astro check && astro build",
-    "preview": "astro preview",
-    "astro": "astro",
-    "generate-pdf": "node scripts/generate-pdf.mjs",
-    "generate-og": "node scripts/generate-og.mjs",
-    "format": "prettier --write .",
-    "format:check": "prettier --check ."
-  },
-  "dependencies": {
-    "@astrojs/check": "^0.9.9",
-    "@astrojs/sitemap": "^3.7.3",
-    "@tailwindcss/typography": "^0.5.20",
-    "@tailwindcss/vite": "^4.3.3",
-    "astro": "^7.1.3",
-    "tailwindcss": "^4.3.3",
-    "typescript": "^6.0.3"
-  },
-  "devDependencies": {
-    "prettier": "^3.9.6",
-    "prettier-plugin-astro": "^0.14.1",
-    "prettier-plugin-tailwindcss": "^0.8.1",
-    "puppeteer": "^25.3.0"
-  }
+	"name": "portfolio",
+	"type": "module",
+	"version": "1.0.0",
+	"scripts": {
+		"dev": "astro dev",
+		"start": "astro check && astro build && node scripts/generate-pdf.mjs && astro dev",
+		"build": "astro check && astro build",
+		"preview": "astro preview",
+		"astro": "astro",
+		"generate-pdf": "node scripts/generate-pdf.mjs",
+		"generate-og": "node scripts/generate-og.mjs",
+		"format": "prettier --write .",
+		"format:check": "prettier --check ."
+	},
+	"dependencies": {
+		"@astrojs/check": "^0.9.9",
+		"@astrojs/sitemap": "^3.7.3",
+		"@tailwindcss/typography": "^0.5.20",
+		"@tailwindcss/vite": "^4.3.3",
+		"astro": "^7.1.3",
+		"tailwindcss": "^4.3.3",
+		"typescript": "^6.0.3"
+	},
+	"devDependencies": {
+		"prettier": "^3.9.6",
+		"prettier-plugin-astro": "^0.14.1",
+		"prettier-plugin-tailwindcss": "^0.8.1",
+		"puppeteer": "^25.3.0"
+	}
 }

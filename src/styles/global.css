@@ -49,7 +49,9 @@ section[id] {
 .animate-on-scroll {
 	opacity: 0;
 	transform: translateY(1.5rem);
-	transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+	transition:
+		opacity 0.6s ease-out,
+		transform 0.6s ease-out;
 }
 
 .animate-on-scroll.is-visible {
@@ -72,19 +74,26 @@ section[id] {
 /* Print stylesheet */
 @media print {
 	/* Reset to light background for printing */
-	html, body {
+	html,
+	body {
 		background: white !important;
 		color: #111 !important;
 	}
 
 	/* Hide non-essential elements */
-	header, footer, #side-nav, #back-to-top,
+	header,
+	footer,
+	#side-nav,
+	#back-to-top,
 	.animate-on-scroll {
 		opacity: 1 !important;
 		transform: none !important;
 	}
 
-	header, footer, #side-nav, #back-to-top {
+	header,
+	footer,
+	#side-nav,
+	#back-to-top {
 		display: none !important;
 	}
 
@@ -93,11 +102,16 @@ section[id] {
 	}
 
 	/* Adjust text colors for print */
-	h1, h2, h3, h4 {
+	h1,
+	h2,
+	h3,
+	h4 {
 		color: #111 !important;
 	}
 
-	p, li, span {
+	p,
+	li,
+	span {
 		color: #333 !important;
 	}
 
