@@ -1,11 +1,24 @@
-import type { Experience, Education, Certification, Language, SkillCategory, About } from "./models";
-import cvData from "./cv.json";
+import type { Experience, Education, Certification, Language, SkillCategory, About, Proficiency } from "./models";
+import type { Lang } from "../i18n/ui";
+import cvEn from "./cv.json";
+import cvFr from "./cv.fr.json";
 
-export type { Experience, Education, Certification, Language, SkillCategory, About };
+export type { Experience, Education, Certification, Language, SkillCategory, About, Proficiency };
 
-export const about: About = cvData.about;
-export const experiences: Experience[] = cvData.experiences;
-export const education: Education[] = cvData.education;
-export const certifications: Certification[] = cvData.certifications;
-export const languages: Language[] = cvData.languages;
-export const skillCategories: SkillCategory[] = cvData.skillCategories;
+export interface Cv {
+	about: About;
+	experiences: Experience[];
+	education: Education[];
+	certifications: Certification[];
+	languages: Language[];
+	skillCategories: SkillCategory[];
+}
+
+const data: Record<Lang, Cv> = {
+	en: cvEn as Cv,
+	fr: cvFr as Cv,
+};
+
+export function getCv(lang: Lang): Cv {
+	return data[lang];
+}

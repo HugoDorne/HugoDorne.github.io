@@ -1,0 +1,153 @@
+---
+import { Image } from "astro:assets";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { getCv } from "../../data/cv";
+import mePhoto from "../../assets/me.webp";
+import { getLangFromUrl, useTranslations } from "../../i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const { about, experiences, education, certifications, languages, skillCategories } = getCv(lang);
+---
+
+<BaseLayout title={t("cv.pageTitle")} favicon="📄" noindex>
+	<div class="cv-page mx-auto max-w-[210mm] bg-white px-10 py-8 text-[10px] leading-snug text-gray-800">
+		<!-- Header -->
+		<div class="cv-header flex items-center gap-5 border-b-2 border-gray-800 pb-3">
+			<Image
+				src={mePhoto}
+				alt={about.name}
+				width={192}
+				height={192}
+				class="h-16 w-16 rounded-full object-cover"
+			/>
+			<div>
+				<h1 class="text-2xl font-bold tracking-tight text-gray-900">{about.name}</h1>
+				<p class="mt-0.5 text-sm font-medium text-gray-600">{about.title}</p>
+				<div class="mt-1.5 flex flex-wrap items-center gap-x-4 gap-y-0.5 text-[9px] text-gray-500">
+					<span>{about.location}</span>
+					<a href={`mailto:${about.email}`} class="text-gray-500 no-underline hover:underline"
+						>{about.email}</a
+					>
+					<!-- Filled in by scripts/generate-pdf.mjs so the number ships in the PDF only. -->
+					<span id="cv-phone" hidden></span>
+					<a href={about.github} class="text-gray-500 no-underline hover:underline">github.com/HugoDorne</a>
+					<a href={about.linkedin} class="text-gray-500 no-underline hover:underline"
+						>linkedin.com/in/hugodorne</a
+					>
+				</div>
+			</div>
+		</div>
+
+		<!-- Experience -->
+		<section class="mt-4">
+			<h2 class="mb-2 text-xs font-bold tracking-widest text-gray-900 uppercase">{t("cv.experience")}</h2>
+			{
+				experiences.map((exp) => (
+					<div class="mb-2.5">
+						<div class="flex items-baseline justify-between">
+							<div>
+								<span class="font-bold text-gray-900">{exp.role}</span>
+								<span class="text-gray-500"> — {exp.company}</span>
+								{exp.client && (
+									<span class="text-gray-500">
+										{" "}
+										| {exp.client}
+										{exp.clientSuffix || ""}
+									</span>
+								)}
+							</div>
+							<span class="shrink-0 text-[9px] text-gray-400">
+								{exp.startDate} — {exp.endDate} | {exp.location}
+							</span>
+						</div>
+						<ul class="mt-0.5 list-inside list-disc text-gray-600">
+							{exp.description.map((d) => (
+								<li>{d}</li>
+							))}
+						</ul>
+					</div>
+				))
+			}
+		</section>
+
+		<!-- Education -->
+		<section class="mt-4">
+			<h2 class="mb-2 text-xs font-bold tracking-widest text-gray-900 uppercase">{t("cv.education")}</h2>
+			{
+				education.map((edu) => (
+					<div class="mb-1.5 flex items-baseline justify-between">
+						<div>
+							<span class="font-bold text-gray-900">{edu.institution}</span>
+							<span class="text-gray-500"> — {edu.degree}</span>
+							{edu.details && <span class="text-gray-400"> ({edu.details})</span>}
+						</div>
+						<span class="shrink-0 text-[9px] text-gray-400">
+							{edu.startYear} — {edu.endYear}
+						</span>
+					</div>
+				))
+			}
+		</section>
+
+		<!-- Skills -->
+		<section class="mt-4">
+			<h2 class="mb-2 text-xs font-bold tracking-widest text-gray-900 uppercase">{t("cv.skills")}</h2>
+			<div class="space-y-1">
+				{
+					skillCategories.map((cat) => (
+						<div>
+							<span class="font-bold text-gray-900">{cat.name}:</span>
+							<span class="text-gray-600"> {cat.skills.join(", ")}</span>
+						</div>
+					))
+				}
+			</div>
+		</section>
+
+		<!-- Certifications & Languages -->
+		<div class="mt-4 grid grid-cols-2 gap-6">
+			<section>
+				<h2 class="mb-2 text-xs font-bold tracking-widest text-gray-900 uppercase">{t("cv.certifications")}</h2>
+				{
+					certifications.map((cert) => (
+						<div class="mb-1">
+							<span class="font-bold text-gray-900">{cert.name}</span>
+							<span class="text-gray-500">
+								{" "}
+								— {cert.issuer} ({cert.year})
+							</span>
+						</div>
+					))
+				}
+			</section>
+			<section>
+				<h2 class="mb-2 text-xs font-bold tracking-widest text-gray-900 uppercase">{t("cv.languages")}</h2>
+				{
+					languages.map((lang) => (
+						<div class="mb-1">
+							<span class="font-bold text-gray-900">{lang.name}</span>
+							<span class="text-gray-500"> — {lang.level}</span>
+							{lang.details && <span class="text-gray-400"> ({lang.details})</span>}
+						</div>
+					))
+				}
+			</section>
+		</div>
+	</div>
+</BaseLayout>
+
+<style is:global>
+	/* Override dark theme for CV page */
+	.cv-page,
+	.cv-page * {
+		color-scheme: light;
+	}
+	body:has(.cv-page) {
+		background: white !important;
+	}
+	/* Hide print URL expansion on CV page */
+	.cv-page a::after {
+		content: none !important;
+	}
+</style>

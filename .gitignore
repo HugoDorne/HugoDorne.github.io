@@ -20,8 +20,8 @@ pnpm-debug.log*
 .env
 .env.production
 
-# generated CV PDF (built at dev/CI time)
-public/CV_Hugo_DORNE.pdf
+# generated CV PDFs, one per locale (built at dev/CI time)
+public/CV_Hugo_DORNE*.pdf
 
 # macOS-specific files
 .DS_Store

@@ -1,13 +1,20 @@
 ---
-import { navLinks } from "../data/navigation";
-import { about } from "../data/cv";
+import { getNavLinks } from "../data/navigation";
+import { getCv } from "../data/cv";
 import Icon from "./ui/Icon.astro";
 import type { IconName } from "./ui/icons";
+import type { TranslationKey } from "../i18n/ui";
+import { getLangFromUrl, localizePath, useTranslations } from "../i18n/utils";
 
-const socialLinks: { label: string; href: string; icon: IconName }[] = [
-	{ label: "GitHub", href: about.github, icon: "github" },
-	{ label: "LinkedIn", href: about.linkedin, icon: "linkedin" },
-	{ label: "Email", href: `mailto:${about.email}`, icon: "email" },
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const navLinks = getNavLinks(lang);
+const { about } = getCv(lang);
+
+const socialLinks: { key: TranslationKey; href: string; icon: IconName }[] = [
+	{ key: "hero.github", href: about.github, icon: "github" },
+	{ key: "hero.linkedin", href: about.linkedin, icon: "linkedin" },
+	{ key: "hero.email", href: `mailto:${about.email}`, icon: "email" },
 ];
 ---
 
@@ -15,12 +22,12 @@ const socialLinks: { label: string; href: string; icon: IconName }[] = [
 	<div class="container-page py-6">
 		<div class="flex flex-col items-center justify-between gap-4 sm:flex-row">
 			<div class="flex items-center gap-6">
-				<a href="/" class="text-sm font-bold text-zinc-50">Hugo Dorne</a>
-				<nav aria-label="Footer navigation" class="flex items-center gap-4">
+				<a href={localizePath("/", lang)} class="text-sm font-bold text-zinc-50">Hugo Dorne</a>
+				<nav aria-label={t("nav.menu.footer")} class="flex items-center gap-4">
 					{
 						navLinks.map((link) => (
 							<a href={link.href} class="text-xs text-zinc-400 transition-colors hover:text-orange-400">
-								{link.label}
+								{t(link.key)}
 							</a>
 						))
 					}
@@ -33,11 +40,11 @@ const socialLinks: { label: string; href: string; icon: IconName }[] = [
 							href={link.href}
 							target={link.icon !== "email" ? "_blank" : undefined}
 							rel={link.icon !== "email" ? "noopener noreferrer" : undefined}
-							aria-label={`${link.label}${link.icon !== "email" ? " (opens in new tab)" : ""}`}
+							aria-label={`${t(link.key)}${link.icon !== "email" ? ` ${t("footer.newTab")}` : ""}`}
 							class="inline-flex items-center gap-1.5 text-xs text-zinc-400 transition-colors hover:text-orange-400"
 						>
 							<Icon name={link.icon} class="h-3.5 w-3.5" />
-							{link.label}
+							{t(link.key)}
 						</a>
 					))
 				}
@@ -47,7 +54,8 @@ const socialLinks: { label: string; href: string; icon: IconName }[] = [
 			class="mt-4 flex flex-col items-center gap-1 border-t border-zinc-800/50 pt-4 sm:flex-row sm:justify-between"
 		>
 			<p class="text-xs text-zinc-600">
-				Made with <span class="text-red-400">&hearts;</span>{" "}with{" "}
+				{t("footer.madeWith")}{" "}
+				<span class="text-red-400">&hearts;</span>{" "}{t("footer.with")}{" "}
 				<span class="group relative inline-block">
 					<span
 						tabindex="0"
@@ -59,9 +67,9 @@ const socialLinks: { label: string; href: string; icon: IconName }[] = [
 						id="tip-claude"
 						role="tooltip"
 						class="pointer-events-none absolute bottom-full left-1/2 z-50 mb-2 -translate-x-1/2 rounded-md border border-zinc-700 bg-zinc-900 px-2.5 py-1.5 text-xs whitespace-nowrap text-zinc-300 opacity-0 shadow-lg transition-opacity duration-200 group-focus-within:opacity-100 group-hover:opacity-100 motion-reduce:transition-none"
-						>Opus 4.7, Opus 4.8 and now Opus 5</span
+						>{t("footer.claudeTip")}</span
 					>
-				</span>{" "}and{" "}
+				</span>{" "}{t("footer.and")}{" "}
 				<span class="group relative inline-block">
 					<span
 						tabindex="0"
@@ -73,7 +81,7 @@ const socialLinks: { label: string; href: string; icon: IconName }[] = [
 						id="tip-astro"
 						role="tooltip"
 						class="pointer-events-none absolute bottom-full left-1/2 z-50 mb-2 -translate-x-1/2 rounded-md border border-zinc-700 bg-zinc-900 px-2.5 py-1.5 text-xs whitespace-nowrap text-zinc-300 opacity-0 shadow-lg transition-opacity duration-200 group-focus-within:opacity-100 group-hover:opacity-100 motion-reduce:transition-none"
-						>pretty fast site uh ?</span
+						>{t("footer.astroTip")}</span
 					>
 				</span>
 			</p>

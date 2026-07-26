@@ -1,5 +1,8 @@
 ---
 import Icon from "./Icon.astro";
+import { getLangFromUrl, useTranslations } from "../../i18n/utils";
+
+const t = useTranslations(getLangFromUrl(Astro.url));
 
 interface Props {
 	title: string;
@@ -34,7 +37,7 @@ const { title, subtitle, subtitleUrl, client, clientUrl, clientSuffix, location,
 						href={subtitleUrl}
 						target="_blank"
 						rel="noopener noreferrer"
-						aria-label={`Visit ${subtitle} website`}
+						aria-label={`${t("education.visit")} ${subtitle} ${t("education.website")}`.trim()}
 						class="inline-flex items-center gap-1 transition-colors hover:text-orange-300"
 					>
 						{subtitle}
@@ -53,7 +56,7 @@ const { title, subtitle, subtitleUrl, client, clientUrl, clientSuffix, location,
 								href={clientUrl}
 								target="_blank"
 								rel="noopener noreferrer"
-								aria-label={`Visit ${client} website`}
+								aria-label={`${t("education.visit")} ${client} ${t("education.website")}`.trim()}
 								class="inline-flex items-center gap-1 transition-colors hover:text-orange-300"
 							>
 								{client}

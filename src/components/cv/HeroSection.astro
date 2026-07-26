@@ -1,8 +1,14 @@
 ---
 import { Image } from "astro:assets";
-import { about } from "../../data/cv";
+import { getCv } from "../../data/cv";
 import Icon from "../ui/Icon.astro";
 import mePhoto from "../../assets/me.webp";
+import { funTitles, golfTitleIndices, languages } from "../../i18n/ui";
+import { getLangFromUrl, localizePath, useTranslations } from "../../i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const { about } = getCv(lang);
 ---
 
 <!-- Tighter below than above: the hero should read as flowing into the first section. -->
@@ -30,14 +36,20 @@ import mePhoto from "../../assets/me.webp";
 			<!-- Info -->
 			<div class="text-center md:text-left">
 				<h1 class="text-4xl font-bold text-zinc-50 md:text-5xl lg:text-6xl">{about.name}</h1>
-				<p id="hero-title" class="mt-3 cursor-default text-xl text-orange-400 md:text-2xl">
+				<p
+					id="hero-title"
+					class="mt-3 cursor-default text-xl text-orange-400 md:text-2xl"
+					data-titles={JSON.stringify(funTitles[lang])}
+					data-golf-indices={JSON.stringify(golfTitleIndices)}
+					data-golf-href={localizePath("/golf", lang)}
+				>
 					<span id="hero-title-text">{about.title}</span>
 				</p>
 				<a
 					href="https://maps.google.com/?q=Sophia+Antipolis,+France"
 					target="_blank"
 					rel="noopener noreferrer"
-					aria-label={`View ${about.location} on Google Maps`}
+					aria-label={`${about.location} ${t("hero.viewMap")}`}
 					class="mt-2 inline-flex items-center gap-1.5 text-base text-zinc-500 transition-colors hover:text-orange-400"
 				>
 					<svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"
@@ -71,7 +83,7 @@ import mePhoto from "../../assets/me.webp";
 						target="_blank"
 						rel="noopener noreferrer"
 						class="flex h-10 w-10 items-center justify-center rounded-lg border border-zinc-800 text-zinc-400 transition-colors hover:border-orange-400/40 hover:text-orange-400"
-						aria-label="GitHub"
+						aria-label={t("hero.github")}
 					>
 						<Icon name="github" class="h-5 w-5" />
 					</a>
@@ -80,27 +92,27 @@ import mePhoto from "../../assets/me.webp";
 						target="_blank"
 						rel="noopener noreferrer"
 						class="flex h-10 w-10 items-center justify-center rounded-lg border border-zinc-800 text-zinc-400 transition-colors hover:border-orange-400/40 hover:text-orange-400"
-						aria-label="LinkedIn"
+						aria-label={t("hero.linkedin")}
 					>
 						<Icon name="linkedin" class="h-5 w-5" />
 					</a>
 					<a
 						href={`mailto:${about.email}`}
 						class="flex h-10 w-10 items-center justify-center rounded-lg border border-zinc-800 text-zinc-400 transition-colors hover:border-orange-400/40 hover:text-orange-400"
-						aria-label="Email"
+						aria-label={t("hero.email")}
 					>
 						<Icon name="email" class="h-5 w-5" />
 					</a>
 					<!-- Primary action: orange at rest so it reads as the call to action. -->
 					<a
-						href="/CV_Hugo_DORNE.pdf"
+						href={languages[lang].cvFile}
 						target="_blank"
 						rel="noopener noreferrer"
 						class="inline-flex items-center justify-center gap-2 rounded-lg border border-orange-400/40 bg-orange-400/5 px-4 text-sm font-medium text-orange-400 transition-colors hover:border-orange-400 hover:bg-orange-400/15 hover:text-orange-300"
-						aria-label="View CV (opens in new tab)"
+						aria-label={t("hero.cvLabel")}
 					>
 						<Icon name="document" class="h-5 w-5" />
-						CV
+						{t("hero.cv")}
 					</a>
 				</div>
 			</div>
@@ -111,57 +123,41 @@ import mePhoto from "../../assets/me.webp";
 <script>
 	// Hero-only easter eggs: they target #hero-title / #about img, which exist
 	// on the home page alone, so they ship with the hero rather than the layout.
+	// The titles come from data attributes so this script stays locale-agnostic
+	// and can still be bundled and minified.
 	const prefersReducedMotion = () => window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-	// Cycling fun titles on hero title hover
-	const funTitles = [
-		"Coffee Enthusiast ☕",
-		"Bug Whisperer 🐛",
-		"Stack Overflow Survivor 🏆",
-		"Senior Googler 🔍",
-		"Git Blame Detective 🕵️",
-		"404 Explorer 🧭",
-		"Ctrl+Z Enjoyer ⌨️",
-		"YAML Indentation Victim 😤",
-		"Claude's Favorite Human 🤖",
-		"Prompt Engineer in Disguise 🎭",
-		"Weekend Golfer ⛳",
-		"Bogey Specialist 🏌️",
-		"Vinyl Collector 🎵",
-		"Spotify Queue Tyrant 🎧",
-		"Popcorn Connoisseur 🍿",
-		"IMDb Completionist 🎬",
-		"Post-Credits Scene Waiter 🦸",
-	];
-
-	const golfTitles = new Set(["Weekend Golfer ⛳", "Bogey Specialist 🏌️"]);
 
 	function initTitleCycler() {
 		const titleEl = document.getElementById("hero-title-text");
-		if (!titleEl) return;
-		const original = titleEl.textContent || "";
 		const parent = document.getElementById("hero-title");
+		if (!titleEl || !parent) return;
+
+		const titles: string[] = JSON.parse(parent.dataset.titles || "[]");
+		const golfIndices = new Set<number>(JSON.parse(parent.dataset.golfIndices || "[]"));
+		const golfHref = parent.dataset.golfHref || "/golf";
+		if (titles.length === 0) return;
+
+		const original = titleEl.textContent || "";
 		let lastIndex = -1;
 
-		parent?.addEventListener("mouseenter", () => {
+		parent.addEventListener("mouseenter", () => {
 			let idx;
 			do {
-				idx = Math.floor(Math.random() * funTitles.length);
+				idx = Math.floor(Math.random() * titles.length);
 			} while (idx === lastIndex);
 			lastIndex = idx;
-			const title = funTitles[idx];
-			titleEl.textContent = title;
-			if (golfTitles.has(title)) {
+			titleEl.textContent = titles[idx]!;
+			if (golfIndices.has(idx)) {
 				titleEl.style.textDecoration = "underline";
 				titleEl.style.cursor = "pointer";
-				titleEl.onclick = () => (window.location.href = "/golf");
+				titleEl.onclick = () => (window.location.href = golfHref);
 			} else {
 				titleEl.style.textDecoration = "";
 				titleEl.style.cursor = "";
 				titleEl.onclick = null;
 			}
 		});
-		parent?.addEventListener("mouseleave", () => {
+		parent.addEventListener("mouseleave", () => {
 			titleEl.textContent = original;
 			titleEl.style.textDecoration = "";
 			titleEl.style.cursor = "";
@@ -227,7 +223,7 @@ import mePhoto from "../../assets/me.webp";
 			e.preventDefault();
 			const now = Date.now();
 			clicks.push(now);
-			clicks = clicks.filter((t) => now - t < 5000);
+			clicks = clicks.filter((time) => now - time < 5000);
 			if (clicks.length >= 10 && !sparkleActive) {
 				sparkleActive = true;
 				const me = e as MouseEvent;

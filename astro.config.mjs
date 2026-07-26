@@ -7,7 +7,7 @@ import { join } from "node:path";
 import sitemap from "@astrojs/sitemap";
 
 /** Pages kept out of the sitemap — they also carry a `noindex` meta tag. */
-const UNLISTED_PATHS = ["/cv/", "/golf/"];
+const UNLISTED_PATHS = ["/cv/", "/golf/", "/fr/cv/", "/fr/golf/"];
 
 const BLOG_DIR = fileURLToPath(new URL("./src/content/blog", import.meta.url));
 
@@ -37,15 +37,25 @@ const blogDates = readBlogDates();
 export default defineConfig({
 	site: "https://HugoDorne.github.io",
 
+	// English keeps the bare URLs so nothing already indexed moves; French is
+	// served under /fr/.
+	i18n: {
+		defaultLocale: "en",
+		locales: ["en", "fr"],
+		routing: { prefixDefaultLocale: false },
+	},
+
 	vite: {
 		plugins: [tailwindcss()],
 	},
 
 	integrations: [
 		sitemap({
+			// Emits hreflang alternates pairing each page with its other locale.
+			i18n: { defaultLocale: "en", locales: { en: "en", fr: "fr" } },
 			filter: (page) => !UNLISTED_PATHS.includes(new URL(page).pathname),
 			serialize(item) {
-				const slug = new URL(item.url).pathname.match(/^\/blog\/(.+)\/$/)?.[1];
+				const slug = new URL(item.url).pathname.match(/^(?:\/fr)?\/blog\/(.+)\/$/)?.[1];
 				const lastmod = slug && blogDates.get(slug);
 				return lastmod ? { ...item, lastmod } : item;
 			},

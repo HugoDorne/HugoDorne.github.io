@@ -1,12 +1,17 @@
 ---
 import SectionHeading from "../ui/SectionHeading.astro";
 import Badge from "../ui/Badge.astro";
-import { skillCategories } from "../../data/cv";
+import { getCv } from "../../data/cv";
+import { getLangFromUrl, useTranslations } from "../../i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const { skillCategories } = getCv(lang);
 ---
 
 <section id="skills" class="animate-on-scroll py-16">
 	<div class="container-page">
-		<SectionHeading title="Tech Stack" />
+		<SectionHeading title={t("section.skills")} />
 		<div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
 			{
 				skillCategories.map((category) => (

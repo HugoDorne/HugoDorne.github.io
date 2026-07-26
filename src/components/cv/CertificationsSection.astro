@@ -1,12 +1,17 @@
 ---
 import SectionHeading from "../ui/SectionHeading.astro";
 import Icon from "../ui/Icon.astro";
-import { certifications } from "../../data/cv";
+import { getCv } from "../../data/cv";
+import { getLangFromUrl, useTranslations } from "../../i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const { certifications } = getCv(lang);
 ---
 
 <section id="certifications" class="animate-on-scroll py-16">
 	<div class="container-page">
-		<SectionHeading title="Certifications" />
+		<SectionHeading title={t("section.certifications")} />
 		<div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
 			{
 				certifications.map((cert) => {
@@ -18,7 +23,11 @@ import { certifications } from "../../data/cv";
 							href={cert.url}
 							target={cert.url ? "_blank" : undefined}
 							rel={cert.url ? "noopener noreferrer" : undefined}
-							aria-label={cert.url ? `View ${cert.name} certification from ${cert.issuer}` : undefined}
+							aria-label={
+								cert.url
+									? `${t("cert.view")} ${cert.name} — ${t("cert.certificationFrom")} ${cert.issuer}`
+									: undefined
+							}
 							class={`group block rounded-xl border border-zinc-800 bg-zinc-900/50 p-5 transition-all duration-300 ${cert.url ? "cursor-pointer hover:-translate-y-0.5 hover:border-orange-400/30" : ""}`}
 						>
 							<div class="flex items-center justify-between">

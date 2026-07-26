@@ -1,0 +1,46 @@
+---
+import { getLangFromUrl, switchLocalePath, useTranslations, languages } from "../i18n/utils";
+
+interface Props {
+	/** Mobile shows both options side by side; desktop is a compact single switch. */
+	variant?: "compact" | "full";
+}
+
+const { variant = "compact" } = Astro.props;
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const other = lang === "en" ? "fr" : "en";
+---
+
+{
+	variant === "compact" ? (
+		<a
+			href={switchLocalePath(Astro.url, other)}
+			hreflang={other}
+			aria-label={t("nav.switchTo")}
+			title={t("nav.switchTo")}
+			class="rounded-md border border-zinc-700 px-2 py-1 text-xs font-semibold tracking-wide text-zinc-400 transition-colors hover:border-orange-400/40 hover:text-orange-400"
+		>
+			{languages[other].short}
+		</a>
+	) : (
+		<div class="mt-2 flex items-center gap-2 border-t border-zinc-800/50 px-4 pt-4">
+			<span class="text-xs text-zinc-600">{t("nav.language")}</span>
+			{(["en", "fr"] as const).map((code) => (
+				<a
+					href={switchLocalePath(Astro.url, code)}
+					hreflang={code}
+					aria-current={code === lang ? "true" : undefined}
+					class:list={[
+						"rounded-md border px-2 py-1 text-xs font-semibold tracking-wide transition-colors",
+						code === lang
+							? "border-orange-400/40 bg-orange-400/10 text-orange-400"
+							: "border-zinc-700 text-zinc-400 hover:border-orange-400/40 hover:text-orange-400",
+					]}
+				>
+					{languages[code].short}
+				</a>
+			))}
+		</div>
+	)
+}

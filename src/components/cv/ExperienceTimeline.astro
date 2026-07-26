@@ -1,12 +1,17 @@
 ---
 import SectionHeading from "../ui/SectionHeading.astro";
 import TimelineItem from "../ui/TimelineItem.astro";
-import { experiences } from "../../data/cv";
+import { getCv } from "../../data/cv";
+import { getLangFromUrl, useTranslations } from "../../i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const { experiences } = getCv(lang);
 ---
 
 <section id="experience" class="animate-on-scroll py-16">
 	<div class="container-page">
-		<SectionHeading title="Experience" />
+		<SectionHeading title={t("section.experience")} />
 		<div class="ml-1">
 			{
 				experiences.map((exp) => (

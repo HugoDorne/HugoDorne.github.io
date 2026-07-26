@@ -1,12 +1,17 @@
 ---
 import SectionHeading from "../ui/SectionHeading.astro";
 import Icon from "../ui/Icon.astro";
-import { education } from "../../data/cv";
+import { getCv } from "../../data/cv";
+import { getLangFromUrl, useTranslations } from "../../i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const { education } = getCv(lang);
 ---
 
 <section id="education" class="animate-on-scroll py-16">
 	<div class="container-page">
-		<SectionHeading title="Education" />
+		<SectionHeading title={t("section.education")} />
 		<div class="ml-1">
 			{
 				education.map((edu) => (
@@ -19,7 +24,7 @@ import { education } from "../../data/cv";
 									href={edu.url}
 									target="_blank"
 									rel="noopener noreferrer"
-									aria-label={`Visit ${edu.institution} website`}
+									aria-label={`${t("education.visit")} ${edu.institution} ${t("education.website")}`.trim()}
 									class="inline-flex items-center gap-1 text-lg font-semibold text-zinc-50 transition-colors hover:text-orange-400"
 								>
 									{edu.institution}

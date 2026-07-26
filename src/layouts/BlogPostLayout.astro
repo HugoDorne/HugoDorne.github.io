@@ -1,5 +1,6 @@
 ---
 import PageLayout from "./PageLayout.astro";
+import { formatDate, getLangFromUrl, localizePath, useTranslations } from "../i18n/utils";
 
 interface Props {
 	title: string;
@@ -10,28 +11,29 @@ interface Props {
 
 const { title, description, pubDate, updatedDate } = Astro.props;
 
-const formattedDate = pubDate.toLocaleDateString("en-US", {
-	year: "numeric",
-	month: "long",
-	day: "numeric",
-});
-
-const formattedUpdated = updatedDate?.toLocaleDateString("en-US", {
-	year: "numeric",
-	month: "long",
-	day: "numeric",
-});
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const formattedDate = formatDate(pubDate, lang);
+const formattedUpdated = updatedDate && formatDate(updatedDate, lang);
 ---
 
 <PageLayout title={`${title} — Hugo Dorne`} description={description} favicon="📖">
 	<article class="py-20">
 		<div class="mx-auto max-w-3xl px-4 sm:px-6">
-			<a href="/blog" class="text-sm text-zinc-500 transition-colors hover:text-orange-400">&larr; Back to blog</a
+			<a href={localizePath("/blog", lang)} class="text-sm text-zinc-500 transition-colors hover:text-orange-400"
+				>&larr; {t("blog.back")}</a
 			>
 
 			<header class="mt-6">
 				<time class="text-sm text-zinc-500">{formattedDate}</time>
-				{formattedUpdated && <span class="text-sm text-zinc-600"> (Updated {formattedUpdated})</span>}
+				{
+					formattedUpdated && (
+						<span class="text-sm text-zinc-600">
+							{" "}
+							({t("blog.updated")} {formattedUpdated})
+						</span>
+					)
+				}
 				<h1 class="mt-3 text-3xl font-bold text-zinc-50 md:text-4xl">{title}</h1>
 				<p class="mt-3 text-lg text-zinc-400">{description}</p>
 			</header>

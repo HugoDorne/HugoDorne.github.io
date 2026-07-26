@@ -1,6 +1,9 @@
 ---
 import "../styles/global.css";
 import { ClientRouter } from "astro:transitions";
+import { languages, type Lang } from "../i18n/ui";
+import { getLangFromUrl, switchLocalePath, useTranslations } from "../i18n/utils";
+import { getCv } from "../data/cv";
 
 interface Props {
 	title: string;
@@ -11,19 +14,23 @@ interface Props {
 	noindex?: boolean;
 }
 
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const { about } = getCv(lang);
+
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
-const {
-	title,
-	description = "Hugo Dorne — Senior Software Engineer. Full Stack & AI developments.",
-	favicon = "👨‍💻",
-	image = "/og.png",
-	noindex = false,
-} = Astro.props;
+const { title, description = t("home.description"), favicon = "👨‍💻", image = "/og.png", noindex = false } = Astro.props;
 const imageURL = new URL(image, Astro.site);
+
+// Same page in every locale, so search engines can pair them up.
+const alternates = (Object.keys(languages) as Lang[]).map((code) => ({
+	code,
+	href: new URL(switchLocalePath(Astro.url, code), Astro.site).toString(),
+}));
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={languages[lang].htmlLang}>
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="description" content={description} />
@@ -31,6 +38,8 @@ const imageURL = new URL(image, Astro.site);
 		{noindex && <meta name="robots" content="noindex, follow" />}
 		<link rel="dns-prefetch" href="https://maps.google.com" />
 		<link rel="canonical" href={canonicalURL} />
+		{!noindex && alternates.map(({ code, href }) => <link rel="alternate" hreflang={code} href={href} />)}
+		{!noindex && <link rel="alternate" hreflang="x-default" href={alternates[0]?.href} />}
 		<link
 			rel="icon"
 			href={`data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%2210 0 100 100%22><text y=%22.90em%22 font-size=%2290%22>${favicon}</text></svg>`}
@@ -45,9 +54,9 @@ const imageURL = new URL(image, Astro.site);
 		<meta property="og:image" content={imageURL} />
 		<meta property="og:image:width" content="1200" />
 		<meta property="og:image:height" content="630" />
-		<meta property="og:image:alt" content="Hugo Dorne — Senior Software Engineer" />
+		<meta property="og:image:alt" content={`${about.name} — ${about.title}`} />
 		<meta property="og:site_name" content="Hugo Dorne" />
-		<meta property="og:locale" content="en_US" />
+		<meta property="og:locale" content={languages[lang].ogLocale} />
 
 		<!-- Twitter Card -->
 		<meta name="twitter:card" content="summary_large_image" />
@@ -62,14 +71,15 @@ const imageURL = new URL(image, Astro.site);
 			set:html={JSON.stringify({
 				"@context": "https://schema.org",
 				"@type": "WebSite",
-				name: "Hugo Dorne",
+				name: about.name,
 				url: Astro.site?.toString(),
+				inLanguage: languages[lang].htmlLang,
 				author: {
 					"@type": "Person",
-					name: "Hugo Dorne",
-					jobTitle: "Senior Software Engineer",
+					name: about.name,
+					jobTitle: about.title,
 					url: Astro.site?.toString(),
-					sameAs: ["https://github.com/HugoDorne", "https://www.linkedin.com/in/hugodorne/"],
+					sameAs: [about.github, about.linkedin],
 				},
 			})}
 		/>

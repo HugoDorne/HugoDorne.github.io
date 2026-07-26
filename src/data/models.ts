@@ -28,9 +28,13 @@ export interface Certification {
 	url?: string;
 }
 
+export type Proficiency = "native" | "fluent" | "intermediate" | "beginner" | "notions";
+
 export interface Language {
 	name: string;
+	/** Display label — translated, so never key anything off it. */
 	level: string;
+	proficiency: Proficiency;
 	details?: string;
 	hello: string;
 }

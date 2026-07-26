@@ -1,5 +1,9 @@
 ---
 import Badge from "./ui/Badge.astro";
+import { formatDate, getLangFromUrl, localizePath, useTranslations } from "../i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 
 interface Props {
 	title: string;
@@ -11,14 +15,10 @@ interface Props {
 
 const { title, description, pubDate, tags, slug } = Astro.props;
 
-const formattedDate = pubDate.toLocaleDateString("en-US", {
-	year: "numeric",
-	month: "long",
-	day: "numeric",
-});
+const formattedDate = formatDate(pubDate, lang);
 ---
 
-<a href={`/blog/${slug}`} aria-label={`Read blog post: ${title}`} class="group block">
+<a href={localizePath(`/blog/${slug}`, lang)} aria-label={`${t("blog.read")} ${title}`} class="group block">
 	<article
 		class="rounded-xl border border-zinc-800 bg-zinc-900/50 p-6 transition-all duration-300 hover:-translate-y-1 hover:border-orange-400/30"
 	>

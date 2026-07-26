@@ -2,12 +2,15 @@
 import Badge from "./ui/Badge.astro";
 import Icon from "./ui/Icon.astro";
 import type { Project } from "../data/projects";
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
 
 interface Props {
 	project: Project;
 }
 
 const { project } = Astro.props;
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
 <div
@@ -26,7 +29,7 @@ const { project } = Astro.props;
 	}
 	<div class="p-5">
 		<h3 class="text-lg font-semibold text-zinc-50">{project.title}</h3>
-		<p class="mt-2 line-clamp-3 text-sm text-zinc-400">{project.description}</p>
+		<p class="mt-2 line-clamp-3 text-sm text-zinc-400">{project.description[lang]}</p>
 
 		<div class="mt-4 flex flex-wrap gap-2">
 			{project.tags.map((tag) => <Badge label={tag} />)}
@@ -39,7 +42,7 @@ const { project } = Astro.props;
 						href={project.repoUrl}
 						target="_blank"
 						rel="noopener noreferrer"
-						aria-label={`View ${project.title} source on ${project.platform === "github" ? "GitHub" : "GitLab"}`}
+						aria-label={`${t("projects.viewSource")} ${project.title} — ${project.platform === "github" ? "GitHub" : "GitLab"}`}
 						class="inline-flex items-center gap-1.5 text-sm text-zinc-400 transition-colors hover:text-orange-400"
 					>
 						<Icon name={project.platform} class="h-4 w-4" />
@@ -53,11 +56,11 @@ const { project } = Astro.props;
 						href={project.webUrl}
 						target="_blank"
 						rel="noopener noreferrer"
-						aria-label={`Visit ${project.title} live site`}
+						aria-label={`${t("projects.visitLive")} ${project.title}`}
 						class="inline-flex items-center gap-1.5 text-sm text-zinc-400 transition-colors hover:text-orange-400"
 					>
 						<Icon name="globe" class="h-4 w-4" />
-						Live
+						{t("projects.live")}
 					</a>
 				)
 			}

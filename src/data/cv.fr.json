@@ -1,9 +1,9 @@
 {
 	"about": {
 		"name": "Hugo Dorne",
-		"title": "Senior Software Engineer",
+		"title": "Ingénieur logiciel senior",
 		"location": "Sophia Antipolis, France",
-		"summary": "Full Stack and AI developments.\nMain stack: Java, Spring Boot, Angular, Spring AI, LangChain.",
+		"summary": "Développement Full Stack et IA.\nStack principale : Java, Spring Boot, Angular, Spring AI, LangChain.",
 		"email": "hugo.dorne@gmail.com",
 		"github": "https://github.com/HugoDorne",
 		"linkedin": "https://www.linkedin.com/in/hugodorne/",
@@ -13,77 +13,77 @@
 		{
 			"company": "Constencia",
 			"companyUrl": "https://www.constencia.fr",
-			"role": "Senior Software Engineer",
+			"role": "Ingénieur logiciel senior",
 			"location": "Sophia Antipolis",
-			"startDate": "Feb 2026",
-			"endDate": "Present",
+			"startDate": "Févr. 2026",
+			"endDate": "Aujourd'hui",
 			"client": "Instant System",
 			"clientUrl": "https://www.instant-system.com/",
 			"description": [
-				"Working as a Senior Software Engineer for Instant System, a leading provider of multimodal mobility solutions"
+				"Ingénieur logiciel senior pour Instant System, acteur majeur des solutions de mobilité multimodale"
 			]
 		},
 		{
 			"company": "Sopra Steria",
 			"companyUrl": "https://www.soprasteria.com",
-			"role": "Senior Software Engineer",
+			"role": "Ingénieur logiciel senior",
 			"location": "Sophia Antipolis",
-			"startDate": "Sept 2023",
-			"endDate": "Feb 2026",
+			"startDate": "Sept. 2023",
+			"endDate": "Févr. 2026",
 			"client": "MANE",
 			"clientUrl": "https://www.mane.com",
-			"clientSuffix": ", Insurance providers",
+			"clientSuffix": ", assureurs",
 			"description": [
-				"Working on AI tools for different insurance providers using LangChain4J and Spring AI to create agents, tools and expose them using MCP",
-				"Gherkin / Cucumber test cases generation based on user stories",
-				"Supervised a team of 6 Software Engineers for MANE (major french producer of flavors & fragrances), part of which are based in India",
-				"Positioned as Backend Tech Lead on an application redesign with a Java 21, Spring Boot 3, Nx & Angular 18 stack",
-				"Collaborated with the client to design the new application's requirements, architecture & processes"
+				"Développement d'outils d'IA pour différents assureurs avec LangChain4J et Spring AI : création d'agents et de tools, exposés via MCP",
+				"Génération de cas de test Gherkin / Cucumber à partir des user stories",
+				"Encadrement d'une équipe de 6 ingénieurs pour MANE (grand producteur français d'arômes et de parfums), en partie basée en Inde",
+				"Tech Lead backend sur la refonte d'une application, stack Java 21, Spring Boot 3, Nx et Angular 18",
+				"Définition avec le client des besoins, de l'architecture et des processus de la nouvelle application"
 			]
 		},
 		{
 			"company": "Sopra Steria",
 			"companyUrl": "https://www.soprasteria.com",
-			"role": "Software Engineer",
+			"role": "Ingénieur logiciel",
 			"location": "Nantes",
-			"startDate": "Sept 2022",
-			"endDate": "Sept 2023",
-			"client": "Ministry of Justice",
+			"startDate": "Sept. 2022",
+			"endDate": "Sept. 2023",
+			"client": "Ministère de la Justice",
 			"description": [
-				"Conceived & implemented high quality, reliable & scalable solutions with the Spring Boot / Angular ecosystem",
-				"Actively participated and organized Agile Ceremonies",
-				"Supervised Software Engineering interns & apprentices"
+				"Conception et réalisation de solutions fiables et scalables sur l'écosystème Spring Boot / Angular",
+				"Participation active et animation des cérémonies agiles",
+				"Encadrement de stagiaires et d'alternants"
 			]
 		},
 		{
 			"company": "Sopra Steria",
 			"companyUrl": "https://www.soprasteria.com",
-			"role": "Apprentice Software Engineer",
+			"role": "Ingénieur logiciel en alternance",
 			"location": "Nantes",
-			"startDate": "Dec 2019",
-			"endDate": "Sept 2022",
-			"client": "Ministries of Interior & Justice",
+			"startDate": "Déc. 2019",
+			"endDate": "Sept. 2022",
+			"client": "Ministères de l'Intérieur et de la Justice",
 			"description": [
-				"Developed, tested, debugged and maintained web applications developed in Java, Angular & React",
-				"Automated non-regression & unit tests"
+				"Développement, test, débogage et maintenance d'applications web en Java, Angular et React",
+				"Automatisation des tests unitaires et de non-régression"
 			]
 		}
 	],
 	"education": [
 		{
 			"institution": "École Centrale de Nantes",
-			"degree": "General Engineering Degree",
+			"degree": "Diplôme d'ingénieur généraliste",
 			"startYear": 2019,
 			"endYear": 2022,
-			"details": "Specialized in Computer Science",
+			"details": "Spécialité informatique",
 			"url": "https://www.ec-nantes.fr"
 		},
 		{
 			"institution": "Disrupt' Campus Nantes",
-			"degree": "Inter-University Degree — Innovation & Digital Transformation",
+			"degree": "Diplôme inter-universitaire — Innovation et transformation numérique",
 			"startYear": 2021,
 			"endYear": 2022,
-			"details": "Startup Weekend Nantes 2021 winner with the project Q'lture",
+			"details": "Lauréat du Startup Weekend Nantes 2021 avec le projet Q'lture",
 			"detailsUrl": "https://www.linkedin.com/posts/hugodorne_startup-innovation-activity-6873666416403447808-EIPA?utm_source=share&utm_medium=member_desktop&rcm=ACoAAC2IWYwB3bDLJLq9JlOpAfzlQGdpLsZnppQ",
 			"url": "https://www.disruptcampusnantes.com/"
 		}
@@ -103,16 +103,16 @@
 		}
 	],
 	"languages": [
-		{ "name": "French", "level": "Native", "proficiency": "native", "hello": "Bonjour !" },
+		{ "name": "Français", "level": "Langue maternelle", "proficiency": "native", "hello": "Bonjour !" },
 		{
-			"name": "English",
-			"level": "Fluent",
+			"name": "Anglais",
+			"level": "Courant",
 			"proficiency": "fluent",
 			"details": "TOEIC 990/990",
 			"hello": "Hello!"
 		},
-		{ "name": "Italian", "level": "Beginner", "proficiency": "beginner", "hello": "Ciao!" },
-		{ "name": "Japanese", "level": "Notions", "proficiency": "notions", "hello": "こんにちは!" }
+		{ "name": "Italien", "level": "Débutant", "proficiency": "beginner", "hello": "Ciao!" },
+		{ "name": "Japonais", "level": "Notions", "proficiency": "notions", "hello": "こんにちは!" }
 	],
 	"skillCategories": [
 		{
@@ -124,11 +124,11 @@
 			"skills": ["TypeScript", "Angular", "Astro", "Tailwind CSS", "Nx", "Bootstrap", "PrimeFaces", "SCSS"]
 		},
 		{
-			"name": "AI",
+			"name": "IA",
 			"skills": ["Spring AI", "LangChain4J", "Claude", "Azure AI", "Copilot", "Mistral AI"]
 		},
 		{
-			"name": "Data",
+			"name": "Données",
 			"skills": [
 				"PostgreSQL",
 				"pgVector",
@@ -146,7 +146,7 @@
 			"skills": ["GitLab CI/CD", "GitHub Actions", "Docker", "Jenkins", "ArgoCD", "SonarQube"]
 		},
 		{
-			"name": "Testing",
+			"name": "Tests",
 			"skills": ["JUnit 5", "Mockito", "Jest", "Cypress"]
 		}
 	]

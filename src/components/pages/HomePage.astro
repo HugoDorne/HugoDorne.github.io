@@ -1,0 +1,23 @@
+---
+import PageLayout from "../../layouts/PageLayout.astro";
+import HeroSection from "../cv/HeroSection.astro";
+import ExperienceTimeline from "../cv/ExperienceTimeline.astro";
+import EducationSection from "../cv/EducationSection.astro";
+import SkillsSection from "../cv/SkillsSection.astro";
+import CertificationsSection from "../cv/CertificationsSection.astro";
+import LanguagesSection from "../cv/LanguagesSection.astro";
+import SideNav from "../SideNav.astro";
+import { getLangFromUrl, useTranslations } from "../../i18n/utils";
+
+const t = useTranslations(getLangFromUrl(Astro.url));
+---
+
+<PageLayout title={t("home.title")}>
+	<SideNav />
+	<HeroSection />
+	<ExperienceTimeline />
+	<EducationSection />
+	<SkillsSection />
+	<CertificationsSection />
+	<LanguagesSection />
+</PageLayout>
