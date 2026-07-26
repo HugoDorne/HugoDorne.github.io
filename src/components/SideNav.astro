@@ -10,14 +10,15 @@ const sections = [
 ---
 
 <!--
-	Desktop side nav. It lives in the gutter left free by .container-page, which
-	insets the content from lg up — so the labels can stay visible from xl without
-	ever running into the text column.
+	Desktop side nav: a quiet rail of dots that unfurls its labels on hover, or
+	on keyboard focus so it is not a pointer-only affordance. It sits in the
+	gutter left free by .container-page, wide enough that even the expanded
+	labels never reach the text column.
 -->
 <nav
 	id="side-nav"
 	aria-label="Section navigation"
-	class="fixed top-1/2 left-4 z-40 hidden -translate-y-1/2 flex-col items-start gap-1 xl:flex 2xl:left-6"
+	class="group/nav fixed top-1/2 left-4 z-40 hidden -translate-y-1/2 flex-col items-start gap-1 xl:flex 2xl:left-6"
 >
 	{
 		sections.map((section) => (
@@ -25,10 +26,12 @@ const sections = [
 				href={`#${section.id}`}
 				data-section={section.id}
 				aria-label={`Navigate to ${section.label}`}
-				class="side-nav-link group flex items-center gap-3 rounded-lg px-2 py-1.5 text-sm text-zinc-400 transition-all duration-200 hover:text-zinc-200 2xl:px-3"
+				class="side-nav-link group/link flex items-center rounded-lg px-2 py-1.5 text-sm text-zinc-400 transition-all duration-200 hover:text-zinc-200 2xl:px-3"
 			>
-				<span class="h-1.5 w-1.5 shrink-0 rounded-full bg-zinc-500 transition-all duration-200 group-hover:bg-zinc-300" />
-				<span class="whitespace-nowrap transition-all duration-200">{section.label}</span>
+				<span class="h-1.5 w-1.5 shrink-0 rounded-full bg-zinc-500 transition-all duration-200 group-hover/link:bg-zinc-300" />
+				<span class="max-w-0 overflow-hidden whitespace-nowrap opacity-0 transition-all duration-200 group-focus-within/nav:ml-3 group-focus-within/nav:max-w-40 group-focus-within/nav:opacity-100 group-hover/nav:ml-3 group-hover/nav:max-w-40 group-hover/nav:opacity-100">
+					{section.label}
+				</span>
 			</a>
 		))
 	}
