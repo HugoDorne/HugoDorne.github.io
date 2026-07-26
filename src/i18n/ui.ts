@@ -223,7 +223,6 @@ export const funTitles: Record<Lang, string[]> = {
 		"Vinyl Collector 🎵",
 		"Spotify Queue Tyrant 🎧",
 		"Popcorn Connoisseur 🍿",
-		"IMDb Completionist 🎬",
 		"Post-Credits Scene Waiter 🦸",
 	],
 	fr: [
@@ -240,9 +239,8 @@ export const funTitles: Record<Lang, string[]> = {
 		"Golfeur du dimanche ⛳",
 		"Spécialiste du bogey 🏌️",
 		"Collectionneur de vinyles 🎵",
-		"Tyran de la playlist 🎧",
-		"Connaisseur en popcorn 🍿",
-		"Complétiste IMDb 🎬",
+		"DJ autoproclamé 🎧",
+		"Sommelier de popcorn 🍿",
 		"Spectateur des scènes post-générique 🦸",
 	],
 };
