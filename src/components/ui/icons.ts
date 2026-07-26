@@ -1,1 +1,1 @@
-export type IconName = "github" | "gitlab" | "globe" | "linkedin" | "email" | "download" | "external";
+export type IconName = "github" | "gitlab" | "globe" | "linkedin" | "email" | "document" | "external";
