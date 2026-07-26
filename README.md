@@ -20,12 +20,24 @@ npm install
 npm run dev
 ```
 
+Use `npm start` instead to type-check, build, regenerate the CV PDF and then serve —
+the PDF is generated at build time, so the download link is only live locally after that.
+
 ## Build & Preview
 
 ```bash
 npm run build
 npm run preview
 ```
+
+## Other scripts
+
+| Script | What it does |
+| --- | --- |
+| `npm run generate-pdf` | Renders `/cv` to `dist/CV_Hugo_DORNE.pdf` (also copied to `public/`). Needs a build first. |
+| `npm run generate-og` | Regenerates the `public/og.png` social card. |
+| `npm run format` | Formats everything with Prettier. |
+| `npm run format:check` | Checks formatting without writing. |
 
 ## License
 

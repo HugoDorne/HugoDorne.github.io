@@ -2,7 +2,7 @@
 import PageLayout from "../layouts/PageLayout.astro";
 ---
 
-<PageLayout title="Secret Hole" favicon="⛳">
+<PageLayout title="Secret Hole" favicon="⛳" noindex>
 	<section class="flex min-h-[70vh] flex-col items-center justify-center px-4 py-20 text-center">
 		<p class="text-8xl" aria-hidden="true">⛳</p>
 		<h1 class="mt-6 text-4xl font-bold text-zinc-50">Hole in One!</h1>
@@ -46,7 +46,6 @@ import PageLayout from "../layouts/PageLayout.astro";
 			];
 			let strokes = 0;
 			let dragging = false;
-			let dragStart = { x: 0, y: 0 };
 			let dragEnd = { x: 0, y: 0 };
 			let won = false;
 			let animating = false;
@@ -62,7 +61,8 @@ import PageLayout from "../layouts/PageLayout.astro";
 			}
 
 			function launchConfetti() {
-				const colors = ["#fb923c", "#f97316", "#fbbf24", "#f59e0b", "#ef4444", "#D97757", "#22c55e", "#ffffff"];
+				if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+				const colors =["#fb923c", "#f97316", "#fbbf24", "#f59e0b", "#ef4444", "#D97757", "#22c55e", "#ffffff"];
 				for (let i = 0; i < 200; i++) {
 					const c = document.createElement("div");
 					c.style.cssText = `
@@ -243,7 +243,6 @@ import PageLayout from "../layouts/PageLayout.astro";
 				const dy = pos.y - ball.y;
 				if (Math.sqrt(dx * dx + dy * dy) < 30) {
 					dragging = true;
-					dragStart = pos;
 					dragEnd = pos;
 				}
 			});

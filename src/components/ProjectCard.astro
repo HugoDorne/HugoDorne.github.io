@@ -1,5 +1,6 @@
 ---
 import Badge from "./ui/Badge.astro";
+import Icon from "./ui/Icon.astro";
 import type { Project } from "../data/projects";
 
 interface Props {
@@ -37,9 +38,10 @@ const { project } = Astro.props;
 						target="_blank"
 						rel="noopener noreferrer"
 						aria-label={`View ${project.title} source on ${project.platform === "github" ? "GitHub" : "GitLab"}`}
-						class="text-sm text-zinc-400 transition-colors hover:text-orange-400"
+						class="inline-flex items-center gap-1.5 text-sm text-zinc-400 transition-colors hover:text-orange-400"
 					>
-						{project.platform === "github" ? "GitHub" : "GitLab"} &rarr;
+						<Icon name={project.platform} class="h-4 w-4" />
+						{project.platform === "github" ? "GitHub" : "GitLab"}
 					</a>
 				)
 			}
@@ -50,9 +52,10 @@ const { project } = Astro.props;
 						target="_blank"
 						rel="noopener noreferrer"
 						aria-label={`Visit ${project.title} live site`}
-						class="text-sm text-zinc-400 transition-colors hover:text-orange-400"
+						class="inline-flex items-center gap-1.5 text-sm text-zinc-400 transition-colors hover:text-orange-400"
 					>
-						Live &rarr;
+						<Icon name="globe" class="h-4 w-4" />
+						Live
 					</a>
 				)
 			}
