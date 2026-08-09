@@ -1,4 +1,5 @@
 ---
+import { Image } from "astro:assets";
 import Badge from "./ui/Badge.astro";
 import Icon from "./ui/Icon.astro";
 import type { Project } from "../data/projects";
@@ -19,9 +20,11 @@ const t = useTranslations(lang);
 	{
 		project.image && (
 			<div class="overflow-hidden rounded-t-xl">
-				<img
+				<Image
 					src={project.image}
 					alt={project.title}
+					widths={[452, 904, 1280]}
+					sizes="(min-width: 768px) 452px, 100vw"
 					class="h-48 w-full object-cover transition-transform duration-300 group-hover:scale-105"
 				/>
 			</div>

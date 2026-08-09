@@ -25,3 +25,4 @@ public/CV_Hugo_DORNE*.pdf
 
 # macOS-specific files
 .DS_Store
+.idea
