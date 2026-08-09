@@ -53,9 +53,9 @@
 			"client": "MANE",
 			"clientUrl": "https://www.mane.com",
 			"description": [
-				"Defined the client's needs, the solution and the architecture of MANE's new PLM",
+				"Defined the client's needs, the solution and the architecture of MANE's new product lifecycle management (PLM) platform",
 				"Estimated the scope and the development effort",
-				"Owned the development of TWINS, its vector search for products with similar compositions and flavors, on a hexagonal architecture with Java 21, Spring Boot 3, Nx and Angular 18",
+				"Owned the development of TWINS, its vector search for products with similar compositions and flavors, on a hexagonal architecture with Java 21, Spring Boot 3, pgVector, Nx and Angular 18",
 				"Supervised a team of 6 software engineers, part of the team based in India, on a project run entirely in English"
 			]
 		},
@@ -69,7 +69,7 @@
 			"client": "Ministry of Justice",
 			"description": [
 				"Digitized the prison administration's processes through a Spring Boot and Angular web application, for a nationwide rollout across French prisons",
-				"Scrum Master within an agile release train, on cross-technical teams of seven",
+				"Scrum Master within an agile release train, on cross-functional teams of seven",
 				"Mentored an intern and an apprentice"
 			]
 		},

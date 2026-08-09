@@ -53,9 +53,9 @@
 			"client": "MANE",
 			"clientUrl": "https://www.mane.com",
 			"description": [
-				"Définition avec le client du besoin, de la solution et de l'architecture du nouveau PLM de MANE",
+				"Définition avec le client du besoin, de la solution et de l'architecture du nouvel outil de gestion du cycle de vie produit (PLM) de MANE",
 				"Chiffrage du périmètre et de la charge de développement",
-				"Responsable des développements de TWINS, sa brique de recherche vectorielle de produits aux compositions et aux saveurs similaires, en architecture hexagonale avec Java 21, Spring Boot 3, Nx et Angular 18",
+				"Responsable des développements de TWINS, sa brique de recherche vectorielle de produits aux compositions et aux saveurs similaires, en architecture hexagonale avec Java 21, Spring Boot 3, pgVector, Nx et Angular 18",
 				"Encadrement d'une équipe de 6 ingénieurs en partie basée en Inde, projet entièrement mené en anglais"
 			]
 		},
@@ -69,7 +69,7 @@
 			"client": "Ministère de la Justice",
 			"description": [
 				"Numérisation des processus de l'administration pénitentiaire à travers une application web Spring Boot et Angular, en vue d'un déploiement à l'échelle nationale dans les prisons",
-				"Scrum Master au sein d'un train agile, sur des équipes pluritechniques de sept personnes",
+				"Scrum Master au sein d'un train agile, sur des équipes pluridisciplinaires de sept personnes",
 				"Encadrement d'un stagiaire et d'un alternant"
 			]
 		},
