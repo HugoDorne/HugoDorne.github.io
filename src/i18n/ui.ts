@@ -103,6 +103,7 @@ const en = {
 	"golf.over": "Keep practicing! 😅",
 
 	"cv.pageTitle": "CV — Hugo Dorne",
+	"cv.profile": "Profile",
 	"cv.experience": "Experience",
 	"cv.education": "Education",
 	"cv.skills": "Technical Skills",
@@ -198,6 +199,7 @@ const fr: Translations = {
 	"golf.over": "Continuez à vous entraîner ! 😅",
 
 	"cv.pageTitle": "CV — Hugo Dorne",
+	"cv.profile": "Profil",
 	"cv.experience": "Expérience",
 	"cv.education": "Formation",
 	"cv.skills": "Compétences techniques",

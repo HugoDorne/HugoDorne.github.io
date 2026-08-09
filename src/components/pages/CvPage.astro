@@ -8,6 +8,13 @@ import { getLangFromUrl, useTranslations } from "../../i18n/utils";
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 const { about, experiences, education, certifications, languages, skillCategories } = getCv(lang);
+
+/** A link is worth more than a bare URL on paper: show the readable part, keep the href intact. */
+const domainLabel = (url: string) => url.replace(/^https?:\/\/(www\.)?/, "").replace(/\/$/, "");
+
+// Astro.site is the canonical origin, so the printed address can never drift from the deployed one.
+const siteUrl = Astro.site?.toString() ?? "";
+const siteLabel = Astro.site?.host ?? "";
 ---
 
 <BaseLayout title={t("cv.pageTitle")} favicon="📄" noindex>
@@ -29,20 +36,29 @@ const { about, experiences, education, certifications, languages, skillCategorie
 					<a href={`mailto:${about.email}`} class="text-gray-500 no-underline hover:underline"
 						>{about.email}</a
 					>
-					<a href={about.github} class="text-gray-500 no-underline hover:underline">github.com/HugoDorne</a>
+					<a href={siteUrl} class="text-gray-500 no-underline hover:underline">{siteLabel}</a>
+					<a href={about.github} class="text-gray-500 no-underline hover:underline"
+						>{domainLabel(about.github)}</a
+					>
 					<a href={about.linkedin} class="text-gray-500 no-underline hover:underline"
-						>linkedin.com/in/hugodorne</a
+						>{domainLabel(about.linkedin)}</a
 					>
 				</div>
 			</div>
 		</div>
+
+		<!-- Profile -->
+		<section class="mt-4">
+			<h2 class="mb-1.5 text-xs font-bold tracking-widest text-gray-900 uppercase">{t("cv.profile")}</h2>
+			<p class="text-gray-600">{about.summary.split("\n").join(" ")}</p>
+		</section>
 
 		<!-- Experience -->
 		<section class="mt-4">
 			<h2 class="mb-2 text-xs font-bold tracking-widest text-gray-900 uppercase">{t("cv.experience")}</h2>
 			{
 				experiences.map((exp) => (
-					<div class="mb-2.5">
+					<div class="mb-2.5 break-inside-avoid">
 						<div class="flex items-baseline justify-between">
 							<div>
 								<span class="font-bold text-gray-900">{exp.role}</span>
@@ -74,15 +90,18 @@ const { about, experiences, education, certifications, languages, skillCategorie
 			<h2 class="mb-2 text-xs font-bold tracking-widest text-gray-900 uppercase">{t("cv.education")}</h2>
 			{
 				education.map((edu) => (
-					<div class="mb-1.5 flex items-baseline justify-between">
-						<div>
-							<span class="font-bold text-gray-900">{edu.institution}</span>
-							<span class="text-gray-500"> — {edu.degree}</span>
-							{edu.details && <span class="text-gray-400"> ({edu.details})</span>}
+					<div class="mb-1.5 break-inside-avoid">
+						<div class="flex items-baseline justify-between">
+							<div>
+								<span class="font-bold text-gray-900">{edu.institution}</span>
+								<span class="text-gray-500"> — {edu.degree}</span>
+							</div>
+							<span class="shrink-0 text-[9px] text-gray-400">
+								{edu.startYear} — {edu.endYear}
+							</span>
 						</div>
-						<span class="shrink-0 text-[9px] text-gray-400">
-							{edu.startYear} — {edu.endYear}
-						</span>
+						{/* Own line rather than a trailing parenthesis: long details used to widow a word. */}
+						{edu.details && <p class="text-gray-500">{edu.details}</p>}
 					</div>
 				))
 			}
@@ -126,7 +145,7 @@ const { about, experiences, education, certifications, languages, skillCategorie
 						<div class="mb-1">
 							<span class="font-bold text-gray-900">{lang.name}</span>
 							<span class="text-gray-500"> — {lang.level}</span>
-							{lang.details && <span class="text-gray-400"> ({lang.details})</span>}
+							{lang.details && <span class="font-medium text-gray-600"> ({lang.details})</span>}
 						</div>
 					))
 				}

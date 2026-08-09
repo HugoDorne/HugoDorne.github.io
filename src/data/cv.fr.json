@@ -31,9 +31,9 @@
 			"endDate": "Févr. 2026",
 			"client": "MANE",
 			"clientUrl": "https://www.mane.com",
-			"clientSuffix": ", assureurs",
+			"clientSuffix": " et clients du secteur assurance",
 			"description": [
-				"Développement d'outils d'IA pour différents assureurs avec LangChain4J et Spring AI : création d'agents et de tools, exposés via MCP",
+				"Développement d'outils d'IA pour des assureurs avec LangChain4J et Spring AI : création d'agents et d'outils, exposés via MCP",
 				"Génération de cas de test Gherkin / Cucumber à partir des user stories",
 				"Encadrement d'une équipe de 6 ingénieurs pour MANE (grand producteur français d'arômes et de parfums), en partie basée en Inde",
 				"Tech Lead backend sur la refonte d'une application, stack Java 21, Spring Boot 3, Nx et Angular 18",
@@ -49,7 +49,7 @@
 			"endDate": "Sept. 2023",
 			"client": "Ministère de la Justice",
 			"description": [
-				"Conception et réalisation de solutions fiables et scalables sur l'écosystème Spring Boot / Angular",
+				"Conception et réalisation de solutions fiables et évolutives sur l'écosystème Spring Boot / Angular",
 				"Participation active et animation des cérémonies agiles",
 				"Encadrement de stagiaires et d'alternants"
 			]
@@ -96,9 +96,8 @@
 		},
 		{
 			"name": "Certified SAFe 5 Agilist",
-			"issuer": "Leading SAFe",
-			"year": 2023,
-			"url": "https://scaledagile.com/training/leading-safe/"
+			"issuer": "Scaled Agile",
+			"year": 2023
 		}
 	],
 	"languages": [

@@ -31,13 +31,13 @@
 			"endDate": "Feb 2026",
 			"client": "MANE",
 			"clientUrl": "https://www.mane.com",
-			"clientSuffix": ", Insurance providers",
+			"clientSuffix": " and insurance sector clients",
 			"description": [
-				"Working on AI tools for different insurance providers using LangChain4J and Spring AI to create agents, tools and expose them using MCP",
-				"Gherkin / Cucumber test cases generation based on user stories",
-				"Supervised a team of 6 Software Engineers for MANE (major french producer of flavors & fragrances), part of which are based in India",
-				"Positioned as Backend Tech Lead on an application redesign with a Java 21, Spring Boot 3, Nx & Angular 18 stack",
-				"Collaborated with the client to design the new application's requirements, architecture & processes"
+				"Built AI agents and tools for insurance clients with LangChain4J and Spring AI, exposed over MCP",
+				"Generated Gherkin / Cucumber test cases from user stories",
+				"Supervised a team of 6 software engineers for MANE (major French producer of flavors and fragrances), part of the team based in India",
+				"Led the backend as Tech Lead on an application redesign built on Java 21, Spring Boot 3, Nx and Angular 18",
+				"Defined the new application's requirements, architecture and processes with the client"
 			]
 		},
 		{
@@ -49,9 +49,9 @@
 			"endDate": "Sept 2023",
 			"client": "Ministry of Justice",
 			"description": [
-				"Conceived & implemented high quality, reliable & scalable solutions with the Spring Boot / Angular ecosystem",
-				"Actively participated and organized Agile Ceremonies",
-				"Supervised Software Engineering interns & apprentices"
+				"Designed and implemented high-quality, reliable and scalable solutions on the Spring Boot / Angular stack",
+				"Facilitated and took part in agile ceremonies",
+				"Mentored software engineering interns and apprentices"
 			]
 		},
 		{
@@ -63,8 +63,8 @@
 			"endDate": "Sept 2022",
 			"client": "Ministries of Interior & Justice",
 			"description": [
-				"Developed, tested, debugged and maintained web applications developed in Java, Angular & React",
-				"Automated non-regression & unit tests"
+				"Developed, tested, debugged and maintained web applications in Java, Angular and React",
+				"Automated unit and regression tests"
 			]
 		}
 	],
@@ -96,9 +96,8 @@
 		},
 		{
 			"name": "Certified SAFe 5 Agilist",
-			"issuer": "Leading SAFe",
-			"year": 2023,
-			"url": "https://scaledagile.com/training/leading-safe/"
+			"issuer": "Scaled Agile",
+			"year": 2023
 		}
 	],
 	"languages": [
@@ -111,7 +110,7 @@
 			"hello": "Hello!"
 		},
 		{ "name": "Italian", "level": "Beginner", "proficiency": "beginner", "hello": "Ciao!" },
-		{ "name": "Japanese", "level": "Notions", "proficiency": "notions", "hello": "こんにちは!" }
+		{ "name": "Japanese", "level": "Basic", "proficiency": "notions", "hello": "こんにちは!" }
 	],
 	"skillCategories": [
 		{
