@@ -53,9 +53,9 @@
 			"client": "MANE",
 			"clientUrl": "https://www.mane.com",
 			"description": [
-				"Définition avec le client du besoin, de la solution et de l'architecture du nouvel outil de gestion du cycle de vie produit (PLM) de MANE",
-				"Chiffrage du périmètre et de la charge de développement",
-				"Responsable des développements de TWINS, sa brique de recherche vectorielle de produits aux compositions et aux saveurs similaires, en architecture hexagonale avec Java 21, Spring Boot 3, pgVector, Nx et Angular 18",
+				"Participation au développement, à l'implémentation et à l'architecture du nouvel outil de gestion du cycle de vie produit (PLM) de MANE",
+				"Sur TWINS, sa brique de recherche vectorielle de produits aux compositions et aux saveurs similaires : définition avec le client des problèmes et du besoin, de la solution, de l'architecture et du chiffrage",
+				"Responsable des développements, en architecture hexagonale avec Java 21, Spring Boot 3, pgVector, Nx et Angular 18",
 				"Encadrement d'une équipe de 6 ingénieurs en partie basée en Inde, projet entièrement mené en anglais"
 			]
 		},

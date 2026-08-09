@@ -53,9 +53,9 @@
 			"client": "MANE",
 			"clientUrl": "https://www.mane.com",
 			"description": [
-				"Defined the client's needs, the solution and the architecture of MANE's new product lifecycle management (PLM) platform",
-				"Estimated the scope and the development effort",
-				"Owned the development of TWINS, its vector search for products with similar compositions and flavors, on a hexagonal architecture with Java 21, Spring Boot 3, pgVector, Nx and Angular 18",
+				"Contributed to the development, implementation and architecture of MANE's new product lifecycle management (PLM) platform",
+				"On TWINS, its vector search for products with similar compositions and flavors: defined the client's problems and needs, the solution, the architecture and the estimate",
+				"Owned the development, on a hexagonal architecture with Java 21, Spring Boot 3, pgVector, Nx and Angular 18",
 				"Supervised a team of 6 software engineers, part of the team based in India, on a project run entirely in English"
 			]
 		},
