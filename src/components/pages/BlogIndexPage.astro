@@ -11,7 +11,7 @@ const posts = (await getCollection("blog", ({ data }) => import.meta.env.DEV || 
 );
 ---
 
-<PageLayout title={t("blog.pageTitle")} favicon="📖">
+<PageLayout title={t("blog.pageTitle")} description={t("blog.description")} favicon="📖">
 	<section class="py-20">
 		<div class="container-page">
 			<h1 class="text-3xl font-bold text-zinc-50 md:text-4xl">{t("blog.title")}</h1>

@@ -52,6 +52,4 @@ export interface About {
 	email: string;
 	github: string;
 	linkedin: string;
-	/** Injected into the generated PDF only — never rendered on the public page. */
-	phone?: string;
 }

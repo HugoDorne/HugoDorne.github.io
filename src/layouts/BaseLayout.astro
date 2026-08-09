@@ -2,7 +2,7 @@
 import "../styles/global.css";
 import { ClientRouter } from "astro:transitions";
 import { languages, type Lang } from "../i18n/ui";
-import { getLangFromUrl, switchLocalePath, useTranslations } from "../i18n/utils";
+import { getLangFromUrl, localizePath, switchLocalePath, useTranslations } from "../i18n/utils";
 import { getCv } from "../data/cv";
 
 interface Props {
@@ -16,7 +16,7 @@ interface Props {
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
-const { about } = getCv(lang);
+const { about, experiences, education, skillCategories, languages: spokenLanguages } = getCv(lang);
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const { title, description = t("home.description"), favicon = "👨‍💻", image = "/og.png", noindex = false } = Astro.props;
@@ -27,6 +27,80 @@ const alternates = (Object.keys(languages) as Lang[]).map((code) => ({
 	code,
 	href: new URL(switchLocalePath(Astro.url, code), Astro.site).toString(),
 }));
+
+/*
+ * One Person entity for the whole site, referenced by @id from every page
+ * rather than repeated, so search engines resolve it to a single identity.
+ * The homepage additionally declares itself as that person's ProfilePage.
+ * Deliberately no email: it is already a mailto link on the page, and there is
+ * no reason to hand it to scrapers in machine-readable form as well.
+ */
+const siteUrl = Astro.site?.toString() ?? "";
+const personId = `${siteUrl}#person`;
+const currentRole = experiences[0];
+const isProfilePage = Astro.url.pathname.replace(/\/$/, "") === localizePath("/", lang).replace(/\/$/, "");
+
+const person = {
+	"@type": "Person",
+	"@id": personId,
+	name: about.name,
+	jobTitle: about.title,
+	description: about.summary.replace(/\n/g, " "),
+	url: new URL(localizePath("/", lang), Astro.site).toString(),
+	image: new URL("/og.png", Astro.site).toString(),
+	address: {
+		"@type": "PostalAddress",
+		addressLocality: "Sophia Antipolis",
+		addressRegion: "Provence-Alpes-Côte d'Azur",
+		addressCountry: "FR",
+	},
+	sameAs: [about.github, about.linkedin],
+	knowsAbout: skillCategories.flatMap((category) => category.skills),
+	knowsLanguage: spokenLanguages.map((entry) => entry.name),
+	alumniOf: education.map((entry) => ({
+		"@type": "CollegeOrUniversity",
+		name: entry.institution,
+		...(entry.url ? { url: entry.url } : {}),
+	})),
+	...(currentRole
+		? {
+				worksFor: {
+					"@type": "Organization",
+					name: currentRole.company,
+					...(currentRole.companyUrl ? { url: currentRole.companyUrl } : {}),
+				},
+			}
+		: {}),
+};
+
+const structuredData = {
+	"@context": "https://schema.org",
+	"@graph": [
+		{
+			"@type": "WebSite",
+			"@id": `${siteUrl}#website`,
+			url: siteUrl,
+			name: about.name,
+			inLanguage: languages[lang].htmlLang,
+			publisher: { "@id": personId },
+		},
+		person,
+		...(isProfilePage
+			? [
+					{
+						"@type": "ProfilePage",
+						"@id": canonicalURL.toString(),
+						url: canonicalURL.toString(),
+						name: title,
+						inLanguage: languages[lang].htmlLang,
+						isPartOf: { "@id": `${siteUrl}#website` },
+						about: { "@id": personId },
+						mainEntity: { "@id": personId },
+					},
+				]
+			: []),
+	],
+};
 ---
 
 <!doctype html>
@@ -65,24 +139,7 @@ const alternates = (Object.keys(languages) as Lang[]).map((code) => ({
 		<meta name="twitter:image" content={imageURL} />
 
 		<!-- JSON-LD Structured Data -->
-		<script
-			is:inline
-			type="application/ld+json"
-			set:html={JSON.stringify({
-				"@context": "https://schema.org",
-				"@type": "WebSite",
-				name: about.name,
-				url: Astro.site?.toString(),
-				inLanguage: languages[lang].htmlLang,
-				author: {
-					"@type": "Person",
-					name: about.name,
-					jobTitle: about.title,
-					url: Astro.site?.toString(),
-					sameAs: [about.github, about.linkedin],
-				},
-			})}
-		/>
+		<script is:inline type="application/ld+json" set:html={JSON.stringify(structuredData)} />
 
 		<ClientRouter />
 		<title>{title}</title>

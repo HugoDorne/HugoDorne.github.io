@@ -7,7 +7,7 @@ import { getLangFromUrl, useTranslations } from "../../i18n/utils";
 const t = useTranslations(getLangFromUrl(Astro.url));
 ---
 
-<PageLayout title={t("projects.pageTitle")} favicon="🚀">
+<PageLayout title={t("projects.pageTitle")} description={t("projects.description")} favicon="🚀">
 	<section class="py-20">
 		<div class="container-page">
 			<h1 class="text-3xl font-bold text-zinc-50 md:text-4xl">{t("projects.title")}</h1>

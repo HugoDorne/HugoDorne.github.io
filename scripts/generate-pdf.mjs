@@ -1,6 +1,6 @@
 import { preview } from "astro";
 import puppeteer from "puppeteer";
-import { copyFile, readFile } from "node:fs/promises";
+import { copyFile } from "node:fs/promises";
 import { fileURLToPath } from "node:url";
 
 // Dedicated port so it never collides with a dev or preview server already open.
@@ -8,8 +8,8 @@ const PORT = 4329;
 
 // Mirrors `languages[*].cvFile` in src/i18n/ui.ts, which this script cannot import.
 const LOCALES = [
-	{ lang: "en", route: "/cv", file: "CV_Hugo_DORNE.pdf", data: "../src/data/cv.json" },
-	{ lang: "fr", route: "/fr/cv", file: "CV_Hugo_DORNE_FR.pdf", data: "../src/data/cv.fr.json" },
+	{ lang: "en", route: "/cv", file: "CV_Hugo_DORNE.pdf" },
+	{ lang: "fr", route: "/fr/cv", file: "CV_Hugo_DORNE_FR.pdf" },
 ];
 
 const resolve = (relative) => fileURLToPath(new URL(relative, import.meta.url));
@@ -22,26 +22,11 @@ try {
 	const browser = await puppeteer.launch({ headless: true, args: ["--no-sandbox"] });
 	try {
 		for (const locale of LOCALES) {
-			const { about } = JSON.parse(await readFile(resolve(locale.data), "utf8"));
 			const distPdf = resolve(`../dist/${locale.file}`);
 			const publicPdf = resolve(`../public/${locale.file}`);
 
 			const page = await browser.newPage();
 			await page.goto(`http://localhost:${server.port}${locale.route}`, { waitUntil: "networkidle0" });
-
-			// The phone number lives in the CV data and is injected here, so it reaches
-			// the PDF without ever being rendered in the published HTML.
-			await page.evaluate((phone) => {
-				const el = document.getElementById("cv-phone");
-				if (!el || !phone) return;
-				const link = document.createElement("a");
-				link.href = `tel:${phone.replace(/\s/g, "")}`;
-				link.className = "text-gray-500 no-underline";
-				link.textContent = phone;
-				el.replaceChildren(link);
-				el.hidden = false;
-			}, about.phone);
-
 			await page.pdf({
 				path: distPdf,
 				format: "A4",

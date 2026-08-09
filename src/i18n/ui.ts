@@ -47,7 +47,8 @@ const en = {
 	"section.navigateTo": "Navigate to",
 
 	"home.title": "Hugo Dorne — Senior Software Engineer",
-	"home.description": "Hugo Dorne — Senior Software Engineer. Full Stack & AI developments.",
+	"home.description":
+		"Hugo Dorne, Senior Software Engineer near Sophia Antipolis. Full stack and AI with Java, Spring Boot, Angular, Spring AI and LangChain4J.",
 	"hero.viewMap": "on Google Maps",
 	"hero.cv": "CV",
 	"hero.cvLabel": "View CV (opens in new tab)",
@@ -63,6 +64,8 @@ const en = {
 	"projects.title": "Projects",
 	"projects.pageTitle": "Projects — Hugo Dorne",
 	"projects.intro": "A selection of things I've built in my free time.",
+	"projects.description":
+		"Side projects by Hugo Dorne, built with Astro, Tailwind CSS and TypeScript. Source code and a live demo for each one.",
 	"projects.more": "And more to come...",
 	"projects.live": "Live",
 	"projects.viewSource": "View source of",
@@ -71,6 +74,8 @@ const en = {
 	"blog.title": "Blog",
 	"blog.pageTitle": "Blog — Hugo Dorne",
 	"blog.intro": "Thoughts on software engineering, AI, tech and life.",
+	"blog.description":
+		"Notes by Hugo Dorne on software engineering and AI — Java, Spring Boot, Angular, and building agents with LangChain4J and Spring AI.",
 	"blog.empty": "Nothing to see here, for now...",
 	"blog.emptyHint": "I'm working on my first posts. Stay tuned!",
 	"blog.back": "Back to blog",
@@ -137,7 +142,8 @@ const fr: Translations = {
 	"section.navigateTo": "Aller à",
 
 	"home.title": "Hugo Dorne — Ingénieur logiciel senior",
-	"home.description": "Hugo Dorne — Ingénieur logiciel senior. Développement Full Stack et IA.",
+	"home.description":
+		"Hugo Dorne, ingénieur logiciel senior à Sophia Antipolis. Full stack et IA avec Java, Spring Boot, Angular, Spring AI et LangChain4J.",
 	"hero.viewMap": "sur Google Maps",
 	"hero.cv": "CV",
 	"hero.cvLabel": "Consulter le CV (nouvel onglet)",
@@ -153,6 +159,8 @@ const fr: Translations = {
 	"projects.title": "Projets",
 	"projects.pageTitle": "Projets — Hugo Dorne",
 	"projects.intro": "Une sélection de ce que je construis sur mon temps libre.",
+	"projects.description":
+		"Les projets personnels d'Hugo Dorne, construits avec Astro, Tailwind CSS et TypeScript. Code source et démo en ligne pour chacun.",
 	"projects.more": "Et d'autres à venir...",
 	"projects.live": "En ligne",
 	"projects.viewSource": "Voir le code source de",
@@ -161,6 +169,8 @@ const fr: Translations = {
 	"blog.title": "Blog",
 	"blog.pageTitle": "Blog — Hugo Dorne",
 	"blog.intro": "Réflexions sur le développement, l'IA, la tech et le reste.",
+	"blog.description":
+		"Les notes d'Hugo Dorne sur le développement et l'IA — Java, Spring Boot, Angular, et la création d'agents avec LangChain4J et Spring AI.",
 	"blog.empty": "Rien à voir ici, pour l'instant...",
 	"blog.emptyHint": "Mes premiers articles sont en préparation. À bientôt !",
 	"blog.back": "Retour au blog",
