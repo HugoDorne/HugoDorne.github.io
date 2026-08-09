@@ -12,14 +12,20 @@
 		{
 			"company": "Constencia",
 			"companyUrl": "https://www.constencia.fr",
-			"role": "Senior Software Engineer",
+			"role": "Senior Software Engineer & Scrum Master",
 			"location": "Sophia Antipolis",
 			"startDate": "Feb 2026",
 			"endDate": "Present",
 			"client": "Instant System",
 			"clientUrl": "https://www.instant-system.com/",
+			"clientSuffix": ", multimodal mobility",
 			"description": [
-				"Working as a Senior Software Engineer for Instant System, a leading provider of multimodal mobility solutions"
+				"Backend engineer on the traveller information team, which serves itinerary, timing and proximity information to the mobile apps",
+				"Scrum Master of a cross-functional team of five — two backend, iOS, Android and QA — coordinating with the other teams under SAFe",
+				"Build the backend-for-frontend exposing itineraries and travel information to the mobile clients",
+				"Maintain the real-time stack: WebSocket subscriptions delivering live updates on the trips each client follows",
+				"Refactored the Livemap module end to end, the real-time map subscription layer",
+				"Ran version upgrades across all of the team's applications"
 			]
 		},
 		{

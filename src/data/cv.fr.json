@@ -12,14 +12,20 @@
 		{
 			"company": "Constencia",
 			"companyUrl": "https://www.constencia.fr",
-			"role": "Ingénieur logiciel senior",
+			"role": "Ingénieur logiciel senior & Scrum Master",
 			"location": "Sophia Antipolis",
 			"startDate": "Févr. 2026",
 			"endDate": "Aujourd'hui",
 			"client": "Instant System",
 			"clientUrl": "https://www.instant-system.com/",
+			"clientSuffix": ", mobilité multimodale",
 			"description": [
-				"Ingénieur logiciel senior pour Instant System, acteur majeur des solutions de mobilité multimodale"
+				"Développement back-end au sein de l'équipe information voyageur, qui met à disposition les informations d'itinéraire, de temporalité et de proximité dans les applications mobiles",
+				"Scrum Master d'une équipe pluridisciplinaire de cinq personnes — deux back-end, iOS, Android et QA — en coordination avec les autres équipes dans un cadre SAFe",
+				"Développement du back-end for front-end exposant les itinéraires et les informations voyageur aux clients mobiles",
+				"Maintien de la stack temps réel : abonnements WebSocket diffusant les mises à jour en direct sur les trajets suivis",
+				"Refonte complète du module Livemap, la couche d'abonnement temps réel cartographique",
+				"Montées de version sur l'ensemble des applicatifs de l'équipe"
 			]
 		},
 		{
