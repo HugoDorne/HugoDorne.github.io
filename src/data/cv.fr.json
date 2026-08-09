@@ -83,7 +83,7 @@
 			"endDate": "Sept. 2022",
 			"client": "Ministères de l'Intérieur et de la Justice",
 			"description": [
-				"Conception et réalisation d'un tableau de bord d'administration en Java, Angular et React pour une application de gestion de la naturalisation française",
+				"Conception et réalisation d'un tableau de bord d'administration en Java et Angular pour une application de gestion de la naturalisation française",
 				"Développement, test et maintenance d'applications web, automatisation des tests unitaires et de non-régression"
 			]
 		}
