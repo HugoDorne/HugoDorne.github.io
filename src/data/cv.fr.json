@@ -20,7 +20,7 @@
 			"clientUrl": "https://www.instant-system.com/",
 			"clientSuffix": ", mobilité multimodale",
 			"description": [
-				"Développement back-end au sein de l'équipe information voyageur, qui met à disposition les informations d'itinéraire, de temporalité et de proximité dans les applications mobiles",
+				"Développement back-end au sein de l'équipe information voyageur, qui met à disposition les informations d'itinéraire, de temporalité et de proximité dans des applications mobiles déployées dans plus de la moitié des villes dotées d'un service de mobilité douce",
 				"Scrum Master d'une équipe pluridisciplinaire de cinq personnes — deux back-end, iOS, Android et QA — en coordination avec les autres équipes dans un cadre SAFe",
 				"Développement du back-end for front-end exposant les itinéraires et les informations voyageur aux clients mobiles",
 				"Maintien de la stack temps réel : abonnements WebSocket diffusant les mises à jour en direct sur les trajets suivis",
@@ -35,15 +35,28 @@
 			"location": "Sophia Antipolis",
 			"startDate": "Sept. 2023",
 			"endDate": "Févr. 2026",
+			"client": "Assureurs",
+			"description": [
+				"Développement d'outils d'IA avec LangChain4J et Spring AI : création d'agents et d'outils, exposés via MCP",
+				"Génération de cas de test Gherkin / Cucumber à partir des user stories",
+				"Participation au chiffrage et à l'avant-vente d'une application à 400 k€"
+			]
+		},
+		{
+			"company": "Sopra Steria",
+			"companyUrl": "https://www.soprasteria.com",
+			"role": "Ingénieur logiciel senior",
+			"location": "Sophia Antipolis",
+			"startDate": "Sept. 2023",
+			"endDate": "Févr. 2026",
 			"client": "MANE",
 			"clientUrl": "https://www.mane.com",
-			"clientSuffix": " et clients du secteur assurance",
+			"clientSuffix": ", arômes et parfums",
 			"description": [
-				"Développement d'outils d'IA pour des assureurs avec LangChain4J et Spring AI : création d'agents et d'outils, exposés via MCP",
-				"Génération de cas de test Gherkin / Cucumber à partir des user stories",
-				"Encadrement d'une équipe de 6 ingénieurs pour MANE (grand producteur français d'arômes et de parfums), en partie basée en Inde",
-				"Tech Lead backend sur la refonte d'une application, stack Java 21, Spring Boot 3, Nx et Angular 18",
-				"Définition avec le client des besoins, de l'architecture et des processus de la nouvelle application"
+				"Encadrement d'une équipe de 6 ingénieurs, en partie basée en Inde",
+				"Tech Lead backend sur la refonte d'une application, en architecture hexagonale avec Java 21, Spring Boot 3, Nx et Angular 18",
+				"Définition avec le client des besoins, de l'architecture et des processus de la nouvelle application",
+				"Chiffrage du périmètre TWINS à plus de 100 k€ et une centaine de jours-homme"
 			]
 		},
 		{
@@ -55,8 +68,9 @@
 			"endDate": "Sept. 2023",
 			"client": "Ministère de la Justice",
 			"description": [
-				"Conception et réalisation de solutions fiables et évolutives sur l'écosystème Spring Boot / Angular",
-				"Participation active et animation des cérémonies agiles",
+				"Numérisation des processus de l'administration pénitentiaire, déployée à l'échelle nationale dans les prisons",
+				"Scrum Master au sein d'un train agile",
+				"Développement et livraison de fonctionnalités sur l'écosystème Spring Boot / Angular",
 				"Encadrement de stagiaires et d'alternants"
 			]
 		},
@@ -119,6 +133,10 @@
 		{ "name": "Japonais", "level": "Notions", "proficiency": "notions", "hello": "こんにちは!" }
 	],
 	"skillCategories": [
+		{
+			"name": "Architecture",
+			"skills": ["Microservices", "Architecture hexagonale", "Backend for Frontend", "REST", "WebSocket"]
+		},
 		{
 			"name": "Backend",
 			"skills": ["Java", "Spring Framework", "Spring Boot", "Hibernate", "JPA", "Maven", "Python"]

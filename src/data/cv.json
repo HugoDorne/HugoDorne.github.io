@@ -20,7 +20,7 @@
 			"clientUrl": "https://www.instant-system.com/",
 			"clientSuffix": ", multimodal mobility",
 			"description": [
-				"Backend engineer on the traveller information team, which serves itinerary, timing and proximity information to the mobile apps",
+				"Backend engineer on the traveller information team, serving itinerary, timing and proximity information to mobile apps used in over half of the cities running a soft-mobility service",
 				"Scrum Master of a cross-functional team of five — two backend, iOS, Android and QA — coordinating with the other teams under SAFe",
 				"Build the backend-for-frontend exposing itineraries and travel information to the mobile clients",
 				"Maintain the real-time stack: WebSocket subscriptions delivering live updates on the trips each client follows",
@@ -35,15 +35,28 @@
 			"location": "Sophia Antipolis",
 			"startDate": "Sept 2023",
 			"endDate": "Feb 2026",
+			"client": "Insurance clients",
+			"description": [
+				"Built AI agents and tools with LangChain4J and Spring AI, exposed over MCP",
+				"Generated Gherkin / Cucumber test cases from user stories",
+				"Took part in the estimation and pre-sales of a €400k application"
+			]
+		},
+		{
+			"company": "Sopra Steria",
+			"companyUrl": "https://www.soprasteria.com",
+			"role": "Senior Software Engineer",
+			"location": "Sophia Antipolis",
+			"startDate": "Sept 2023",
+			"endDate": "Feb 2026",
 			"client": "MANE",
 			"clientUrl": "https://www.mane.com",
-			"clientSuffix": " and insurance sector clients",
+			"clientSuffix": ", flavors and fragrances",
 			"description": [
-				"Built AI agents and tools for insurance clients with LangChain4J and Spring AI, exposed over MCP",
-				"Generated Gherkin / Cucumber test cases from user stories",
-				"Supervised a team of 6 software engineers for MANE (major French producer of flavors and fragrances), part of the team based in India",
-				"Led the backend as Tech Lead on an application redesign built on Java 21, Spring Boot 3, Nx and Angular 18",
-				"Defined the new application's requirements, architecture and processes with the client"
+				"Supervised a team of 6 software engineers, part of the team based in India",
+				"Led the backend as Tech Lead on an application redesign, on a hexagonal architecture with Java 21, Spring Boot 3, Nx and Angular 18",
+				"Defined the new application's requirements, architecture and processes with the client",
+				"Estimated the TWINS scope at over €100k and around 100 man-days"
 			]
 		},
 		{
@@ -55,8 +68,9 @@
 			"endDate": "Sept 2023",
 			"client": "Ministry of Justice",
 			"description": [
-				"Designed and implemented high-quality, reliable and scalable solutions on the Spring Boot / Angular stack",
-				"Facilitated and took part in agile ceremonies",
+				"Digitised the prison administration's processes, rolled out nationwide across French prisons",
+				"Scrum Master within an agile release train",
+				"Built and shipped features on the Spring Boot / Angular stack",
 				"Mentored software engineering interns and apprentices"
 			]
 		},
@@ -119,6 +133,10 @@
 		{ "name": "Japanese", "level": "Basic", "proficiency": "notions", "hello": "こんにちは!" }
 	],
 	"skillCategories": [
+		{
+			"name": "Architecture",
+			"skills": ["Microservices", "Hexagonal architecture", "Backend for Frontend", "REST", "WebSocket"]
+		},
 		{
 			"name": "Backend",
 			"skills": ["Java", "Spring Framework", "Spring Boot", "Hibernate", "JPA", "Maven", "Python"]
