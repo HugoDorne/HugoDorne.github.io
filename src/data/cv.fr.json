@@ -20,7 +20,7 @@
 			"clientUrl": "https://www.instant-system.com/",
 			"clientSuffix": ", mobilité multimodale",
 			"description": [
-				"Développement back-end au sein de l'équipe information voyageur : proposition d'itinéraires, horaires temps réel et offre de mobilité à proximité, dans des applications déployées dans plus de la moitié des villes françaises dotées d'un service de mobilité douce",
+				"Équipe information voyageur : proposition d'itinéraires, horaires temps réel et offre de mobilité à proximité, dans des applications déployées dans plus de la moitié des villes françaises dotées d'un service de mobilité multimodale",
 				"Scrum Master d'une équipe pluridisciplinaire de six personnes — deux back-end, iOS, Android, web et QA — en coordination avec les autres équipes dans un cadre SAFe",
 				"Développement du back-end for front-end en Java 21 et Spring Boot 3, exposant les itinéraires et les informations voyageur aux clients mobiles",
 				"Maintien de la stack temps réel — abonnements WebSocket adossés à Redis, diffusant les mises à jour en direct sur les trajets suivis — dont la refonte de son module cartographique Livemap",
@@ -37,7 +37,7 @@
 			"endDate": "Févr. 2026",
 			"client": "Assureurs",
 			"description": [
-				"Création d'agents et de tools IA avec LangChain4J et Spring AI, exposés via MCP",
+				"Création d'agents et d'outils IA avec LangChain4J et Spring AI, exposés via MCP",
 				"Mise en place d'un RAG permettant d'interroger en langage naturel le Confluence et les autres sources de vérité de l'entreprise",
 				"Conception d'une solution custom et réutilisable de vectorisation de Confluence, avant l'existence des MCP Confluence",
 				"Génération de cas de test Gherkin / Cucumber à partir des user stories",
@@ -54,9 +54,9 @@
 			"client": "MANE",
 			"clientUrl": "https://www.mane.com",
 			"description": [
-				"Définition avec le client du besoin, de la solution et de l'architecture de la nouvelle application",
-				"Chiffrage du périmètre et de la charge de développement de TWINS",
-				"Responsable des développements et de l'implémentation de la partie TWINS, en architecture hexagonale avec Java 21, Spring Boot 3, Nx et Angular 18",
+				"Définition avec le client du besoin, de la solution et de l'architecture de TWINS, la nouvelle application",
+				"Chiffrage du périmètre et de la charge de développement",
+				"Responsable des développements de la partie TWINS, en architecture hexagonale avec Java 21, Spring Boot 3, Nx et Angular 18",
 				"Encadrement d'une équipe de 6 ingénieurs en partie basée en Inde, projet entièrement mené en anglais"
 			]
 		},
@@ -70,7 +70,7 @@
 			"client": "Ministère de la Justice",
 			"description": [
 				"Numérisation des processus de l'administration pénitentiaire en Spring Boot et Angular, en vue d'un déploiement à l'échelle nationale dans les prisons",
-				"Scrum Master au sein d'un train agile, sur des équipes pluridisciplinaires de six personnes",
+				"Scrum Master au sein d'un train agile, sur des équipes pluridisciplinaires de sept personnes",
 				"Encadrement d'un stagiaire et d'un alternant"
 			]
 		},
@@ -83,9 +83,8 @@
 			"endDate": "Sept. 2022",
 			"client": "Ministères de l'Intérieur et de la Justice",
 			"description": [
-				"Développement, test, débogage et maintenance d'applications web en Java, Angular et React",
-				"Conception et réalisation d'un tableau de bord d'administration pour une application de gestion de la naturalisation française",
-				"Automatisation des tests unitaires et de non-régression"
+				"Conception et réalisation d'un tableau de bord d'administration en Java, Angular et React pour une application de gestion de la naturalisation française",
+				"Développement, test et maintenance d'applications web, automatisation des tests unitaires et de non-régression"
 			]
 		}
 	],

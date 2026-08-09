@@ -20,7 +20,7 @@
 			"clientUrl": "https://www.instant-system.com/",
 			"clientSuffix": ", multimodal mobility",
 			"description": [
-				"Backend engineer on the traveller information team: itinerary suggestions, real-time schedules and nearby mobility options, in apps used in over half of the French cities running a soft-mobility service",
+				"Traveler information team: itinerary suggestions, real-time schedules and nearby mobility options, in apps used in over half of the French cities running a multimodal mobility service",
 				"Scrum Master of a cross-functional team of six — two backend, iOS, Android, web and QA — coordinating with the other teams under SAFe",
 				"Build the backend-for-frontend on Java 21 and Spring Boot 3, exposing itineraries and travel information to the mobile clients",
 				"Maintain the real-time stack — WebSocket subscriptions backed by Redis, delivering live updates on the trips each client follows — including a refactor of its Livemap map module",
@@ -39,7 +39,7 @@
 			"description": [
 				"Built AI agents and tools with LangChain4J and Spring AI, exposed over MCP",
 				"Shipped a RAG letting users query Confluence and the company's other sources of truth in natural language",
-				"Designed a custom, reusable Confluence vectorisation solution, before the Confluence MCPs existed",
+				"Designed a custom, reusable Confluence vectorization solution, before the Confluence MCPs existed",
 				"Generated Gherkin / Cucumber test cases from user stories",
 				"Took part in the estimation and pre-sales of a €400k application"
 			]
@@ -54,9 +54,9 @@
 			"client": "MANE",
 			"clientUrl": "https://www.mane.com",
 			"description": [
-				"Defined the client's needs, the solution and the architecture of the new application",
-				"Estimated the TWINS scope and its development effort",
-				"Owned the development and implementation of the TWINS scope, on a hexagonal architecture with Java 21, Spring Boot 3, Nx and Angular 18",
+				"Defined the client's needs, the solution and the architecture of TWINS, the new application",
+				"Estimated the scope and the development effort",
+				"Owned the development of the TWINS scope, on a hexagonal architecture with Java 21, Spring Boot 3, Nx and Angular 18",
 				"Supervised a team of 6 software engineers, part of the team based in India, on a project run entirely in English"
 			]
 		},
@@ -69,8 +69,8 @@
 			"endDate": "Sept 2023",
 			"client": "Ministry of Justice",
 			"description": [
-				"Digitised the prison administration's processes on Spring Boot and Angular, for a nationwide rollout across French prisons",
-				"Scrum Master within an agile release train, on cross-functional teams of six",
+				"Digitized the prison administration's processes on Spring Boot and Angular, for a nationwide rollout across French prisons",
+				"Scrum Master within an agile release train, on cross-functional teams of seven",
 				"Mentored an intern and an apprentice"
 			]
 		},
@@ -83,9 +83,8 @@
 			"endDate": "Sept 2022",
 			"client": "Ministries of the Interior and Justice",
 			"description": [
-				"Developed, tested, debugged and maintained web applications in Java, Angular and React",
-				"Designed and built an admin dashboard for a French naturalisation management application",
-				"Automated unit and regression tests"
+				"Designed and built an admin dashboard in Java, Angular and React for a French naturalization management application",
+				"Developed, tested and maintained web applications, and automated unit and regression tests"
 			]
 		}
 	],
