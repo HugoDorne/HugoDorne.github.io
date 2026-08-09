@@ -3,7 +3,7 @@
 		"name": "Hugo Dorne",
 		"title": "Senior Software Engineer & Scrum Master",
 		"location": "Sophia Antipolis, France",
-		"summary": "Full Stack and AI developments. Main stack: Java, Spring Boot, Angular, Spring AI, LangChain.\nProject management: Scrum Master in SAFe environments, team supervision, estimation and pre-sales.",
+		"summary": "Full Stack and AI developments. Main stack: Java, Spring Boot, Angular, Spring AI, LangChain.\nProject management as a Scrum Master in SAFe environments, team supervision, estimation and pre-sales.",
 		"email": "hugo.dorne@gmail.com",
 		"github": "https://github.com/HugoDorne",
 		"linkedin": "https://www.linkedin.com/in/hugodorne/"
@@ -39,7 +39,7 @@
 			"description": [
 				"Built AI agents and tools with LangChain4J and Spring AI, exposed over MCP",
 				"Shipped a RAG letting users query Confluence and the company's other sources of truth in natural language",
-				"Designed a custom, reusable Confluence vectorisation solution, before the Jira MCPs existed",
+				"Designed a custom, reusable Confluence vectorisation solution, before the Confluence MCPs existed",
 				"Generated Gherkin / Cucumber test cases from user stories",
 				"Took part in the estimation and pre-sales of a €400k application"
 			]
@@ -54,8 +54,8 @@
 			"client": "MANE",
 			"clientUrl": "https://www.mane.com",
 			"description": [
-				"Estimated the TWINS scope at around 100 man-days of development",
-				"Defined the application's requirements, architecture and processes with the client",
+				"Defined the client's needs, the solution and the architecture of the new application",
+				"Estimated the TWINS scope and its development effort",
 				"Owned the development and implementation of the TWINS scope, on a hexagonal architecture with Java 21, Spring Boot 3, Nx and Angular 18",
 				"Supervised a team of 6 software engineers, part of the team based in India, on a project run entirely in English"
 			]
@@ -70,7 +70,7 @@
 			"client": "Ministry of Justice",
 			"description": [
 				"Digitised the prison administration's processes, for a nationwide rollout across French prisons",
-				"Scrum Master within an agile release train, on teams of two frontend and three backend engineers, a business analyst and a shared project manager",
+				"Scrum Master within an agile release train, on cross-functional teams of six",
 				"Built and shipped features on the Spring Boot / Angular stack",
 				"Mentored software engineering interns and apprentices"
 			]

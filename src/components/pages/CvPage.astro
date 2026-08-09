@@ -111,9 +111,9 @@ const siteLabel = Astro.site?.host ?? "";
 								{edu.startYear} — {edu.endYear}
 							</span>
 						</div>
-						{/* An award earns its own line and full weight; a plain descriptor rides
-						    along with the degree, where it costs nothing. */}
-						{edu.details && edu.isAward && <p class="font-bold text-gray-900">{edu.details}</p>}
+						{/* An award earns its own line and the same lift as the TOEIC score; a
+						    plain descriptor rides along with the degree, where it costs nothing. */}
+						{edu.details && edu.isAward && <p class="font-medium text-gray-600">{edu.details}</p>}
 					</div>
 				))
 			}
