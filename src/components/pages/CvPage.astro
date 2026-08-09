@@ -54,7 +54,7 @@ const siteLabel = Astro.site?.host ?? "";
 		</div>
 
 		<!-- Profile -->
-		<section class="mt-4">
+		<section class="mt-3">
 			<h2 class="mb-1.5 text-xs font-bold tracking-widest text-gray-900 uppercase">{t("cv.profile")}</h2>
 			{
 				/* One line per sentence: run together, the stack and the project-management
@@ -64,11 +64,11 @@ const siteLabel = Astro.site?.host ?? "";
 		</section>
 
 		<!-- Experience -->
-		<section class="mt-4">
-			<h2 class="mb-2 text-xs font-bold tracking-widest text-gray-900 uppercase">{t("cv.experience")}</h2>
+		<section class="mt-3">
+			<h2 class="mb-1.5 text-xs font-bold tracking-widest text-gray-900 uppercase">{t("cv.experience")}</h2>
 			{
 				experiences.map((exp) => (
-					<div class="mb-2.5 break-inside-avoid">
+					<div class="mb-2 break-inside-avoid">
 						<div class="flex items-baseline justify-between">
 							<div>
 								<span class="font-bold text-gray-900">{exp.role}</span>
@@ -96,8 +96,8 @@ const siteLabel = Astro.site?.host ?? "";
 		</section>
 
 		<!-- Education -->
-		<section class="mt-4">
-			<h2 class="mb-2 text-xs font-bold tracking-widest text-gray-900 uppercase">{t("cv.education")}</h2>
+		<section class="mt-3">
+			<h2 class="mb-1.5 text-xs font-bold tracking-widest text-gray-900 uppercase">{t("cv.education")}</h2>
 			{
 				education.map((edu) => (
 					<div class="mb-1.5 break-inside-avoid">
@@ -120,8 +120,8 @@ const siteLabel = Astro.site?.host ?? "";
 		</section>
 
 		<!-- Skills -->
-		<section class="mt-4">
-			<h2 class="mb-2 text-xs font-bold tracking-widest text-gray-900 uppercase">{t("cv.skills")}</h2>
+		<section class="mt-3">
+			<h2 class="mb-1.5 text-xs font-bold tracking-widest text-gray-900 uppercase">{t("cv.skills")}</h2>
 			<div class="space-y-1">
 				{
 					skillCategories.map((cat) => (
@@ -135,9 +135,11 @@ const siteLabel = Astro.site?.host ?? "";
 		</section>
 
 		<!-- Certifications & Languages -->
-		<div class="mt-4 grid grid-cols-2 gap-6">
+		<div class="mt-3 grid grid-cols-2 gap-6">
 			<section>
-				<h2 class="mb-2 text-xs font-bold tracking-widest text-gray-900 uppercase">{t("cv.certifications")}</h2>
+				<h2 class="mb-1.5 text-xs font-bold tracking-widest text-gray-900 uppercase">
+					{t("cv.certifications")}
+				</h2>
 				{
 					certifications.map((cert) => (
 						<div class="mb-1">
@@ -151,7 +153,7 @@ const siteLabel = Astro.site?.host ?? "";
 				}
 			</section>
 			<section>
-				<h2 class="mb-2 text-xs font-bold tracking-widest text-gray-900 uppercase">{t("cv.languages")}</h2>
+				<h2 class="mb-1.5 text-xs font-bold tracking-widest text-gray-900 uppercase">{t("cv.languages")}</h2>
 				{
 					languages.map((lang) => (
 						<div class="mb-1">

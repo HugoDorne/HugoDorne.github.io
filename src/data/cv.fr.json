@@ -20,12 +20,13 @@
 			"clientUrl": "https://www.instant-system.com/",
 			"clientSuffix": ", mobilité multimodale",
 			"description": [
-				"Développement back-end au sein de l'équipe information voyageur, qui met à disposition les informations d'itinéraire, de temporalité et de proximité dans des applications mobiles déployées dans plus de la moitié des villes dotées d'un service de mobilité douce",
-				"Scrum Master d'une équipe pluridisciplinaire de cinq personnes — deux back-end, iOS, Android et QA — en coordination avec les autres équipes dans un cadre SAFe",
+				"Développement back-end au sein de l'équipe information voyageur : calcul d'itinéraires, horaires temps réel et offre de mobilité à proximité, dans des applications déployées dans plus de la moitié des villes dotées d'un service de mobilité douce",
+				"Scrum Master d'une équipe pluridisciplinaire de six personnes — deux back-end, iOS, Android, web et QA — en coordination avec les autres équipes dans un cadre SAFe",
 				"Développement du back-end for front-end exposant les itinéraires et les informations voyageur aux clients mobiles",
 				"Maintien de la stack temps réel : abonnements WebSocket diffusant les mises à jour en direct sur les trajets suivis",
-				"Refonte complète du module Livemap, la couche d'abonnement temps réel cartographique",
-				"Montées de version sur l'ensemble des applicatifs de l'équipe"
+				"Maintien de la rétrocompatibilité avec les anciennes versions des applications mobiles tout en livrant de nouvelles fonctionnalités",
+				"Refonte du module Livemap, la couche d'abonnement temps réel cartographique",
+				"Montées de version, maintenance préventive et amélioration de la qualité sur l'ensemble des applicatifs de l'équipe"
 			]
 		},
 		{
@@ -38,6 +39,8 @@
 			"client": "Assureurs",
 			"description": [
 				"Développement d'outils d'IA avec LangChain4J et Spring AI : création d'agents et d'outils, exposés via MCP",
+				"Développement d'un RAG permettant de dialoguer avec un Confluence et les autres sources de vérité de l'entreprise",
+				"Conception d'une solution custom et réutilisable de vectorisation de Confluence, avant l'existence des MCP Jira",
 				"Génération de cas de test Gherkin / Cucumber à partir des user stories",
 				"Participation au chiffrage et à l'avant-vente d'une application à 400 k€"
 			]
@@ -52,10 +55,10 @@
 			"client": "MANE",
 			"clientUrl": "https://www.mane.com",
 			"description": [
-				"Encadrement d'une équipe de 6 ingénieurs, en partie basée en Inde",
-				"Tech Lead backend sur la refonte d'une application, en architecture hexagonale avec Java 21, Spring Boot 3, Nx et Angular 18",
+				"Chiffrage du périmètre TWINS à plus de 100 k€ et une centaine de jours-homme",
 				"Définition avec le client des besoins, de l'architecture et des processus de la nouvelle application",
-				"Chiffrage du périmètre TWINS à plus de 100 k€ et une centaine de jours-homme"
+				"Tech Lead backend sur la refonte de l'application TWINS, en architecture hexagonale avec Java 21, Spring Boot 3, Nx et Angular 18",
+				"Encadrement d'une équipe de 6 ingénieurs, en partie basée en Inde"
 			]
 		},
 		{
@@ -83,6 +86,7 @@
 			"client": "Ministères de l'Intérieur et de la Justice",
 			"description": [
 				"Développement, test, débogage et maintenance d'applications web en Java, Angular et React",
+				"Développement d'un tableau de bord d'administration pour une application de gestion de la naturalisation française",
 				"Automatisation des tests unitaires et de non-régression"
 			]
 		}
@@ -124,7 +128,7 @@
 		{ "name": "Français", "level": "Langue maternelle", "proficiency": "native", "hello": "Bonjour !" },
 		{
 			"name": "Anglais",
-			"level": "Courant",
+			"level": "Capacité professionnelle complète",
 			"proficiency": "fluent",
 			"details": "TOEIC 990/990",
 			"hello": "Hello!"

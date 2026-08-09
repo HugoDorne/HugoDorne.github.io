@@ -54,9 +54,22 @@ const colorMap: Record<string, string> = {
 	Mockito: "bg-green-900/40 text-green-300 ring-green-700/50",
 	Jest: "bg-red-900/40 text-red-300 ring-red-700/50",
 	Cypress: "bg-emerald-900/40 text-emerald-300 ring-emerald-700/50",
-	// Project management. Only Jira is a product; the practices around it stay
-	// neutral on purpose, and their labels differ per locale anyway.
+	// Architecture
+	Microservices: "bg-indigo-900/40 text-indigo-300 ring-indigo-700/50",
+	"Hexagonal architecture": "bg-teal-900/40 text-teal-300 ring-teal-700/50",
+	"Architecture hexagonale": "bg-teal-900/40 text-teal-300 ring-teal-700/50",
+	"Backend for Frontend": "bg-violet-900/40 text-violet-300 ring-violet-700/50",
+	REST: "bg-sky-900/40 text-sky-300 ring-sky-700/50",
+	WebSocket: "bg-lime-900/40 text-lime-300 ring-lime-700/50",
+	// Project management. Keyed on the rendered label, so the entries that are
+	// translated need one line per locale.
+	Scrum: "bg-fuchsia-900/40 text-fuchsia-300 ring-fuchsia-700/50",
+	SAFe: "bg-purple-900/40 text-purple-300 ring-purple-700/50",
 	Jira: "bg-blue-900/40 text-blue-300 ring-blue-700/50",
+	Estimation: "bg-amber-900/40 text-amber-300 ring-amber-700/50",
+	Chiffrage: "bg-amber-900/40 text-amber-300 ring-amber-700/50",
+	"Pre-sales": "bg-rose-900/40 text-rose-300 ring-rose-700/50",
+	"Avant-vente": "bg-rose-900/40 text-rose-300 ring-rose-700/50",
 };
 
 const colorClasses = colorMap[label] || "bg-zinc-800 text-zinc-300 ring-zinc-700/50";
