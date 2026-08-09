@@ -37,10 +37,9 @@
 			"endDate": "Feb 2026",
 			"client": "Insurance clients",
 			"description": [
-				"Built AI agents and tools with LangChain4J and Spring AI, exposed over MCP",
-				"Shipped a RAG letting users query Confluence and the company's other sources of truth in natural language",
+				"Built AI agents and tools with LangChain4J and Spring AI, exposed over MCP, such as a Gherkin / Cucumber test generator from user stories",
+				"Shipped a RAG letting users query Confluence and the company's other sources of truth in natural language through a chatbot",
 				"Designed a custom, reusable Confluence vectorization solution, before the Confluence MCPs existed",
-				"Generated Gherkin / Cucumber test cases from user stories",
 				"Took part in the estimation and pre-sales of a €400k application"
 			]
 		},
@@ -54,9 +53,9 @@
 			"client": "MANE",
 			"clientUrl": "https://www.mane.com",
 			"description": [
-				"Defined the client's needs, the solution and the architecture of TWINS, the new application",
+				"Defined the client's needs, the solution and the architecture of MANE's new PLM",
 				"Estimated the scope and the development effort",
-				"Owned the development of the TWINS scope, on a hexagonal architecture with Java 21, Spring Boot 3, Nx and Angular 18",
+				"Owned the development of TWINS, its vector search for products with similar compositions and flavors, on a hexagonal architecture with Java 21, Spring Boot 3, Nx and Angular 18",
 				"Supervised a team of 6 software engineers, part of the team based in India, on a project run entirely in English"
 			]
 		},
@@ -69,8 +68,8 @@
 			"endDate": "Sept 2023",
 			"client": "Ministry of Justice",
 			"description": [
-				"Digitized the prison administration's processes on Spring Boot and Angular, for a nationwide rollout across French prisons",
-				"Scrum Master within an agile release train, on cross-functional teams of seven",
+				"Digitized the prison administration's processes through a Spring Boot and Angular web application, for a nationwide rollout across French prisons",
+				"Scrum Master within an agile release train, on cross-technical teams of seven",
 				"Mentored an intern and an apprentice"
 			]
 		},
@@ -84,7 +83,7 @@
 			"client": "Ministries of the Interior and Justice",
 			"description": [
 				"Designed and built an admin dashboard in Java and Angular for a French naturalization management application",
-				"Developed, tested and maintained web applications, and automated unit and regression tests"
+				"Developed, tested and maintained web applications, automated unit and regression tests"
 			]
 		}
 	],

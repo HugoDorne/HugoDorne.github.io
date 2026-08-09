@@ -37,10 +37,9 @@
 			"endDate": "Févr. 2026",
 			"client": "Assureurs",
 			"description": [
-				"Création d'agents et d'outils IA avec LangChain4J et Spring AI, exposés via MCP",
-				"Mise en place d'un RAG permettant d'interroger en langage naturel le Confluence et les autres sources de vérité de l'entreprise",
+				"Création d'agents et d'outils IA avec LangChain4J et Spring AI, exposés via MCP, dont un générateur de cas de test Gherkin / Cucumber à partir des user stories",
+				"Mise en place d'un RAG exposé via un chatbot, permettant d'interroger en langage naturel le Confluence et les autres sources de vérité de l'entreprise",
 				"Conception d'une solution custom et réutilisable de vectorisation de Confluence, avant l'existence des MCP Confluence",
-				"Génération de cas de test Gherkin / Cucumber à partir des user stories",
 				"Participation au chiffrage et à l'avant-vente d'une application à 400 k€"
 			]
 		},
@@ -54,9 +53,9 @@
 			"client": "MANE",
 			"clientUrl": "https://www.mane.com",
 			"description": [
-				"Définition avec le client du besoin, de la solution et de l'architecture de TWINS, la nouvelle application",
+				"Définition avec le client du besoin, de la solution et de l'architecture du nouveau PLM de MANE",
 				"Chiffrage du périmètre et de la charge de développement",
-				"Responsable des développements de la partie TWINS, en architecture hexagonale avec Java 21, Spring Boot 3, Nx et Angular 18",
+				"Responsable des développements de TWINS, sa brique de recherche vectorielle de produits aux compositions et aux saveurs similaires, en architecture hexagonale avec Java 21, Spring Boot 3, Nx et Angular 18",
 				"Encadrement d'une équipe de 6 ingénieurs en partie basée en Inde, projet entièrement mené en anglais"
 			]
 		},
@@ -69,8 +68,8 @@
 			"endDate": "Sept. 2023",
 			"client": "Ministère de la Justice",
 			"description": [
-				"Numérisation des processus de l'administration pénitentiaire en Spring Boot et Angular, en vue d'un déploiement à l'échelle nationale dans les prisons",
-				"Scrum Master au sein d'un train agile, sur des équipes pluridisciplinaires de sept personnes",
+				"Numérisation des processus de l'administration pénitentiaire à travers une application web Spring Boot et Angular, en vue d'un déploiement à l'échelle nationale dans les prisons",
+				"Scrum Master au sein d'un train agile, sur des équipes pluritechniques de sept personnes",
 				"Encadrement d'un stagiaire et d'un alternant"
 			]
 		},
