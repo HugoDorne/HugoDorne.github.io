@@ -35,6 +35,10 @@ const alternates = (Object.keys(languages) as Lang[]).map((code) => ({
  * Deliberately no email: it is already a mailto link on the page, and there is
  * no reason to hand it to scrapers in machine-readable form as well.
  */
+// Proves ownership to Google Search Console. Bing's verification can be
+// imported from Google, so it needs no tag of its own.
+const GOOGLE_SITE_VERIFICATION = "xNJXAvkZ7aJI7tUVyEo2vPd2CKGIZdZ_VL-2RlXeWoI";
+
 const siteUrl = Astro.site?.toString() ?? "";
 const personId = `${siteUrl}#person`;
 const currentRole = experiences[0];
@@ -109,6 +113,7 @@ const structuredData = {
 		<meta charset="UTF-8" />
 		<meta name="description" content={description} />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="google-site-verification" content={GOOGLE_SITE_VERIFICATION} />
 		{noindex && <meta name="robots" content="noindex, follow" />}
 		<link rel="dns-prefetch" href="https://maps.google.com" />
 		<link rel="canonical" href={canonicalURL} />
