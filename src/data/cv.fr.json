@@ -22,8 +22,8 @@
 			"description": [
 				"Développement back-end au sein de l'équipe information voyageur : proposition d'itinéraires, horaires temps réel et offre de mobilité à proximité, dans des applications déployées dans plus de la moitié des villes françaises dotées d'un service de mobilité douce",
 				"Scrum Master d'une équipe pluridisciplinaire de six personnes — deux back-end, iOS, Android, web et QA — en coordination avec les autres équipes dans un cadre SAFe",
-				"Développement du back-end for front-end exposant les itinéraires et les informations voyageur aux clients mobiles",
-				"Maintien de la stack temps réel — abonnements WebSocket diffusant les mises à jour en direct sur les trajets suivis — dont la refonte de son module cartographique Livemap",
+				"Développement du back-end for front-end en Java 21 et Spring Boot 3, exposant les itinéraires et les informations voyageur aux clients mobiles",
+				"Maintien de la stack temps réel — abonnements WebSocket adossés à Redis, diffusant les mises à jour en direct sur les trajets suivis — dont la refonte de son module cartographique Livemap",
 				"Maintien de la rétrocompatibilité avec les anciennes versions des applications mobiles tout en livrant de nouvelles fonctionnalités",
 				"Montées de version, maintenance préventive et amélioration de la qualité sur l'ensemble des applicatifs de l'équipe"
 			]
@@ -69,10 +69,9 @@
 			"endDate": "Sept. 2023",
 			"client": "Ministère de la Justice",
 			"description": [
-				"Numérisation des processus de l'administration pénitentiaire, en vue d'un déploiement à l'échelle nationale dans les prisons",
+				"Numérisation des processus de l'administration pénitentiaire en Spring Boot et Angular, en vue d'un déploiement à l'échelle nationale dans les prisons",
 				"Scrum Master au sein d'un train agile, sur des équipes pluridisciplinaires de six personnes",
-				"Développement et livraison de fonctionnalités sur l'écosystème Spring Boot / Angular",
-				"Encadrement de stagiaires et d'alternants"
+				"Encadrement d'un stagiaire et d'un alternant"
 			]
 		},
 		{

@@ -22,8 +22,8 @@
 			"description": [
 				"Backend engineer on the traveller information team: itinerary suggestions, real-time schedules and nearby mobility options, in apps used in over half of the French cities running a soft-mobility service",
 				"Scrum Master of a cross-functional team of six — two backend, iOS, Android, web and QA — coordinating with the other teams under SAFe",
-				"Build the backend-for-frontend exposing itineraries and travel information to the mobile clients",
-				"Maintain the real-time stack — WebSocket subscriptions delivering live updates on the trips each client follows — including a refactor of its Livemap map module",
+				"Build the backend-for-frontend on Java 21 and Spring Boot 3, exposing itineraries and travel information to the mobile clients",
+				"Maintain the real-time stack — WebSocket subscriptions backed by Redis, delivering live updates on the trips each client follows — including a refactor of its Livemap map module",
 				"Keep backward compatibility with older mobile app versions while shipping new features",
 				"Version upgrades, preventive maintenance and code quality across all of the team's applications"
 			]
@@ -69,10 +69,9 @@
 			"endDate": "Sept 2023",
 			"client": "Ministry of Justice",
 			"description": [
-				"Digitised the prison administration's processes, for a nationwide rollout across French prisons",
+				"Digitised the prison administration's processes on Spring Boot and Angular, for a nationwide rollout across French prisons",
 				"Scrum Master within an agile release train, on cross-functional teams of six",
-				"Built and shipped features on the Spring Boot / Angular stack",
-				"Mentored software engineering interns and apprentices"
+				"Mentored an intern and an apprentice"
 			]
 		},
 		{
@@ -82,7 +81,7 @@
 			"location": "Nantes",
 			"startDate": "Dec 2019",
 			"endDate": "Sept 2022",
-			"client": "Ministries of Interior & Justice",
+			"client": "Ministries of the Interior and Justice",
 			"description": [
 				"Developed, tested, debugged and maintained web applications in Java, Angular and React",
 				"Designed and built an admin dashboard for a French naturalisation management application",
