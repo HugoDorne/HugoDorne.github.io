@@ -3,7 +3,7 @@
 		"name": "Hugo Dorne",
 		"title": "Ingénieur logiciel senior & Scrum Master",
 		"location": "Sophia Antipolis, France",
-		"summary": "Développement Full Stack et IA.\nStack principale : Java, Spring Boot, Angular, Spring AI, LangChain.",
+		"summary": "Développement Full Stack et IA.\nStack principale : Java, Spring Boot, Angular, Spring AI, LangChain.\nGestion de projet : Scrum Master en environnement SAFe, encadrement d'équipe, chiffrage et avant-vente.",
 		"email": "hugo.dorne@gmail.com",
 		"github": "https://github.com/HugoDorne",
 		"linkedin": "https://www.linkedin.com/in/hugodorne/"
@@ -61,14 +61,14 @@
 		{
 			"company": "Sopra Steria",
 			"companyUrl": "https://www.soprasteria.com",
-			"role": "Ingénieur logiciel",
+			"role": "Ingénieur logiciel & Scrum Master",
 			"location": "Nantes",
 			"startDate": "Sept. 2022",
 			"endDate": "Sept. 2023",
 			"client": "Ministère de la Justice",
 			"description": [
 				"Numérisation des processus de l'administration pénitentiaire, déployée à l'échelle nationale dans les prisons",
-				"Scrum Master au sein d'un train agile",
+				"Scrum Master au sein d'un train agile, sur des équipes de deux développeurs front, trois back, un business analyst et un chef de projet mutualisé",
 				"Développement et livraison de fonctionnalités sur l'écosystème Spring Boot / Angular",
 				"Encadrement de stagiaires et d'alternants"
 			]
@@ -102,6 +102,7 @@
 			"startYear": 2021,
 			"endYear": 2022,
 			"details": "Lauréat du Startup Weekend Nantes 2021 avec le projet Q'lture",
+			"isAward": true,
 			"detailsUrl": "https://www.linkedin.com/posts/hugodorne_startup-innovation-activity-6873666416403447808-EIPA?utm_source=share&utm_medium=member_desktop&rcm=ACoAAC2IWYwB3bDLJLq9JlOpAfzlQGdpLsZnppQ",
 			"url": "https://www.disruptcampusnantes.com/"
 		}
@@ -142,11 +143,11 @@
 		},
 		{
 			"name": "Frontend",
-			"skills": ["TypeScript", "Angular", "Astro", "Tailwind CSS", "Nx"]
+			"skills": ["TypeScript", "Angular", "Nx", "Astro", "Tailwind CSS"]
 		},
 		{
 			"name": "IA",
-			"skills": ["Spring AI", "LangChain4J", "Claude", "Azure AI", "Copilot", "Mistral AI"]
+			"skills": ["Claude", "Copilot", "Mistral AI", "Spring AI", "LangChain4J", "Azure AI"]
 		},
 		{
 			"name": "Données",
@@ -169,6 +170,10 @@
 		{
 			"name": "Tests",
 			"skills": ["JUnit 5", "Mockito", "Jest", "Cypress"]
+		},
+		{
+			"name": "Gestion de projet",
+			"skills": ["Scrum", "SAFe", "Jira", "Chiffrage", "Avant-vente"]
 		}
 	]
 }

@@ -18,6 +18,8 @@ export interface Education {
 	endYear: number;
 	details?: string;
 	detailsUrl?: string;
+	/** An achievement rather than a descriptor, so it is emphasised instead of dimmed. */
+	isAward?: boolean;
 	url?: string;
 }
 

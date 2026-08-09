@@ -56,7 +56,11 @@ const siteLabel = Astro.site?.host ?? "";
 		<!-- Profile -->
 		<section class="mt-4">
 			<h2 class="mb-1.5 text-xs font-bold tracking-widest text-gray-900 uppercase">{t("cv.profile")}</h2>
-			<p class="text-gray-600">{about.summary.split("\n").join(" ")}</p>
+			{
+				/* One line per sentence: run together, the stack and the project-management
+			    lines stop being scannable. */
+			}
+			{about.summary.split("\n").map((line) => <p class="text-gray-600">{line}</p>)}
 		</section>
 
 		<!-- Experience -->
@@ -107,7 +111,9 @@ const siteLabel = Astro.site?.host ?? "";
 							</span>
 						</div>
 						{/* Own line rather than a trailing parenthesis: long details used to widow a word. */}
-						{edu.details && <p class="text-gray-500">{edu.details}</p>}
+						{edu.details && (
+							<p class={edu.isAward ? "font-bold text-gray-900" : "text-gray-500"}>{edu.details}</p>
+						)}
 					</div>
 				))
 			}

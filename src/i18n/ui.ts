@@ -40,7 +40,7 @@ const en = {
 	"section.about": "About",
 	"section.experience": "Experience",
 	"section.education": "Education",
-	"section.skills": "Tech Stack",
+	"section.skills": "Skills",
 	"section.certifications": "Certifications",
 	"section.languages": "Languages",
 	"section.nav": "Section navigation",
@@ -106,7 +106,7 @@ const en = {
 	"cv.profile": "Profile",
 	"cv.experience": "Experience",
 	"cv.education": "Education",
-	"cv.skills": "Technical Skills",
+	"cv.skills": "Skills",
 	"cv.certifications": "Certifications",
 	"cv.languages": "Languages",
 
@@ -202,7 +202,7 @@ const fr: Translations = {
 	"cv.profile": "Profil",
 	"cv.experience": "Expérience",
 	"cv.education": "Formation",
-	"cv.skills": "Compétences techniques",
+	"cv.skills": "Compétences",
 	"cv.certifications": "Certifications",
 	"cv.languages": "Langues",
 
