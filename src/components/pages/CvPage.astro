@@ -105,15 +105,15 @@ const siteLabel = Astro.site?.host ?? "";
 							<div>
 								<span class="font-bold text-gray-900">{edu.institution}</span>
 								<span class="text-gray-500"> — {edu.degree}</span>
+								{edu.details && !edu.isAward && <span class="text-gray-500"> ({edu.details})</span>}
 							</div>
 							<span class="shrink-0 text-[9px] text-gray-400">
 								{edu.startYear} — {edu.endYear}
 							</span>
 						</div>
-						{/* Own line rather than a trailing parenthesis: long details used to widow a word. */}
-						{edu.details && (
-							<p class={edu.isAward ? "font-bold text-gray-900" : "text-gray-500"}>{edu.details}</p>
-						)}
+						{/* An award earns its own line and full weight; a plain descriptor rides
+						    along with the degree, where it costs nothing. */}
+						{edu.details && edu.isAward && <p class="font-bold text-gray-900">{edu.details}</p>}
 					</div>
 				))
 			}

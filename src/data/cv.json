@@ -3,7 +3,7 @@
 		"name": "Hugo Dorne",
 		"title": "Senior Software Engineer & Scrum Master",
 		"location": "Sophia Antipolis, France",
-		"summary": "Full Stack and AI developments.\nMain stack: Java, Spring Boot, Angular, Spring AI, LangChain.\nProject management: Scrum Master in SAFe environments, team supervision, estimation and pre-sales.",
+		"summary": "Full Stack and AI developments. Main stack: Java, Spring Boot, Angular, Spring AI, LangChain.\nProject management: Scrum Master in SAFe environments, team supervision, estimation and pre-sales.",
 		"email": "hugo.dorne@gmail.com",
 		"github": "https://github.com/HugoDorne",
 		"linkedin": "https://www.linkedin.com/in/hugodorne/"
@@ -20,12 +20,11 @@
 			"clientUrl": "https://www.instant-system.com/",
 			"clientSuffix": ", multimodal mobility",
 			"description": [
-				"Backend engineer on the traveller information team: journey planning, real-time schedules and nearby mobility options, in apps used in over half of the cities running a soft-mobility service",
+				"Backend engineer on the traveller information team: itinerary suggestions, real-time schedules and nearby mobility options, in apps used in over half of the French cities running a soft-mobility service",
 				"Scrum Master of a cross-functional team of six — two backend, iOS, Android, web and QA — coordinating with the other teams under SAFe",
 				"Build the backend-for-frontend exposing itineraries and travel information to the mobile clients",
-				"Maintain the real-time stack: WebSocket subscriptions delivering live updates on the trips each client follows",
+				"Maintain the real-time stack — WebSocket subscriptions delivering live updates on the trips each client follows — including a refactor of its Livemap map module",
 				"Keep backward compatibility with older mobile app versions while shipping new features",
-				"Refactored the Livemap module, the real-time map subscription layer",
 				"Version upgrades, preventive maintenance and code quality across all of the team's applications"
 			]
 		},
@@ -39,7 +38,7 @@
 			"client": "Insurance clients",
 			"description": [
 				"Built AI agents and tools with LangChain4J and Spring AI, exposed over MCP",
-				"Built a RAG letting users chat with Confluence and the company's other sources of truth",
+				"Shipped a RAG letting users query Confluence and the company's other sources of truth in natural language",
 				"Designed a custom, reusable Confluence vectorisation solution, before the Jira MCPs existed",
 				"Generated Gherkin / Cucumber test cases from user stories",
 				"Took part in the estimation and pre-sales of a €400k application"
@@ -55,10 +54,10 @@
 			"client": "MANE",
 			"clientUrl": "https://www.mane.com",
 			"description": [
-				"Estimated the TWINS scope at over €100k and around 100 man-days",
+				"Estimated the TWINS scope at around 100 man-days of development",
 				"Defined the application's requirements, architecture and processes with the client",
-				"Led the backend as Tech Lead on the TWINS redesign, on a hexagonal architecture with Java 21, Spring Boot 3, Nx and Angular 18",
-				"Supervised a team of 6 software engineers, part of the team based in India"
+				"Owned the development and implementation of the TWINS scope, on a hexagonal architecture with Java 21, Spring Boot 3, Nx and Angular 18",
+				"Supervised a team of 6 software engineers, part of the team based in India, on a project run entirely in English"
 			]
 		},
 		{
@@ -70,7 +69,7 @@
 			"endDate": "Sept 2023",
 			"client": "Ministry of Justice",
 			"description": [
-				"Digitised the prison administration's processes, rolled out nationwide across French prisons",
+				"Digitised the prison administration's processes, for a nationwide rollout across French prisons",
 				"Scrum Master within an agile release train, on teams of two frontend and three backend engineers, a business analyst and a shared project manager",
 				"Built and shipped features on the Spring Boot / Angular stack",
 				"Mentored software engineering interns and apprentices"
@@ -86,7 +85,7 @@
 			"client": "Ministries of Interior & Justice",
 			"description": [
 				"Developed, tested, debugged and maintained web applications in Java, Angular and React",
-				"Built an admin dashboard for a French naturalisation management application",
+				"Designed and built an admin dashboard for a French naturalisation management application",
 				"Automated unit and regression tests"
 			]
 		}
