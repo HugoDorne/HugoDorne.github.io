@@ -54,7 +54,9 @@ const html = `<!doctype html>
 				border: 3px solid #27272a;
 			}
 			.name { font-size: 74px; font-weight: 700; color: #fafafa; letter-spacing: -0.02em; line-height: 1.05; }
-			.title { margin-top: 16px; font-size: 38px; font-weight: 500; color: #fb923c; }
+			/* Sized to keep the current title on one line; balance keeps a longer one
+			   from stranding a single word, as "Scrum / Master" once did. */
+			.title { margin-top: 16px; font-size: 34px; font-weight: 500; color: #fb923c; text-wrap: balance; }
 			.meta { margin-top: 22px; font-size: 26px; color: #71717a; display: flex; align-items: center; gap: 14px; }
 			.dot { width: 6px; height: 6px; border-radius: 50%; background: #3f3f46; }
 			.bar { position: absolute; bottom: 0; left: 0; right: 0; height: 10px; background: linear-gradient(to right, #fb923c, #ea580c 55%, #09090b); }

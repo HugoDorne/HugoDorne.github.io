@@ -1,7 +1,7 @@
 {
 	"about": {
 		"name": "Hugo Dorne",
-		"title": "Ingénieur logiciel senior",
+		"title": "Ingénieur logiciel senior & Scrum Master",
 		"location": "Sophia Antipolis, France",
 		"summary": "Développement Full Stack et IA.\nStack principale : Java, Spring Boot, Angular, Spring AI, LangChain.",
 		"email": "hugo.dorne@gmail.com",
@@ -33,7 +33,7 @@
 			"companyUrl": "https://www.soprasteria.com",
 			"role": "Ingénieur logiciel senior",
 			"location": "Sophia Antipolis",
-			"startDate": "Sept. 2023",
+			"startDate": "Janv. 2025",
 			"endDate": "Févr. 2026",
 			"client": "Assureurs",
 			"description": [
@@ -51,7 +51,6 @@
 			"endDate": "Févr. 2026",
 			"client": "MANE",
 			"clientUrl": "https://www.mane.com",
-			"clientSuffix": ", arômes et parfums",
 			"description": [
 				"Encadrement d'une équipe de 6 ingénieurs, en partie basée en Inde",
 				"Tech Lead backend sur la refonte d'une application, en architecture hexagonale avec Java 21, Spring Boot 3, Nx et Angular 18",

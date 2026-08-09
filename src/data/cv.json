@@ -1,7 +1,7 @@
 {
 	"about": {
 		"name": "Hugo Dorne",
-		"title": "Senior Software Engineer",
+		"title": "Senior Software Engineer & Scrum Master",
 		"location": "Sophia Antipolis, France",
 		"summary": "Full Stack and AI developments.\nMain stack: Java, Spring Boot, Angular, Spring AI, LangChain.",
 		"email": "hugo.dorne@gmail.com",
@@ -33,7 +33,7 @@
 			"companyUrl": "https://www.soprasteria.com",
 			"role": "Senior Software Engineer",
 			"location": "Sophia Antipolis",
-			"startDate": "Sept 2023",
+			"startDate": "Jan 2025",
 			"endDate": "Feb 2026",
 			"client": "Insurance clients",
 			"description": [
@@ -51,7 +51,6 @@
 			"endDate": "Feb 2026",
 			"client": "MANE",
 			"clientUrl": "https://www.mane.com",
-			"clientSuffix": ", flavors and fragrances",
 			"description": [
 				"Supervised a team of 6 software engineers, part of the team based in India",
 				"Led the backend as Tech Lead on an application redesign, on a hexagonal architecture with Java 21, Spring Boot 3, Nx and Angular 18",

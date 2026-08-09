@@ -46,7 +46,7 @@ const en = {
 	"section.nav": "Section navigation",
 	"section.navigateTo": "Navigate to",
 
-	"home.title": "Hugo Dorne — Senior Software Engineer",
+	"home.title": "Hugo Dorne — Senior Software Engineer & Scrum Master",
 	"home.description":
 		"Hugo Dorne, Senior Software Engineer near Sophia Antipolis. Full stack and AI with Java, Spring Boot, Angular, Spring AI and LangChain4J.",
 	"hero.viewMap": "on Google Maps",
@@ -142,7 +142,7 @@ const fr: Translations = {
 	"section.nav": "Navigation par section",
 	"section.navigateTo": "Aller à",
 
-	"home.title": "Hugo Dorne — Ingénieur logiciel senior",
+	"home.title": "Hugo Dorne — Ingénieur logiciel senior & Scrum Master",
 	"home.description":
 		"Hugo Dorne, ingénieur logiciel senior à Sophia Antipolis. Full stack et IA avec Java, Spring Boot, Angular, Spring AI et LangChain4J.",
 	"hero.viewMap": "sur Google Maps",
