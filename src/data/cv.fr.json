@@ -119,7 +119,7 @@
 		},
 		{
 			"name": "Frontend",
-			"skills": ["TypeScript", "Angular", "Astro", "Tailwind CSS", "Nx", "Bootstrap", "PrimeFaces", "SCSS"]
+			"skills": ["TypeScript", "Angular", "Astro", "Tailwind CSS", "Nx"]
 		},
 		{
 			"name": "IA",
